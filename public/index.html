@@ -30,6 +30,7 @@
     <button role="tab" data-tab="overview" aria-selected="true">ภาพรวม</button>
     <button role="tab" data-tab="forecast">พยากรณ์</button>
     <button role="tab" data-tab="map">แผนที่</button>
+    <button role="tab" data-tab="cams">กล้อง CCTV</button>
     <button role="tab" data-tab="parking">ที่จอดรถ</button>
     <button role="tab" data-tab="news">ข่าว</button>
     <button role="tab" data-tab="help">ช่วยเหลือ</button>
@@ -136,6 +137,7 @@
           <label><input type="checkbox" id="lyr-watch" checked> จุดเฝ้าระวัง</label>
           <label><input type="checkbox" id="lyr-parking" checked> ที่จอดรถ</label>
           <label><input type="checkbox" id="lyr-news" checked> ข่าวตามพื้นที่</label>
+          <label><input type="checkbox" id="lyr-cams" checked> กล้อง CCTV</label>
           <label><input type="checkbox" id="lyr-radar"> เรดาร์ฝน</label>
           <span id="radar-ctl" class="radar-ctl" hidden>
             <button type="button" id="radar-play">▶</button>
@@ -149,9 +151,30 @@
           <span><i class="dot" style="background:#eab308"></i>ท่วม &lt; 10 ซม./ไม่ระบุ</span>
           <span><i class="dot" style="background:#2563eb"></i>จุดเฝ้าระวังแม่น้ำ/คลอง</span>
           <span><i class="pin">P</i>ที่จอดรถหนีน้ำ</span>
+          <span><i class="cam-pin" aria-hidden="true"></i>กล้องถ่ายทอดสด</span>
           <span><i class="dot" style="background:#64748b"></i>ข่าวที่กล่าวถึงพื้นที่ (ตำแหน่งระดับเขต/ถนน)</span>
         </div>
         <p class="tiny muted">เรดาร์: RainViewer · แผนที่: © OpenStreetMap contributors · เรดาร์ความละเอียดสูงของ กทม. ดูที่ <a href="https://weather.bangkok.go.th/" target="_blank" rel="noopener">weather.bangkok.go.th</a></p>
+      </article>
+    </section>
+
+    <!-- กล้อง -->
+    <section id="tab-cams" class="tab" role="tabpanel">
+      <article class="card">
+        <h2>กล้องถ่ายทอดสด</h2>
+        <p class="small muted">กดที่ภาพเพื่อดูสดในแอป · ระบบตรวจสถานะไลฟ์อัตโนมัติทุก 30 นาที <span id="cams-checked"></span></p>
+        <div class="chips" id="cam-filter">
+          <button type="button" data-tag="" aria-pressed="true">ทั้งหมด</button>
+          <button type="button" data-tag="river" aria-pressed="false">แม่น้ำ</button>
+          <button type="button" data-tag="road" aria-pressed="false">ถนน</button>
+          <button type="button" data-tag="news" aria-pressed="false">ข่าวสด</button>
+        </div>
+        <div id="cam-list" class="cam-grid"></div>
+      </article>
+      <article class="card">
+        <h2>กล้อง CCTV ทางการ (เปิดในเว็บต้นทาง)</h2>
+        <p class="small muted">กล้องของ กทม. และหน่วยงานรัฐดูได้ฟรี แต่ฝังในแอปอื่นไม่ได้ (ระบบต้นทางไม่อนุญาต) จึงเปิดในแท็บใหม่ — <b>เช็กน้ำท่วมให้เริ่มจากกล้องสำนักการระบายน้ำ</b></p>
+        <ul id="cam-official" class="links"></ul>
       </article>
     </section>
 
@@ -209,6 +232,15 @@
       </article>
     </section>
   </main>
+
+  <dialog id="cam-dialog" class="cam-dialog" aria-labelledby="cam-dialog-title">
+    <div class="cam-dialog-head">
+      <h2 id="cam-dialog-title"></h2>
+      <button type="button" id="cam-dialog-close" aria-label="ปิด">✕</button>
+    </div>
+    <div class="cam-frame" id="cam-frame"></div>
+    <p class="small" id="cam-dialog-meta"></p>
+  </dialog>
 
   <footer class="foot tiny muted">
     <span id="foot-updated"></span>

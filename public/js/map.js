@@ -1,6 +1,7 @@
 // แผนที่ Leaflet: จุดน้ำท่วม, จุดเฝ้าระวัง, ที่จอดรถ, ข่าวตามพื้นที่ และเรดาร์ฝน
 import { esc, safeUrl, depthLabel, fmtDateTime } from './util.js';
 import { fetchRadarFrames } from './api.js';
+import { hasLocation, canEmbed, thumbUrl, watchUrl, nearestCamera, STATE_LABEL } from './cams.js';
 
 const L = window.L;
 
@@ -23,6 +24,7 @@ export function createMap(elId, center) {
     watch: L.layerGroup().addTo(map),
     parking: L.layerGroup().addTo(map),
     news: L.layerGroup().addTo(map),
+    cams: L.layerGroup().addTo(map),
     radar: L.layerGroup(),
   };
   const locMarker = L.circleMarker([center.lat, center.lon], {
@@ -33,7 +35,7 @@ export function createMap(elId, center) {
 
 const srcLink = (s) => (s && safeUrl(s.url) ? `<a href="${esc(safeUrl(s.url))}" target="_blank" rel="noopener">${esc(s.title || 'แหล่งข่าว')}</a>` : '');
 
-export function renderMapData(ctx, { curated, news }, { fit = false } = {}) {
+export function renderMapData(ctx, { curated, news, cams = [] }, { fit = false } = {}) {
   if (!ctx) return;
   const { layers } = ctx;
   Object.values(layers).forEach((g) => g !== layers.radar && g.clearLayers());
@@ -46,7 +48,8 @@ export function renderMapData(ctx, { curated, news }, { fit = false } = {}) {
       .bindPopup(
         `<b>${esc(p.name)}</b><br>${p.district ? `เขต/พื้นที่: ${esc(p.district)}<br>` : ''}` +
           `ระดับน้ำ: <b>${esc(depthLabel(p.depthCm))}</b><br>${esc(p.note || '')}<br>` +
-          `<span class="tiny">รายงาน: ${esc(fmtDateTime(p.reportedAt))}${p.approximate ? ' · ตำแหน่งโดยประมาณ' : ''}</span><br>${srcLink(p.source)}`,
+          `<span class="tiny">รายงาน: ${esc(fmtDateTime(p.reportedAt))}${p.approximate ? ' · ตำแหน่งโดยประมาณ' : ''}</span><br>${srcLink(p.source)}` +
+          nearbyCamHtml(cams, p),
       )
       .addTo(layers.flood);
   }
@@ -88,6 +91,22 @@ export function renderMapData(ctx, { curated, news }, { fit = false } = {}) {
     })
       .bindPopup(`<b>${esc(place.name)}</b> <span class="tiny">(${items.length} ข่าว · ตำแหน่งโดยประมาณ)</span><ul>${list}</ul>`)
       .addTo(layers.news);
+  }
+
+  for (const c of cams) {
+    if (!hasLocation(c)) continue;
+    const live = c.state === 'live';
+    const icon = L.divIcon({ className: '', html: `<span class="cam-marker${live ? ' live' : ''}"></span>`, iconSize: [26, 26], iconAnchor: [13, 13] });
+    const link = watchUrl(c);
+    L.marker([c.lat, c.lon], { icon, title: c.name })
+      .bindPopup(
+        `<b>📷 ${esc(c.name)}</b><br><span class="tiny">${esc(c.area || '')} · ${esc(STATE_LABEL[c.state] || '')}</span>` +
+          (c.videoId ? `<img class="popup-cam" src="${esc(thumbUrl(c.videoId))}" alt="" loading="lazy">` : '<br>') +
+          (canEmbed(c) ? `<button type="button" data-cam-play="${esc(c.id)}">▶ ดูสด</button> ` : '') +
+          (link ? `<a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : '') +
+          (c.note ? `<br><span class="tiny">${esc(c.note)}</span>` : ''),
+      )
+      .addTo(layers.cams);
   }
 
   // ครั้งแรก: ซูมให้เห็นจุดน้ำท่วม/เฝ้าระวัง/ที่จอดรถทั้งหมด
@@ -164,4 +183,16 @@ export function toggleRadarPlay(ctx, onTime) {
 function stopRadar(ctx) {
   clearInterval(ctx.radar.timer);
   ctx.radar.timer = null;
+}
+
+const BMA_CCTV = 'https://cpudapp.bangkok.go.th/bmatraffic/';
+const DDS_CCTV = 'https://dds.bangkok.go.th/cctv.php';
+
+/** ลิงก์กล้องใกล้จุดน้ำท่วม: กล้องไลฟ์ที่ใกล้ที่สุด (≤3 กม.) + กล้องทางการของ กทม. */
+function nearbyCamHtml(cams, point) {
+  const near = nearestCamera(cams, point, 3);
+  const nearHtml = near
+    ? `<button type="button" data-cam-play="${esc(near.cam.id)}">📷 ดูกล้องใกล้ๆ (${near.d.toFixed(1)} กม.)</button><br>`
+    : '';
+  return `<br>${nearHtml}<span class="tiny">กล้อง กทม.: <a href="${DDS_CCTV}" target="_blank" rel="noopener">ระดับน้ำ</a> · <a href="${BMA_CCTV}" target="_blank" rel="noopener">จราจร</a></span>`;
 }
