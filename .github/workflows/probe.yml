@@ -7,25 +7,41 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Probe
+      - name: Probe Longdo camera feed
         run: |
           UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          probe() {
-            echo "::group::$1"
-            curl -sSL -m 25 -A "$UA" -o /tmp/body -w "HTTP %{http_code} type=%{content_type} size=%{size_download} final=%{url_effective}\n" "$1" || echo "curl failed"
-            echo "--- head"
-            head -c 2500 /tmp/body | tr -d '\r'; echo
-            echo "--- links/urls mentioning camera/cctv/json/rss/jpeg/m3u8"
-            grep -oiE "(href|src)=[\"'][^\"']*(cam|cctv|json|rss|jpe?g|m3u8|feed|api)[^\"']*[\"']" /tmp/body | sort -u | head -80
-            grep -oiE "https?://[^\"' <>]*(cam|cctv|m3u8|jpeg|jpg|json|rss)[^\"' <>]*" /tmp/body | sort -u | head -60
-            echo "::endgroup::"
-          }
-          probe https://traffic.longdo.com/feed/
-          probe https://traffic.longdo.com/feed/api.php
-          probe https://traffic.longdo.com/cameralist
-          probe https://live.iticfoundation.org/
-          probe https://dds.bangkok.go.th/cctv.php
-          probe https://cpudapp.bangkok.go.th/bmatraffic/index.aspx
-          probe http://www.bmatraffic.com/index.aspx
-          probe https://www.thaiwater.net/water/cctv
-          probe https://egatwater.egat.co.th/RealTimeCCTV
+          echo "::group::json headers"
+          curl -sS -m 30 -A "$UA" -D - -o /tmp/cams.json "https://camera.longdo.com/feed/?command=json" -H "Origin: https://pee4455.github.io" | head -30
+          echo "::endgroup::"
+          echo "size: $(wc -c < /tmp/cams.json)"
+          echo "::group::json head"; head -c 4000 /tmp/cams.json; echo; echo "::endgroup::"
+          python3 - <<'PY'
+          import json, collections
+          raw = open('/tmp/cams.json', encoding='utf-8', errors='replace').read()
+          try:
+              d = json.loads(raw)
+          except Exception as e:
+              print('not json', e); raise SystemExit
+          print('top type', type(d).__name__)
+          items = d if isinstance(d, list) else next((v for v in d.values() if isinstance(v, list)), [])
+          if isinstance(d, dict): print('top keys', list(d)[:20])
+          print('count', len(items))
+          keys = collections.Counter(k for it in items if isinstance(it, dict) for k in it)
+          print('keys', keys.most_common(40))
+          for it in items[:4]: print(json.dumps(it, ensure_ascii=False)[:800])
+          # bangkok box
+          def f(x):
+              try: return float(x)
+              except: return None
+          bkk = [it for it in items if isinstance(it, dict) and any(13.5 < (f(it.get(k)) or 0) < 14.1 for k in ('lat','latitude'))]
+          print('in bkk lat band', len(bkk))
+          for k in ('url','imgurl','vdourl','image','img','thumbnail','video','stream','hls'):
+              vals = [it.get(k) for it in items if isinstance(it, dict) and it.get(k)]
+              if vals: print(k, len(vals), vals[:3])
+          PY
+          echo "::group::rss head"; curl -sS -m 30 -A "$UA" "https://camera.longdo.com/feed" | head -c 3000; echo; echo "::endgroup::"
+          echo "::group::camcode head"; curl -sS -m 30 -A "$UA" "https://camera.longdo.com/feed/?command=camcode" | head -c 1500; echo; echo "::endgroup::"
+          echo "::group::image https?"
+          curl -sS -m 20 -A "$UA" -o /dev/null -D - "https://cameras.iticfoundation.org/api/jpeg2.php?camid=184.82.129.12" | head -15 || echo https-failed
+          curl -sS -m 20 -A "$UA" -o /dev/null -D - "http://cameras.iticfoundation.org/api/jpeg2.php?camid=184.82.129.12" | head -15 || echo http-failed
+          echo "::endgroup::"
