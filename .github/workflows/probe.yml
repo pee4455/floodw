@@ -7,41 +7,22 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Probe Longdo camera feed
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run update-cams
+        run: node scripts/update-cams.mjs
+      - name: Inspect result
         run: |
-          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          echo "::group::json headers"
-          curl -sS -m 30 -A "$UA" -D - -o /tmp/cams.json "https://camera.longdo.com/feed/?command=json" -H "Origin: https://pee4455.github.io" | head -30
-          echo "::endgroup::"
-          echo "size: $(wc -c < /tmp/cams.json)"
-          echo "::group::json head"; head -c 4000 /tmp/cams.json; echo; echo "::endgroup::"
           python3 - <<'PY'
           import json, collections
-          raw = open('/tmp/cams.json', encoding='utf-8', errors='replace').read()
-          try:
-              d = json.loads(raw)
-          except Exception as e:
-              print('not json', e); raise SystemExit
-          print('top type', type(d).__name__)
-          items = d if isinstance(d, list) else next((v for v in d.values() if isinstance(v, list)), [])
-          if isinstance(d, dict): print('top keys', list(d)[:20])
-          print('count', len(items))
-          keys = collections.Counter(k for it in items if isinstance(it, dict) for k in it)
-          print('keys', keys.most_common(40))
-          for it in items[:4]: print(json.dumps(it, ensure_ascii=False)[:800])
-          # bangkok box
-          def f(x):
-              try: return float(x)
-              except: return None
-          bkk = [it for it in items if isinstance(it, dict) and any(13.5 < (f(it.get(k)) or 0) < 14.1 for k in ('lat','latitude'))]
-          print('in bkk lat band', len(bkk))
-          for k in ('url','imgurl','vdourl','image','img','thumbnail','video','stream','hls'):
-              vals = [it.get(k) for it in items if isinstance(it, dict) and it.get(k)]
-              if vals: print(k, len(vals), vals[:3])
+          d = json.load(open('public/data/itic_cameras.json'))
+          print('total', d['total'], 'ok', d['ok'])
+          print(collections.Counter((c['org'], c['ok']) for c in d['cameras']).most_common(20))
+          for c in d['cameras'][:8]: print(c['ok'], c['name'], c['lat'], c['lon'], c['img'], c['hls'])
           PY
-          echo "::group::rss head"; curl -sS -m 30 -A "$UA" "https://camera.longdo.com/feed" | head -c 3000; echo; echo "::endgroup::"
-          echo "::group::camcode head"; curl -sS -m 30 -A "$UA" "https://camera.longdo.com/feed/?command=camcode" | head -c 1500; echo; echo "::endgroup::"
-          echo "::group::image https?"
-          curl -sS -m 20 -A "$UA" -o /dev/null -D - "https://cameras.iticfoundation.org/api/jpeg2.php?camid=184.82.129.12" | head -15 || echo https-failed
-          curl -sS -m 20 -A "$UA" -o /dev/null -D - "http://cameras.iticfoundation.org/api/jpeg2.php?camid=184.82.129.12" | head -15 || echo http-failed
-          echo "::endgroup::"
+          IMG=$(python3 -c "import json;d=json.load(open('public/data/itic_cameras.json'));print(next(c['img'] for c in d['cameras'] if c['ok']))")
+          HLS=$(python3 -c "import json;d=json.load(open('public/data/itic_cameras.json'));print(next((c['hls'] for c in d['cameras'] if c['ok'] and c['hls']),''))")
+          echo "IMG=$IMG"; curl -sS -m 15 -o /dev/null -D - -H "Referer: https://pee4455.github.io/" "$IMG" | head -20
+          echo "HLS=$HLS"; curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$HLS" | head -30

@@ -7,7 +7,8 @@
     "test": "node --test test/*.test.mjs",
     "update-news": "node scripts/update-news.mjs",
     "smoke": "node test/smoke/run-smoke.mjs",
-    "check-cams": "node scripts/check-cams.mjs"
+    "check-cams": "node scripts/check-cams.mjs",
+    "update-cams": "node scripts/update-cams.mjs"
   },
   "repository": {
     "type": "git",
