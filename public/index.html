@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="th">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bangkok Flood Watch</title>
+  <meta name="description" content="พยากรณ์ฝนกรุงเทพฯ แบบรวมหลายโมเดล (ECMWF, GFS, ICON, UKMO, JMA, GEM) ดัชนีเสี่ยงน้ำท่วมขัง จุดน้ำท่วม ที่จอดรถหนีน้ำ และข่าวสถานการณ์น้ำล่าสุด">
+  <meta name="theme-color" content="#0b4f8a">
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><path d='M16 3C11 11 7 16 7 21a9 9 0 0 0 18 0c0-5-4-10-9-18z' fill='%230b6fc2'/></svg>">
+  <link rel="stylesheet" href="vendor/leaflet/leaflet.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <svg viewBox="0 0 32 32" width="28" height="28" aria-hidden="true"><path d="M16 3C11 11 7 16 7 21a9 9 0 0 0 18 0c0-5-4-10-9-18z" fill="currentColor"/></svg>
+      <div>
+        <h1>Bangkok Flood Watch</h1>
+        <p class="sub">พยากรณ์ฝนหลายโมเดล · จุดน้ำท่วม · ที่จอดรถหนีน้ำ</p>
+      </div>
+    </div>
+    <div class="controls">
+      <label class="sr-only" for="loc">พื้นที่พยากรณ์</label>
+      <select id="loc"></select>
+      <button id="refresh" type="button" title="โหลดข้อมูลใหม่">รีเฟรช</button>
+    </div>
+  </header>
+
+  <nav class="tabs" role="tablist" aria-label="เมนู">
+    <button role="tab" data-tab="overview" aria-selected="true">ภาพรวม</button>
+    <button role="tab" data-tab="forecast">พยากรณ์</button>
+    <button role="tab" data-tab="map">แผนที่</button>
+    <button role="tab" data-tab="parking">ที่จอดรถ</button>
+    <button role="tab" data-tab="news">ข่าว</button>
+    <button role="tab" data-tab="help">ช่วยเหลือ</button>
+  </nav>
+
+  <main>
+    <div id="status" class="status" role="status" aria-live="polite"></div>
+
+    <!-- ภาพรวม -->
+    <section id="tab-overview" class="tab active" role="tabpanel">
+      <div class="grid two">
+        <article class="card risk-card">
+          <h2>ดัชนีเสี่ยงน้ำท่วมขัง 24 ชม. ข้างหน้า</h2>
+          <div class="risk-head">
+            <div id="gauge"></div>
+            <div>
+              <div id="risk-level" class="risk-level">กำลังคำนวณ…</div>
+              <p id="risk-advice" class="muted"></p>
+              <p class="tiny muted">ดัชนีรวมจากโมเดลพยากรณ์ + ensemble + น้ำทะเลหนุน + ประกาศระดับน้ำเจ้าพระยา — ไม่ใช่ประกาศทางการ</p>
+            </div>
+          </div>
+          <ul id="risk-factors" class="factors"></ul>
+        </article>
+
+        <article class="card">
+          <h2>ฝน 24 ชม. ข้างหน้า <span id="loc-name" class="muted small"></span></h2>
+          <div class="stats">
+            <div class="stat"><span class="k">ค่ากลางหลายโมเดล</span><span id="s-rain24" class="v">–</span><span id="s-rain24-class" class="note"></span></div>
+            <div class="stat"><span class="k">กรณีฝนหนัก (P90)</span><span id="s-rain24p90" class="v">–</span><span class="note">1 ใน 10 ของ ensemble หนักกว่านี้</span></div>
+            <div class="stat"><span class="k">โอกาสฝน ≥ 35 มม.</span><span id="s-pheavy" class="v">–</span><span class="note">เกณฑ์ "ฝนหนัก" กรมอุตุฯ</span></div>
+            <div class="stat"><span class="k">ตอนนี้</span><span id="s-now" class="v">–</span><span id="s-now-note" class="note"></span></div>
+          </div>
+          <h3 class="small">6 ชั่วโมงข้างหน้า</h3>
+          <div id="next-hours" class="hours"></div>
+        </article>
+      </div>
+
+      <article class="card situation">
+        <h2>สถานการณ์ล่าสุด <span id="sit-updated" class="muted small"></span></h2>
+        <p id="sit-headline" class="headline"></p>
+        <ul id="sit-points"></ul>
+        <div id="sit-counts" class="counts"></div>
+        <details><summary>แหล่งข้อมูล</summary><ul id="sit-sources" class="sources"></ul></details>
+      </article>
+
+      <article class="card">
+        <h2>ข่าวล่าสุด</h2>
+        <ul id="overview-news" class="news-list"></ul>
+        <button type="button" class="link-btn" data-goto="news">ดูข่าวทั้งหมด →</button>
+      </article>
+    </section>
+
+    <!-- พยากรณ์ -->
+    <section id="tab-forecast" class="tab" role="tabpanel">
+      <article class="card">
+        <h2>ฝนรายชั่วโมง 3 วันข้างหน้า</h2>
+        <div id="rain-chart" class="chart-wrap"></div>
+        <div class="legend">
+          <span><i class="sw bar"></i>ค่ากลางหลายโมเดล (มม./ชม.)</span>
+          <span><i class="sw range"></i>ช่วงต่ำสุด–สูงสุดระหว่างโมเดล</span>
+          <span><i class="sw prob"></i>โอกาสฝนตก ≥ 0.5 มม. (ensemble, แกนขวา)</span>
+        </div>
+      </article>
+
+      <article class="card">
+        <h2>พยากรณ์รายวัน 7 วัน</h2>
+        <div class="table-wrap">
+          <table id="daily-table" class="daily"></table>
+        </div>
+        <p class="tiny muted">ความเห็นตรงกันของโมเดล: สูง = โมเดลให้ปริมาณฝนใกล้เคียงกัน (มั่นใจมาก) · ต่ำ = โมเดลแตกต่างกันมาก (ความไม่แน่นอนสูง ให้ดูค่าโอกาสเป็นหลัก)</p>
+      </article>
+
+      <div class="grid two">
+        <article class="card">
+          <h2>โมเดลที่ใช้</h2>
+          <ul id="model-status" class="model-status"></ul>
+          <ul id="ens-status" class="model-status"></ul>
+        </article>
+        <article class="card">
+          <h2>ทำไมถึงแม่นกว่าดูโมเดลเดียว?</h2>
+          <ol class="method">
+            <li><b>รวมหลายโมเดล (multi-model consensus)</b> — ใช้มัธยฐานถ่วงน้ำหนัก (ECMWF หนักสุด) ลดผลของโมเดลที่พยากรณ์หลุด งานวิจัยพบว่าค่ารวมหลายโมเดลแม่นกว่าโมเดลเดี่ยวส่วนใหญ่อย่างสม่ำเสมอ</li>
+            <li><b>ความน่าจะเป็นจาก ensemble</b> — ~120 สมาชิกจาก ECMWF/GEFS/ICON บอก "โอกาส" แทนตัวเลขเดียว เหมาะกับฝนพายุฟ้าคะนองเขตร้อนที่ตำแหน่งตกคลาดเคลื่อนง่าย</li>
+            <li><b>เรดาร์สำหรับ 0–2 ชม.</b> — ช่วงสั้นมาก เรดาร์ (nowcasting) แม่นกว่าโมเดลเสมอ ดูได้ที่แท็บแผนที่</li>
+            <li><b>ปัจจัยเฉพาะกรุงเทพฯ</b> — ความสามารถระบายน้ำ น้ำทะเลหนุน และน้ำเหนือ รวมเป็นดัชนีเสี่ยง</li>
+          </ol>
+          <p class="small"><a href="https://github.com/pee4455/floodw/blob/main/docs/RESEARCH.md" target="_blank" rel="noopener">อ่านงานวิจัยและเหตุผลเต็ม →</a></p>
+        </article>
+      </div>
+
+      <article class="card">
+        <h2>เทียบกับ Windy</h2>
+        <p class="small muted">แผนที่ Windy (โมเดล ECMWF) สำหรับดูภาพรวมกลุ่มฝนและลม — โหลดเมื่อกดปุ่มเพื่อประหยัดเน็ต</p>
+        <button type="button" id="load-windy">แสดงแผนที่ Windy</button>
+        <div id="windy-wrap" class="windy-wrap" hidden></div>
+      </article>
+    </section>
+
+    <!-- แผนที่ -->
+    <section id="tab-map" class="tab" role="tabpanel">
+      <article class="card map-card">
+        <div class="map-toolbar">
+          <label><input type="checkbox" id="lyr-flood" checked> จุดน้ำท่วม</label>
+          <label><input type="checkbox" id="lyr-watch" checked> จุดเฝ้าระวัง</label>
+          <label><input type="checkbox" id="lyr-parking" checked> ที่จอดรถ</label>
+          <label><input type="checkbox" id="lyr-news" checked> ข่าวตามพื้นที่</label>
+          <label><input type="checkbox" id="lyr-radar"> เรดาร์ฝน</label>
+          <span id="radar-ctl" class="radar-ctl" hidden>
+            <button type="button" id="radar-play">▶</button>
+            <span id="radar-time" class="small"></span>
+          </span>
+        </div>
+        <div id="map" class="map" aria-label="แผนที่สถานการณ์น้ำท่วมกรุงเทพฯ"></div>
+        <div class="legend">
+          <span><i class="dot" style="background:#dc2626"></i>ท่วม ≥ 20 ซม.</span>
+          <span><i class="dot" style="background:#f97316"></i>ท่วม 10–19 ซม.</span>
+          <span><i class="dot" style="background:#eab308"></i>ท่วม &lt; 10 ซม./ไม่ระบุ</span>
+          <span><i class="dot" style="background:#2563eb"></i>จุดเฝ้าระวังแม่น้ำ/คลอง</span>
+          <span><i class="pin">P</i>ที่จอดรถหนีน้ำ</span>
+          <span><i class="dot" style="background:#64748b"></i>ข่าวที่กล่าวถึงพื้นที่ (ตำแหน่งระดับเขต/ถนน)</span>
+        </div>
+        <p class="tiny muted">เรดาร์: RainViewer · แผนที่: © OpenStreetMap contributors · เรดาร์ความละเอียดสูงของ กทม. ดูที่ <a href="https://weather.bangkok.go.th/" target="_blank" rel="noopener">weather.bangkok.go.th</a></p>
+      </article>
+    </section>
+
+    <!-- ที่จอดรถ -->
+    <section id="tab-parking" class="tab" role="tabpanel">
+      <article class="card">
+        <h2>ที่จอดรถหนีน้ำ (ตรวจสอบแล้ว)</h2>
+        <p class="small muted">รวบรวมจากข่าว/ประกาศ — โทรสอบถามก่อนเดินทางทุกครั้ง เพราะพื้นที่อาจเต็มหรือเปลี่ยนแปลง</p>
+        <div id="parking-list" class="cards"></div>
+      </article>
+      <article class="card">
+        <h2>ข่าวที่จอดรถล่าสุด (อัตโนมัติ)</h2>
+        <ul id="parking-news" class="news-list"></ul>
+      </article>
+      <article class="card">
+        <h2>ข้อควรรู้</h2>
+        <ul id="tips"></ul>
+      </article>
+    </section>
+
+    <!-- ข่าว -->
+    <section id="tab-news" class="tab" role="tabpanel">
+      <article class="card">
+        <div class="news-tools">
+          <input id="news-q" type="search" placeholder="ค้นหา เช่น ลาดกระบัง, จอดรถ, เจ้าพระยา">
+          <label class="small"><input type="checkbox" id="news-bkk"> เฉพาะที่ระบุกรุงเทพฯ/ปริมณฑล</label>
+        </div>
+        <div id="news-cats" class="chips"></div>
+        <p id="news-meta" class="tiny muted"></p>
+        <ul id="news-list" class="news-list"></ul>
+      </article>
+    </section>
+
+    <!-- ช่วยเหลือ -->
+    <section id="tab-help" class="tab" role="tabpanel">
+      <div class="grid two">
+        <article class="card">
+          <h2>เบอร์ฉุกเฉิน</h2>
+          <ul id="contacts" class="contacts"></ul>
+        </article>
+        <article class="card">
+          <h2>แจ้งเหตุ / แหล่งข้อมูลทางการ</h2>
+          <ul id="links" class="links"></ul>
+        </article>
+      </div>
+      <article class="card">
+        <h2>เกี่ยวกับข้อมูล</h2>
+        <ul class="small">
+          <li>พยากรณ์: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (ECMWF, UKMO, DWD ICON, NOAA GFS, JMA, ECCC GEM) — CC BY 4.0</li>
+          <li>เรดาร์ฝน: <a href="https://www.rainviewer.com/" target="_blank" rel="noopener">RainViewer</a></li>
+          <li>ข่าว: รวบรวมอัตโนมัติจาก Google News RSS ทุก 30 นาที — จัดหมวดและระบุตำแหน่งด้วยคำสำคัญ อาจคลาดเคลื่อน ให้เปิดอ่านต้นฉบับ</li>
+          <li>จุดน้ำท่วม/ที่จอดรถ: ผู้ดูแลตรวจสอบจากข่าวและประกาศก่อนลง (แก้ไขได้ที่ <code>public/data/curated.json</code>)</li>
+          <li>ดัชนีเสี่ยงเป็นการประเมินเบื้องต้น ใช้ประกอบการตัดสินใจเท่านั้น ให้ยึดประกาศของ กทม. กรมอุตุนิยมวิทยา และ ปภ. เป็นหลัก</li>
+        </ul>
+      </article>
+    </section>
+  </main>
+
+  <footer class="foot tiny muted">
+    <span id="foot-updated"></span>
+  </footer>
+
+  <script src="vendor/leaflet/leaflet.js"></script>
+  <script type="module" src="js/app.js"></script>
+</body>
+</html>

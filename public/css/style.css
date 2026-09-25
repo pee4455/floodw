@@ -1,0 +1,221 @@
+:root {
+  --bg: #f3f6fa;
+  --card: #ffffff;
+  --text: #0f172a;
+  --muted: #5b6b80;
+  --line: #dbe3ec;
+  --brand: #0b4f8a;
+  --brand-2: #0b6fc2;
+  --accent: #e0efff;
+  --bar: #3b82f6;
+  --bar-mod: #1d4ed8;
+  --bar-heavy: #b91c1c;
+  --range: #94a3b8;
+  --prob: #0f766e;
+  --shadow: 0 1px 2px rgba(15, 23, 42, .06), 0 2px 8px rgba(15, 23, 42, .04);
+  --radius: 12px;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0b1220;
+    --card: #111a2b;
+    --text: #e5edf7;
+    --muted: #93a4ba;
+    --line: #22314a;
+    --brand: #60a5fa;
+    --brand-2: #3b82f6;
+    --accent: #162640;
+    --bar: #60a5fa;
+    --bar-mod: #93c5fd;
+    --bar-heavy: #f87171;
+    --range: #64748b;
+    --prob: #2dd4bf;
+    --shadow: none;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0b1220; --card: #111a2b; --text: #e5edf7; --muted: #93a4ba; --line: #22314a;
+  --brand: #60a5fa; --brand-2: #3b82f6; --accent: #162640; --bar: #60a5fa; --bar-mod: #93c5fd;
+  --bar-heavy: #f87171; --range: #64748b; --prob: #2dd4bf; --shadow: none; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Sarabun", "Noto Sans Thai", "Leelawadee UI", "Thonburi", system-ui, -apple-system, "Segoe UI", sans-serif;
+  font-size: 16px;
+  line-height: 1.55;
+}
+a { color: var(--brand-2); }
+button, select, input { font: inherit; color: inherit; }
+button {
+  background: var(--brand-2); color: #fff; border: 0; border-radius: 8px; padding: 6px 12px; cursor: pointer;
+}
+button:hover { filter: brightness(1.08); }
+select, input[type="search"] {
+  background: var(--card); border: 1px solid var(--line); border-radius: 8px; padding: 6px 10px; max-width: 100%;
+}
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); }
+.muted { color: var(--muted); }
+.small { font-size: .9rem; }
+.tiny { font-size: .78rem; }
+
+.topbar {
+  display: flex; flex-wrap: wrap; gap: 10px; align-items: center; justify-content: space-between;
+  padding: 12px 16px; background: var(--brand); color: #fff;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .topbar { background: #0f2747; } }
+.brand { display: flex; gap: 10px; align-items: center; }
+.brand h1 { font-size: 1.15rem; margin: 0; line-height: 1.2; }
+.brand .sub { margin: 0; font-size: .8rem; opacity: .85; }
+.controls { display: flex; gap: 8px; align-items: center; }
+.controls select { color: var(--text); min-width: 0; max-width: 60vw; }
+.controls button { background: rgba(255, 255, 255, .18); }
+
+.tabs {
+  position: sticky; top: 0; z-index: 1000;
+  display: flex; gap: 2px; overflow-x: auto; background: var(--card); border-bottom: 1px solid var(--line);
+  padding: 0 8px; scrollbar-width: none;
+}
+.tabs button {
+  background: none; color: var(--muted); border-radius: 0; padding: 10px 12px; white-space: nowrap;
+  border-bottom: 3px solid transparent;
+}
+.tabs button[aria-selected="true"] { color: var(--brand-2); border-bottom-color: var(--brand-2); font-weight: 600; }
+
+main { max-width: 1120px; margin: 0 auto; padding: 12px 16px 24px; }
+.tab { display: none; }
+.tab.active { display: block; }
+.grid.two { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 420px), 1fr)); gap: 12px; }
+.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow);
+  padding: 14px 16px; margin-bottom: 12px; min-width: 0;
+}
+.card h2 { font-size: 1.05rem; margin: 0 0 10px; }
+.card h3 { margin: 12px 0 6px; }
+
+.status:empty { display: none; }
+.status { background: var(--accent); border-radius: 8px; padding: 8px 12px; margin-bottom: 12px; font-size: .9rem; }
+.status.warn { background: #fff4e5; color: #7a4100; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .status.warn { background: #3a2a10; color: #fcd9a0; } }
+
+/* ความเสี่ยง */
+.risk-head { display: flex; gap: 14px; align-items: center; }
+.risk-level { font-size: 1.5rem; font-weight: 700; }
+.gauge-bg { fill: none; stroke: var(--line); stroke-width: 12; }
+.gauge-fg { fill: none; stroke-width: 12; stroke-linecap: round; transition: stroke-dasharray .6s; }
+.gauge-num { font-size: 30px; font-weight: 700; fill: var(--text); }
+.factors { list-style: none; padding: 0; margin: 12px 0 0; display: grid; gap: 8px; }
+.factors li { display: grid; grid-template-columns: 1fr auto; gap: 2px 8px; font-size: .88rem; }
+.factors .bar-track { grid-column: 1 / -1; height: 6px; background: var(--line); border-radius: 3px; overflow: hidden; }
+.factors .bar-fill { display: block; height: 100%; background: var(--brand-2); border-radius: 3px; }
+.factors .detail { grid-column: 1 / -1; color: var(--muted); font-size: .78rem; }
+
+.stats { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.stat { background: var(--accent); border-radius: 10px; padding: 8px 10px; display: flex; flex-direction: column; min-width: 0; }
+.stat .k { font-size: .8rem; color: var(--muted); }
+.stat .v { font-size: 1.35rem; font-weight: 700; }
+.stat .note { font-size: .75rem; color: var(--muted); }
+.hours { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 6px; }
+.hour { text-align: center; background: var(--accent); border-radius: 8px; padding: 6px 2px; font-size: .8rem; }
+.hour b { display: block; font-size: .95rem; }
+.hour .p { color: var(--prob); font-weight: 600; }
+
+.situation .headline { font-weight: 600; margin: 0 0 6px; }
+.counts { display: flex; flex-wrap: wrap; gap: 8px; margin: 8px 0; }
+.counts button { background: var(--accent); color: var(--text); }
+.sources { font-size: .85rem; }
+
+/* ข่าว */
+.news-list { list-style: none; padding: 0; margin: 0; }
+.news-list li { padding: 10px 0; border-bottom: 1px solid var(--line); }
+.news-list li:last-child { border-bottom: 0; }
+.news-list a.title { font-weight: 600; text-decoration: none; color: var(--text); }
+.news-list a.title:hover { color: var(--brand-2); text-decoration: underline; }
+.news-list .meta { font-size: .78rem; color: var(--muted); margin-top: 2px; display: flex; flex-wrap: wrap; gap: 4px 8px; align-items: center; }
+.tag { display: inline-block; font-size: .72rem; padding: 1px 7px; border-radius: 999px; background: var(--accent); color: var(--text); }
+.tag.parking { background: #dcfce7; color: #14532d; }
+.tag.flood { background: #fee2e2; color: #7f1d1d; }
+.tag.river { background: #dbeafe; color: #1e3a8a; }
+.tag.weather { background: #fef9c3; color: #713f12; }
+.tag.help { background: #f3e8ff; color: #581c87; }
+.tag.depth { background: #7f1d1d; color: #fff; }
+.news-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-bottom: 8px; }
+.news-tools input[type="search"] { flex: 1 1 240px; }
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 6px; }
+.chips button { background: var(--accent); color: var(--text); border-radius: 999px; padding: 3px 12px; font-size: .85rem; }
+.chips button[aria-pressed="true"] { background: var(--brand-2); color: #fff; }
+.link-btn { background: none; color: var(--brand-2); padding: 6px 0; }
+
+/* พยากรณ์ */
+.chart-wrap { width: 100%; overflow: hidden; }
+.chart .grid { stroke: var(--line); stroke-width: 1; }
+.chart .day-line { stroke: var(--muted); stroke-width: 1; stroke-dasharray: 3 3; opacity: .6; }
+.chart .axis { fill: var(--muted); font-size: 11px; }
+.chart .axis.small { font-size: 10px; }
+.chart .bar { fill: var(--bar); }
+.chart .bar.mod { fill: var(--bar-mod); }
+.chart .bar.heavy { fill: var(--bar-heavy); }
+.chart .range { stroke: var(--range); stroke-width: 1.5; }
+.chart .prob-line { fill: none; stroke: var(--prob); stroke-width: 2; stroke-dasharray: 5 3; }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 14px; font-size: .8rem; color: var(--muted); margin-top: 6px; }
+.legend .sw { display: inline-block; width: 14px; height: 10px; margin-right: 4px; vertical-align: middle; }
+.legend .sw.bar { background: var(--bar); }
+.legend .sw.range { width: 3px; height: 12px; background: var(--range); }
+.legend .sw.prob { height: 0; border-top: 2px dashed var(--prob); }
+.legend .dot { display: inline-block; width: 11px; height: 11px; border-radius: 50%; margin-right: 4px; vertical-align: middle; }
+.legend .pin, .parking-pin {
+  display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 4px;
+  background: #15803d; color: #fff; font-weight: 700; font-size: 12px; font-style: normal; margin-right: 4px; vertical-align: middle;
+}
+.table-wrap { overflow-x: auto; }
+table.daily { border-collapse: collapse; width: 100%; font-size: .85rem; min-width: 640px; }
+table.daily th, table.daily td { border-bottom: 1px solid var(--line); padding: 6px 6px; text-align: center; white-space: nowrap; }
+table.daily th { color: var(--muted); font-weight: 600; font-size: .78rem; }
+table.daily td:first-child, table.daily th:first-child { text-align: left; }
+.pill { display: inline-block; border-radius: 999px; padding: 0 8px; font-size: .75rem; color: #fff; }
+.model-status { list-style: none; padding: 0; margin: 0 0 8px; font-size: .88rem; }
+.model-status li { display: flex; justify-content: space-between; gap: 8px; padding: 3px 0; border-bottom: 1px dashed var(--line); }
+.model-status .ok { color: #16a34a; }
+.model-status .err { color: #dc2626; }
+.method { padding-left: 20px; font-size: .9rem; }
+.method li { margin-bottom: 6px; }
+.windy-wrap { margin-top: 10px; }
+.windy-wrap iframe { width: 100%; height: 440px; border: 0; border-radius: 10px; }
+
+/* แผนที่ */
+.map-card { padding: 10px; }
+.map { height: min(70vh, 620px); border-radius: 10px; }
+.map-toolbar { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; font-size: .88rem; margin-bottom: 8px; }
+.radar-ctl { display: inline-flex; gap: 6px; align-items: center; }
+.radar-ctl button { padding: 2px 10px; }
+.leaflet-popup-content { font-family: inherit; font-size: .88rem; }
+.leaflet-popup-content ul { padding-left: 16px; margin: 4px 0; }
+.parking-pin { width: 22px; height: 22px; font-size: 14px; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .4); }
+
+/* ที่จอดรถ */
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr)); gap: 10px; }
+.pcard { border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; display: flex; flex-direction: column; gap: 4px; }
+.pcard h3 { margin: 0; font-size: 1rem; }
+.pcard .row { font-size: .85rem; }
+.pcard .actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; font-size: .85rem; }
+.badge { display: inline-block; font-size: .72rem; border-radius: 999px; padding: 1px 8px; color: #fff; }
+.badge.open { background: #16a34a; }
+.badge.soon { background: #ca8a04; }
+.badge.closed { background: #64748b; }
+.badge.outside { background: #7c3aed; }
+
+.contacts, .links { list-style: none; padding: 0; margin: 0; }
+.contacts li, .links li { padding: 7px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }
+.contacts a.tel { font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+.foot { text-align: center; padding: 8px 16px 20px; }
+
+@media (max-width: 520px) {
+  .brand .sub { display: none; }
+  .stat .v { font-size: 1.15rem; }
+  .risk-head { flex-direction: column; align-items: flex-start; }
+}

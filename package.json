@@ -1,0 +1,26 @@
+{
+  "name": "bangkok-flood-watch",
+  "version": "1.0.0",
+  "description": "เว็บแอปพยากรณ์อากาศหลายโมเดลและติดตามสถานการณ์น้ำท่วมกรุงเทพฯ",
+  "scripts": {
+    "start": "node scripts/serve.mjs",
+    "test": "node --test test/*.test.mjs",
+    "update-news": "node scripts/update-news.mjs",
+    "smoke": "node test/smoke/run-smoke.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pee4455/floodw.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pee4455/floodw/issues"
+  },
+  "homepage": "https://github.com/pee4455/floodw#readme",
+  "devDependencies": {
+    "leaflet": "^1.9.4",
+    "playwright-core": "^1.63.0"
+  },
+  "private": true,
+  "type": "module"
+}
