@@ -1,0 +1,31 @@
+name: Probe camera sources (temporary)
+on:
+  push:
+    branches: [claude/bangkok-weather-flood-app-gffs1j]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Probe
+        run: |
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+          probe() {
+            echo "::group::$1"
+            curl -sSL -m 25 -A "$UA" -o /tmp/body -w "HTTP %{http_code} type=%{content_type} size=%{size_download} final=%{url_effective}\n" "$1" || echo "curl failed"
+            echo "--- head"
+            head -c 2500 /tmp/body | tr -d '\r'; echo
+            echo "--- links/urls mentioning camera/cctv/json/rss/jpeg/m3u8"
+            grep -oiE "(href|src)=[\"'][^\"']*(cam|cctv|json|rss|jpe?g|m3u8|feed|api)[^\"']*[\"']" /tmp/body | sort -u | head -80
+            grep -oiE "https?://[^\"' <>]*(cam|cctv|m3u8|jpeg|jpg|json|rss)[^\"' <>]*" /tmp/body | sort -u | head -60
+            echo "::endgroup::"
+          }
+          probe https://traffic.longdo.com/feed/
+          probe https://traffic.longdo.com/feed/api.php
+          probe https://traffic.longdo.com/cameralist
+          probe https://live.iticfoundation.org/
+          probe https://dds.bangkok.go.th/cctv.php
+          probe https://cpudapp.bangkok.go.th/bmatraffic/index.aspx
+          probe http://www.bmatraffic.com/index.aspx
+          probe https://www.thaiwater.net/water/cctv
+          probe https://egatwater.egat.co.th/RealTimeCCTV
