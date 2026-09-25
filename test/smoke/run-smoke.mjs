@@ -33,6 +33,11 @@ async function run(viewport, label) {
     r.fulfill({ json: { host: 'https://tilecache.rainviewer.com', radar: { past: [{ time: now - 600, path: '/v2/radar/1' }, { time: now, path: '/v2/radar/2' }], nowcast: [] } } }),
   );
   await page.route(/tile\.openstreetmap\.org|tilecache\.rainviewer\.com|i\.ytimg\.com/, (r) => r.fulfill({ body: PNG_1PX, contentType: 'image/png' }));
+  let iticRequests = 0;
+  await page.route(/iticfoundation\.org/, (r) => {
+    iticRequests++;
+    return r.fulfill({ status: 404, body: '' });
+  });
   await page.route('https://www.youtube-nocookie.com/**', (r) => r.fulfill({ body: '<html><body>player</body></html>', contentType: 'text/html' }));
 
   await page.goto(`http://localhost:${PORT}/`);
@@ -68,6 +73,39 @@ async function run(viewport, label) {
       const cards = await page.locator('.cam-card').count();
       if (cards < 3) failures.push(`[${label}] การ์ดกล้องน้อยผิดปกติ (${cards})`);
       if ((await page.locator('#cam-official li').count()) === 0) failures.push(`[${label}] ไม่มีรายการกล้องทางการ`);
+      if (iticRequests) failures.push(`[${label}] โหลดภาพกล้องจราจรเองโดยไม่ได้กด (${iticRequests} ครั้ง)`);
+      const traffic = page.locator('.traffic-thumb[data-cam-play]');
+      if ((await traffic.count()) > 0) {
+        await traffic.first().click();
+        await page.waitForTimeout(600);
+        if ((await page.locator('#cam-frame video, #cam-frame #cam-snap').count()) === 0) failures.push(`[${label}] กล้องจราจรไม่เปิดตัวเล่น`);
+        const st = (await page.textContent('#cam-snap-status'))?.trim();
+        if (!st) failures.push(`[${label}] กล้องจราจรไม่มีสถานะ`);
+        const hlsBtn = page.locator('[data-cam-mode="hls"]');
+        if (await hlsBtn.count()) {
+          await hlsBtn.click();
+          await page.waitForTimeout(300);
+          if ((await page.locator('#cam-frame video').count()) === 0) failures.push(`[${label}] โหมดวิดีโอ HLS ไม่เปิด <video>`);
+        }
+        await page.click('[data-cam-mode="snap"]');
+        await page.waitForTimeout(300);
+        if ((await page.locator('#cam-snap').count()) === 0) failures.push(`[${label}] สลับเป็นภาพนิ่งไม่ได้`);
+        if (shotDir) await page.screenshot({ path: `${shotDir}/${label}-traffic-dialog.png` });
+        await page.click('#cam-dialog-close');
+      }
+      // กล้องกรมทางหลวง (ตรวจแล้วว่าเล่น HLS ได้) ต้องเปิดเป็นวิดีโอทันที
+      await page.fill('#cam-q', 'มีนบุรี');
+      await page.waitForTimeout(200);
+      const doh = page.locator('.traffic-thumb[data-cam-play]');
+      if ((await doh.count()) === 0) failures.push(`[${label}] ค้นหากล้อง "มีนบุรี" ไม่เจอ`);
+      else {
+        await doh.first().click();
+        await page.waitForTimeout(400);
+        if ((await page.locator('#cam-frame video').count()) === 0) failures.push(`[${label}] กล้อง HLS ไม่เปิดเป็นวิดีโอ`);
+        await page.click('#cam-dialog-close');
+      }
+      await page.fill('#cam-q', '');
+      await page.click('#cam-filter button[data-tag="youtube"]');
       await page.locator('.cam-card button[data-cam-play]').first().click();
       await page.waitForTimeout(300);
       const src = await page.getAttribute('#cam-frame iframe', 'src').catch(() => null);
@@ -76,6 +114,7 @@ async function run(viewport, label) {
       await page.click('#cam-dialog-close');
       if (await page.locator('#cam-frame iframe').count()) failures.push(`[${label}] ปิดกล้องแล้ววิดีโอยังเล่นอยู่`);
       if (await page.evaluate(() => document.getElementById('cam-dialog').open)) failures.push(`[${label}] dialog ไม่ปิด`);
+      await page.click('#cam-filter button[data-tag=""]');
     }
     if (tab === 'parking' && (await page.locator('.pcard').count()) === 0) failures.push(`[${label}] ไม่มีการ์ดที่จอดรถ`);
     if (tab === 'news') {

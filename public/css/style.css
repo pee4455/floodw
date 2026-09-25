@@ -263,3 +263,12 @@ table.daily td:first-child, table.daily th:first-child { text-align: left; }
 .cam-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
 #cam-dialog-meta { padding: 6px 12px 12px; margin: 0; }
 .popup-cam { display: block; width: 200px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; margin: 4px 0; background: #0f172a; }
+.cam-img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.cam-state.online { background: #15803d; }
+.cam-pin.traffic, .cam-marker.traffic { background: #1d4ed8; }
+.cam-marker.traffic { width: 20px; height: 20px; }
+.cam-snap { width: 100%; height: 100%; object-fit: contain; display: block; background: #000; }
+.cam-modes { display: inline-flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+.cam-modes button { padding: 3px 10px; font-size: .85rem; }
+.traffic-thumb { background: linear-gradient(135deg, #1e3a8a, #0f172a); }
+.cam-org { position: absolute; bottom: 8px; left: 8px; right: 8px; font-size: .75rem; opacity: .85; text-align: left; }

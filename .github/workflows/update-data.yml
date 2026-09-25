@@ -30,15 +30,18 @@ jobs:
         # กล้องตรวจไม่ได้ไม่ควรทำให้ข่าวไม่อัปเดต
         continue-on-error: true
         run: node scripts/check-cams.mjs
+      - name: Update traffic cameras (iTIC)
+        continue-on-error: true
+        run: node scripts/update-cams.mjs
       - name: Commit if changed
         run: |
-          if git diff --quiet -- public/data/news.json public/data/camera_status.json; then
+          if git diff --quiet -- public/data/news.json public/data/camera_status.json public/data/itic_cameras.json; then
             echo "ไม่มีข้อมูลใหม่"
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public/data/news.json public/data/camera_status.json
+          git add public/data/news.json public/data/camera_status.json public/data/itic_cameras.json
           git commit -m "data: อัปเดตข่าว/กล้อง $(TZ=Asia/Bangkok date '+%Y-%m-%d %H:%M')"
           git pull --rebase origin main
           git push

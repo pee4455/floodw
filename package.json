@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/pee4455/floodw#readme",
   "devDependencies": {
+    "hls.js": "^1.7.3",
     "leaflet": "^1.9.4",
     "playwright-core": "^1.63.0"
   },

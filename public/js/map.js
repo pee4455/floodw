@@ -95,18 +95,17 @@ export function renderMapData(ctx, { curated, news, cams = [] }, { fit = false }
 
   for (const c of cams) {
     if (!hasLocation(c)) continue;
-    const live = c.state === 'live';
-    const icon = L.divIcon({ className: '', html: `<span class="cam-marker${live ? ' live' : ''}"></span>`, iconSize: [26, 26], iconAnchor: [13, 13] });
+    const kind = c.type === 'snapshot' ? ' traffic' : c.state === 'live' ? ' live' : '';
+    const size = c.type === 'snapshot' ? 20 : 26;
+    const icon = L.divIcon({ className: '', html: `<span class="cam-marker${kind}"></span>`, iconSize: [size, size], iconAnchor: [size / 2, size / 2] });
     const link = watchUrl(c);
-    L.marker([c.lat, c.lon], { icon, title: c.name })
-      .bindPopup(
-        `<b>📷 ${esc(c.name)}</b><br><span class="tiny">${esc(c.area || '')} · ${esc(STATE_LABEL[c.state] || '')}</span>` +
-          (c.videoId ? `<img class="popup-cam" src="${esc(thumbUrl(c.videoId))}" alt="" loading="lazy">` : '<br>') +
-          (canEmbed(c) ? `<button type="button" data-cam-play="${esc(c.id)}">▶ ดูสด</button> ` : '') +
-          (link ? `<a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : '') +
-          (c.note ? `<br><span class="tiny">${esc(c.note)}</span>` : ''),
-      )
-      .addTo(layers.cams);
+    const popup = () =>
+      `<b>📷 ${esc(c.name)}</b><br><span class="tiny">${esc(c.area || '')} · ${esc(STATE_LABEL[c.state] || '')}</span>` +
+      (c.videoId ? `<img class="popup-cam" src="${esc(thumbUrl(c.videoId))}" alt="" loading="lazy">` : '<br>') +
+      (canEmbed(c) ? `<button type="button" data-cam-play="${esc(c.id)}">▶ ดูสด</button> ` : '') +
+      (link && c.type === 'youtube' ? `<a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : '') +
+      (c.note ? `<br><span class="tiny">${esc(c.note)}</span>` : '');
+    L.marker([c.lat, c.lon], { icon, title: c.name }).bindPopup(popup).addTo(layers.cams);
   }
 
   // ครั้งแรก: ซูมให้เห็นจุดน้ำท่วม/เฝ้าระวัง/ที่จอดรถทั้งหมด
