@@ -7,22 +7,16 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-      - name: Run update-cams
-        run: node scripts/update-cams.mjs
-      - name: Inspect result
+      - name: Diagnose camera image hosts
         run: |
-          python3 - <<'PY'
-          import json, collections
-          d = json.load(open('public/data/itic_cameras.json'))
-          print('total', d['total'], 'ok', d['ok'])
-          print(collections.Counter((c['org'], c['ok']) for c in d['cameras']).most_common(20))
-          for c in d['cameras'][:8]: print(c['ok'], c['name'], c['lat'], c['lon'], c['img'], c['hls'])
-          PY
-          IMG=$(python3 -c "import json;d=json.load(open('public/data/itic_cameras.json'));print(next(c['img'] for c in d['cameras'] if c['ok']))")
-          HLS=$(python3 -c "import json;d=json.load(open('public/data/itic_cameras.json'));print(next((c['hls'] for c in d['cameras'] if c['ok'] and c['hls']),''))")
-          echo "IMG=$IMG"; curl -sS -m 15 -o /dev/null -D - -H "Referer: https://pee4455.github.io/" "$IMG" | head -20
-          echo "HLS=$HLS"; curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$HLS" | head -30
+          for u in \
+            "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-3-008" \
+            "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.19:8802" \
+            "https://camera1.iticfoundation.org/hls/10.8.0.19_8802.m3u8" \
+            "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_008_IN.stream/playlist.m3u8" \
+            "https://camera1.iticfoundation.org/" ; do
+            echo "::group::$u"
+            curl -sS -v -m 20 -o /tmp/b -w "\nHTTP %{http_code} type=%{content_type} size=%{size_download} ip=%{remote_ip}\n" "$u" 2>&1 | grep -E "^\* (Trying|Connected|SSL|TLS|subject|issuer|expire)|HTTP|curl|Could|resolve|^< " | head -30
+            echo "::endgroup::"
+          done
+          dig +short camera1.iticfoundation.org camerai1.iticfoundation.org || true
