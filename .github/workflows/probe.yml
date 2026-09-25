@@ -11,23 +11,7 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Run update-cams
-        run: node scripts/update-cams.mjs
-      - name: Inspect HLS CORS + segments
+      - run: node scripts/update-cams.mjs
+      - name: Dump result
         run: |
-          python3 - <<'PY'
-          import json
-          d = json.load(open('public/data/itic_cameras.json'))
-          print('total', d['total'], 'ok', d['ok'])
-          for c in d['cameras'][:60]: print(c['ok'], c.get('via'), c['org'], c['name'][:50], c['hls'])
-          PY
-          for H in $(python3 -c "import json;d=json.load(open('public/data/itic_cameras.json'));hs=[c['hls'] for c in d['cameras'] if c['ok'] and c.get('via')=='hls'];print(' '.join([h for h in hs if 'camerai1' in h][:1]+[h for h in hs if 'camera1.' in h][:1]))"); do
-            echo "::group::$H"
-            curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$H"; echo
-            V=$(curl -sS -m 15 "$H" | grep -v '^#' | grep -m1 . ); echo "first=$V"
-            case "$V" in http*) U="$V";; *) U="$(dirname "$H")/$V";; esac
-            curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$U" | head -25
-            S=$(curl -sS -m 15 "$U" | grep -v '^#' | grep -m1 .); case "$S" in http*) SU="$S";; *) SU="$(dirname "$U")/$S";; esac
-            echo "segment=$SU"; curl -sS -m 20 -o /dev/null -D - -H "Origin: https://pee4455.github.io" "$SU" | head -15
-            echo "::endgroup::"
-          done
+          echo "DUMP_BEGIN"; gzip -c public/data/itic_cameras.json | base64 -w0; echo; echo "DUMP_END"
