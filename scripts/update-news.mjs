@@ -1,0 +1,92 @@
+#!/usr/bin/env node
+// ดึงข่าวน้ำท่วม/สภาพอากาศกรุงเทพฯ จาก RSS แล้วเขียน public/data/news.json
+// รันอัตโนมัติทุก 30 นาทีผ่าน GitHub Actions (.github/workflows/update-data.yml)
+// รันเอง: npm run update-news
+import { writeFile, readFile } from 'node:fs/promises';
+import { fileURLToPath } from 'node:url';
+import { parseRss, enrich, dedupe, isRelevant } from './lib/news.mjs';
+
+const OUT = fileURLToPath(new URL('../public/data/news.json', import.meta.url));
+const MAX_AGE_DAYS = 7;
+const MAX_ITEMS = 200;
+
+const gnews = (q) =>
+  `https://news.google.com/rss/search?q=${encodeURIComponent(`${q} when:3d`)}&hl=th&gl=TH&ceid=TH:th`;
+
+/** แหล่งข่าว — เพิ่ม/ลดได้ แต่ละแหล่งล้มเหลวได้โดยไม่กระทบแหล่งอื่น */
+export const FEEDS = [
+  { name: 'Google News: น้ำท่วมกรุงเทพ', url: gnews('น้ำท่วม กรุงเทพ') },
+  { name: 'Google News: น้ำท่วมขัง กทม.', url: gnews('น้ำท่วมขัง กทม.') },
+  { name: 'Google News: จอดรถหนีน้ำ', url: gnews('จอดรถหนีน้ำ') },
+  { name: 'Google News: ที่จอดรถฟรี น้ำท่วม', url: gnews('เปิดพื้นที่จอดรถ น้ำท่วม') },
+  { name: 'Google News: ระดับน้ำเจ้าพระยา', url: gnews('ระดับน้ำ เจ้าพระยา กทม.') },
+  { name: 'Google News: เตือนฝนตกหนัก', url: gnews('กรมอุตุ เตือน ฝนตกหนัก กรุงเทพ') },
+  { name: 'Google News: ศูนย์พักพิง/ช่วยเหลือ', url: gnews('ศูนย์พักพิง น้ำท่วม กทม.') },
+  { name: 'Google News (EN): Bangkok flood', url: 'https://news.google.com/rss/search?q=Bangkok+flood+when:3d&hl=en-TH&gl=TH&ceid=TH:en' },
+];
+
+async function fetchText(url) {
+  const ctrl = new AbortController();
+  const t = setTimeout(() => ctrl.abort(), 20000);
+  try {
+    const res = await fetch(url, {
+      signal: ctrl.signal,
+      headers: { 'user-agent': 'Mozilla/5.0 (compatible; BangkokFloodWatch/1.0; +https://github.com/pee4455/floodw)' },
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return await res.text();
+  } finally {
+    clearTimeout(t);
+  }
+}
+
+async function main() {
+  const results = await Promise.allSettled(FEEDS.map((f) => fetchText(f.url)));
+  const status = [];
+  let items = [];
+  results.forEach((r, i) => {
+    const feed = FEEDS[i];
+    if (r.status === 'fulfilled') {
+      const parsed = parseRss(r.value);
+      status.push({ feed: feed.name, ok: true, count: parsed.length });
+      items.push(...parsed.map((it) => ({ ...it, feed: feed.name })));
+    } else {
+      status.push({ feed: feed.name, ok: false, error: String(r.reason?.message || r.reason) });
+    }
+  });
+
+  // เก็บข่าวเก่าที่ยังไม่หมดอายุไว้ด้วย เผื่อรอบนี้บางแหล่งล้ม
+  try {
+    const prev = JSON.parse(await readFile(OUT, 'utf8'));
+    items.push(...(prev.items || []));
+  } catch {
+    /* ไม่มีไฟล์เดิม */
+  }
+
+  const cutoff = Date.now() - MAX_AGE_DAYS * 86400e3;
+  items = dedupe(items)
+    .filter((it) => it.title && it.link)
+    .filter((it) => !it.published || new Date(it.published).getTime() >= cutoff)
+    .map((it) => enrich(it))
+    .filter((it) => isRelevant(`${it.title} ${it.summary}`))
+    .slice(0, MAX_ITEMS);
+
+  const okFeeds = status.filter((s) => s.ok).length;
+  if (okFeeds === 0) {
+    console.error('ดึงข่าวไม่ได้เลยสักแหล่ง — ไม่เขียนทับไฟล์เดิม');
+    console.error(status);
+    process.exitCode = 1;
+    return;
+  }
+
+  const out = { generatedAt: new Date().toISOString(), feeds: status, items };
+  await writeFile(OUT, `${JSON.stringify(out, null, 1)}\n`);
+  console.log(`เขียน ${items.length} ข่าว (${okFeeds}/${FEEDS.length} แหล่งสำเร็จ) → ${OUT}`);
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  main().catch((e) => {
+    console.error(e);
+    process.exit(1);
+  });
+}
