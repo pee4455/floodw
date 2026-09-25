@@ -4,7 +4,7 @@
 // รันเอง: npm run update-cams
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
-import { ITIC_FEED_URL, normalizeItic, looksLikeImage } from './lib/itic.mjs';
+import { ITIC_FEED_URL, normalizeItic, looksLikeImage, parsePlaylist } from './lib/itic.mjs';
 
 const OUT = fileURLToPath(new URL('../public/data/itic_cameras.json', import.meta.url));
 const UA = 'Mozilla/5.0 (compatible; BangkokFloodWatch/1.0; +https://github.com/pee4455/floodw)';
@@ -19,13 +19,25 @@ async function get(url, timeout = 15000) {
   }
 }
 
-async function checkImage(cam) {
+/**
+ * ตรวจว่ากล้องใช้ได้จริง: เพลย์ลิสต์วิดีโอ HLS ต้องมีช่วงวิดีโอ (เซิร์ฟเวอร์ภาพนิ่ง JPEG ช้ามาก ~20 วิ/ภาพ จึงใช้เป็นทางสำรอง)
+ */
+async function checkCamera(cam) {
   try {
-    const res = await get(cam.img, 12000);
+    if (cam.hls) {
+      let res = await get(cam.hls, 12000);
+      let pl = parsePlaylist(res.ok ? await res.text() : '', cam.hls);
+      if (pl.ok && pl.variant) {
+        res = await get(pl.variant, 12000);
+        pl = parsePlaylist(res.ok ? await res.text() : '', pl.variant);
+      }
+      if (pl.ok && !pl.variant) return { ok: true, via: 'hls', status: res.status };
+    }
+    const res = await get(cam.img, 30000);
     const buf = res.ok ? await res.arrayBuffer() : new ArrayBuffer(0);
-    return { ok: res.ok && looksLikeImage(res.headers.get('content-type'), buf.byteLength), status: res.status, bytes: buf.byteLength };
+    return { ok: res.ok && looksLikeImage(res.headers.get('content-type'), buf.byteLength), via: 'jpeg', status: res.status, bytes: buf.byteLength };
   } catch (e) {
-    return { ok: false, status: 0, error: String(e.name === 'AbortError' ? 'timeout' : e.message) };
+    return { ok: false, status: 0, error: String(e.name === 'AbortError' ? 'timeout' : e.cause?.code || e.message) };
   }
 }
 
@@ -50,10 +62,11 @@ async function main() {
   const cams = normalizeItic(await res.json());
   if (cams.length === 0) throw new Error('ฟีดไม่มีกล้องในกรุงเทพฯ — ไม่เขียนทับไฟล์เดิม');
 
-  const checks = await mapLimit(cams, 6, checkImage);
+  const checks = await mapLimit(cams, 6, checkCamera);
   const now = new Date().toISOString();
   cams.forEach((c, k) => {
     c.ok = checks[k].ok;
+    c.via = checks[k].via || null; // hls = เล่นวิดีโอได้, jpeg = ได้แค่ภาพนิ่ง
     c.checkedAt = now;
   });
   const okCount = cams.filter((c) => c.ok).length;
@@ -72,7 +85,10 @@ async function main() {
     }
   }
   const byOrg = {};
-  for (const c of cams) byOrg[c.org || 'อื่น ๆ'] = (byOrg[c.org || 'อื่น ๆ'] || 0) + 1;
+  for (const c of cams) {
+    const k = `${c.org || 'อื่น ๆ'}:${c.ok ? c.via : 'เสีย'}`;
+    byOrg[k] = (byOrg[k] || 0) + 1;
+  }
   await writeFile(
     OUT,
     `${JSON.stringify({ generatedAt: now, source: 'iTIC Foundation / Longdo Traffic', feed: ITIC_FEED_URL, total: cams.length, ok: okCount, cameras: cams }, null, 1)}\n`,

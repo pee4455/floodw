@@ -49,3 +49,22 @@ export function normalizeItic(items) {
 export function looksLikeImage(contentType, bytes) {
   return /^image\//i.test(contentType || '') && bytes >= 2000;
 }
+
+/**
+ * ตรวจเพลย์ลิสต์ HLS
+ * @returns {{ok:boolean, variant:string|null}} variant = URL เพลย์ลิสต์ย่อย (กรณีเป็น master playlist)
+ */
+export function parsePlaylist(text, baseUrl) {
+  if (typeof text !== 'string' || !text.trimStart().startsWith('#EXTM3U')) return { ok: false, variant: null };
+  if (/#EXTINF/.test(text)) return { ok: true, variant: null };
+  if (/#EXT-X-STREAM-INF/.test(text)) {
+    const line = text.split(/\r?\n/).map((l) => l.trim()).find((l) => l && !l.startsWith('#'));
+    if (!line) return { ok: false, variant: null };
+    try {
+      return { ok: true, variant: new URL(line, baseUrl).href };
+    } catch {
+      return { ok: false, variant: null };
+    }
+  }
+  return { ok: false, variant: null };
+}

@@ -5,18 +5,29 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - name: Diagnose camera image hosts
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Run update-cams
+        run: node scripts/update-cams.mjs
+      - name: Inspect HLS CORS + segments
         run: |
-          for u in \
-            "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-3-008" \
-            "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.19:8802" \
-            "https://camera1.iticfoundation.org/hls/10.8.0.19_8802.m3u8" \
-            "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_008_IN.stream/playlist.m3u8" \
-            "https://camera1.iticfoundation.org/" ; do
-            echo "::group::$u"
-            curl -sS -v -m 20 -o /tmp/b -w "\nHTTP %{http_code} type=%{content_type} size=%{size_download} ip=%{remote_ip}\n" "$u" 2>&1 | grep -E "^\* (Trying|Connected|SSL|TLS|subject|issuer|expire)|HTTP|curl|Could|resolve|^< " | head -30
+          python3 - <<'PY'
+          import json
+          d = json.load(open('public/data/itic_cameras.json'))
+          print('total', d['total'], 'ok', d['ok'])
+          for c in d['cameras'][:60]: print(c['ok'], c.get('via'), c['org'], c['name'][:50], c['hls'])
+          PY
+          for H in $(python3 -c "import json;d=json.load(open('public/data/itic_cameras.json'));hs=[c['hls'] for c in d['cameras'] if c['ok'] and c.get('via')=='hls'];print(' '.join([h for h in hs if 'camerai1' in h][:1]+[h for h in hs if 'camera1.' in h][:1]))"); do
+            echo "::group::$H"
+            curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$H"; echo
+            V=$(curl -sS -m 15 "$H" | grep -v '^#' | grep -m1 . ); echo "first=$V"
+            case "$V" in http*) U="$V";; *) U="$(dirname "$H")/$V";; esac
+            curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$U" | head -25
+            S=$(curl -sS -m 15 "$U" | grep -v '^#' | grep -m1 .); case "$S" in http*) SU="$S";; *) SU="$(dirname "$U")/$S";; esac
+            echo "segment=$SU"; curl -sS -m 20 -o /dev/null -D - -H "Origin: https://pee4455.github.io" "$SU" | head -15
             echo "::endgroup::"
           done
-          dig +short camera1.iticfoundation.org camerai1.iticfoundation.org || true
