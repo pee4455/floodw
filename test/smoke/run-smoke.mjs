@@ -32,7 +32,8 @@ async function run(viewport, label) {
   await page.route('https://api.rainviewer.com/**', (r) =>
     r.fulfill({ json: { host: 'https://tilecache.rainviewer.com', radar: { past: [{ time: now - 600, path: '/v2/radar/1' }, { time: now, path: '/v2/radar/2' }], nowcast: [] } } }),
   );
-  await page.route(/tile\.openstreetmap\.org|tilecache\.rainviewer\.com/, (r) => r.fulfill({ body: PNG_1PX, contentType: 'image/png' }));
+  await page.route(/tile\.openstreetmap\.org|tilecache\.rainviewer\.com|i\.ytimg\.com/, (r) => r.fulfill({ body: PNG_1PX, contentType: 'image/png' }));
+  await page.route('https://www.youtube-nocookie.com/**', (r) => r.fulfill({ body: '<html><body>player</body></html>', contentType: 'text/html' }));
 
   await page.goto(`http://localhost:${PORT}/`);
   await page.waitForFunction(() => /\d/.test(document.getElementById('s-rain24').textContent), null, { timeout: 15000 });
@@ -47,7 +48,7 @@ async function run(viewport, label) {
   if (!/บางโมเดล/.test(status)) failures.push(`[${label}] ไม่แจ้งเตือนโมเดลที่ล่ม: "${status}"`);
   if (shotDir) await page.screenshot({ path: `${shotDir}/${label}-overview.png`, fullPage: true });
 
-  for (const tab of ['forecast', 'map', 'parking', 'news', 'help']) {
+  for (const tab of ['forecast', 'map', 'cams', 'parking', 'news', 'help']) {
     await page.click(`.tabs button[data-tab="${tab}"]`);
     await page.waitForTimeout(tab === 'map' ? 800 : 200);
     if (tab === 'forecast') {
@@ -61,6 +62,20 @@ async function run(viewport, label) {
       await page.waitForTimeout(500);
       const rt = await page.textContent('#radar-time');
       if (!/น\./.test(rt)) failures.push(`[${label}] เรดาร์ไม่แสดงเวลา: "${rt}"`);
+    }
+    if (tab === 'map' && (await page.locator('.cam-marker').count()) === 0) failures.push(`[${label}] ไม่มีหมุดกล้องบนแผนที่`);
+    if (tab === 'cams') {
+      const cards = await page.locator('.cam-card').count();
+      if (cards < 3) failures.push(`[${label}] การ์ดกล้องน้อยผิดปกติ (${cards})`);
+      if ((await page.locator('#cam-official li').count()) === 0) failures.push(`[${label}] ไม่มีรายการกล้องทางการ`);
+      await page.locator('.cam-card button[data-cam-play]').first().click();
+      await page.waitForTimeout(300);
+      const src = await page.getAttribute('#cam-frame iframe', 'src').catch(() => null);
+      if (!src || !/youtube-nocookie\.com\/embed\/[\w-]{11}/.test(src)) failures.push(`[${label}] เปิดกล้องไม่ขึ้น iframe (${src})`);
+      if (shotDir) await page.screenshot({ path: `${shotDir}/${label}-cam-dialog.png` });
+      await page.click('#cam-dialog-close');
+      if (await page.locator('#cam-frame iframe').count()) failures.push(`[${label}] ปิดกล้องแล้ววิดีโอยังเล่นอยู่`);
+      if (await page.evaluate(() => document.getElementById('cam-dialog').open)) failures.push(`[${label}] dialog ไม่ปิด`);
     }
     if (tab === 'parking' && (await page.locator('.pcard').count()) === 0) failures.push(`[${label}] ไม่มีการ์ดที่จอดรถ`);
     if (tab === 'news') {

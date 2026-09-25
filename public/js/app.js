@@ -4,6 +4,7 @@ import { fetchModels, fetchEnsembles, fetchTide, fetchLocalData } from './api.js
 import { analyze } from './analysis.js';
 import { renderRainChart, renderGauge } from './chart.js';
 import { createMap, renderMapData, setLocation, toggleLayer, enableRadar, disableRadar, toggleRadarPlay } from './map.js';
+import { resolveCameras, canEmbed, embedUrl, thumbUrl, watchUrl, hasLocation, STATE_LABEL } from './cams.js';
 import { esc, safeUrl, fmtDateTime, fmtDate, timeAgo, depthLabel, mm, pct, parkingState } from './util.js';
 
 const $ = (id) => document.getElementById(id);
@@ -25,6 +26,9 @@ const state = {
   modelResults: [],
   ensResults: [],
   mapCtx: null,
+  cams: [],
+  camsData: null,
+  camFilter: '',
   newsFilter: { cat: null, q: '', bkk: false },
 };
 
@@ -239,13 +243,22 @@ function renderModelStatus() {
 
 // ---------- ข้อมูลคัดกรอง / ข่าว ----------
 async function loadData() {
-  const [curated, news] = await Promise.all([fetchLocalData('curated'), fetchLocalData('news')]);
+  const [curated, news, camsData, camStatus] = await Promise.all([
+    fetchLocalData('curated'),
+    fetchLocalData('news'),
+    fetchLocalData('cameras'),
+    fetchLocalData('camera_status'),
+  ]);
   state.curated = curated;
   state.news = news;
+  state.camsData = camsData;
+  state.camStatus = camStatus;
+  state.cams = resolveCameras(camsData, camStatus);
+  renderCams();
   renderSituation();
   renderParking();
   renderNews();
-  if (state.mapCtx) renderMapData(state.mapCtx, { curated, news });
+  if (state.mapCtx) renderMapData(state.mapCtx, { curated, news, cams: state.cams });
 }
 
 function newsItemHtml(n) {
@@ -275,7 +288,8 @@ function renderSituation() {
   const openParking = (c.parking || []).filter((p) => parkingState(p) === 'open').length;
   $('sit-counts').innerHTML = `<button type="button" data-goto="map">🌊 จุดน้ำท่วม ${active} จุด</button>
     <button type="button" data-goto="parking">🅿️ ที่จอดรถเปิดอยู่ ${openParking} แห่ง</button>
-    <button type="button" data-goto="map">🔵 จุดเฝ้าระวัง ${(c.watchPoints || []).length} จุด</button>`;
+    <button type="button" data-goto="map">🔵 จุดเฝ้าระวัง ${(c.watchPoints || []).length} จุด</button>
+    <button type="button" data-goto="cams">📷 ${camCountLabel()}</button>`;
   $('tips').innerHTML = (c.tips || []).map((t) => `<li>${esc(t)}</li>`).join('');
 }
 
@@ -347,6 +361,98 @@ function renderNews() {
   $('overview-news').innerHTML = items.slice(0, 6).map(newsItemHtml).join('') || '<li class="muted">ยังไม่มีข่าว</li>';
 }
 
+// ---------- กล้อง ----------
+function camCountLabel() {
+  const live = state.cams.filter((x) => x.state === 'live').length;
+  return live ? `กล้องไลฟ์อยู่ ${live} ตัว` : `กล้อง ${state.cams.length} ตัว`;
+}
+
+function renderCams() {
+  const list = state.cams.filter((c) => !state.camFilter || c.tags.includes(state.camFilter));
+  $('cam-list').innerHTML = list.length
+    ? list
+        .map((c) => {
+          const link = watchUrl(c);
+          const playable = canEmbed(c);
+          const thumb = c.videoId ? `style="background-image:url('${esc(thumbUrl(c.videoId))}')"` : '';
+          return `<div class="cam-card">
+          <button type="button" class="cam-thumb${c.videoId ? '' : ' noimg'}" ${thumb}
+            ${playable ? `data-cam-play="${esc(c.id)}"` : `data-cam-open="${esc(link || '')}"`} aria-label="ดู ${esc(c.name)}">
+            <span class="cam-state ${esc(c.state)}">${c.state === 'live' ? '● ' : ''}${esc(STATE_LABEL[c.state] || c.state)}</span>
+            <span class="play">▶</span>
+          </button>
+          <div class="cam-body">
+            <h3>${esc(c.name)}</h3>
+            <span class="muted">${esc(c.area || '')}</span>
+            ${c.note ? `<span class="tiny muted">${esc(c.note)}</span>` : ''}
+            <div class="actions">
+              ${playable ? `<button type="button" data-cam-play="${esc(c.id)}">▶ ดูในแอป</button>` : ''}
+              ${link ? `<a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : ''}
+              ${hasLocation(c) ? `<button type="button" data-cam-map="${esc(c.id)}">📍 แผนที่</button>` : ''}
+            </div>
+          </div></div>`;
+        })
+        .join('')
+    : '<p class="muted">ไม่มีกล้องในหมวดนี้</p>';
+  $('cam-official').innerHTML = (state.camsData?.officialSources || [])
+    .map((o) => {
+      const u = safeUrl(o.url);
+      return `<li><span><a href="${esc(u || '#')}" target="_blank" rel="noopener"><b>${esc(o.name)}</b></a><br>
+      <span class="tiny muted">${esc(o.note || '')}</span></span><a href="${esc(u || '#')}" target="_blank" rel="noopener">เปิด ↗</a></li>`;
+    })
+    .join('');
+  const checked = state.camStatus?.generatedAt;
+  $('cams-checked').textContent = checked ? `(ตรวจล่าสุด ${fmtDateTime(checked)})` : '';
+}
+
+function openCam(id) {
+  const c = state.cams.find((x) => x.id === id);
+  if (!c || !canEmbed(c)) return;
+  $('cam-dialog-title').textContent = `📷 ${c.name}`;
+  $('cam-frame').innerHTML = `<iframe src="${esc(embedUrl(c.videoId))}" title="${esc(c.name)}"
+    allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+  const link = watchUrl(c);
+  $('cam-dialog-meta').innerHTML = `${esc(c.area || '')}${c.note ? ` · ${esc(c.note)}` : ''}
+    ${link ? ` · <a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : ''}
+    <br><span class="tiny muted">ภาพจากผู้ถ่ายทอดสดบน YouTube — ถ้าขึ้นว่าไลฟ์จบแล้ว แสดงว่ากล้องปิดอยู่ชั่วคราว</span>`;
+  const dlg = $('cam-dialog');
+  if (dlg.showModal) dlg.showModal();
+  else dlg.setAttribute('open', '');
+}
+
+function closeCam() {
+  $('cam-frame').innerHTML = ''; // หยุดวิดีโอ
+  const dlg = $('cam-dialog');
+  if (dlg.open) dlg.close ? dlg.close() : dlg.removeAttribute('open');
+}
+
+function initCams() {
+  $('cam-filter').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-tag]');
+    if (!b) return;
+    state.camFilter = b.dataset.tag;
+    $('cam-filter').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    renderCams();
+  });
+  document.addEventListener('click', (e) => {
+    const play = e.target.closest('[data-cam-play]');
+    if (play) return openCam(play.dataset.camPlay);
+    const open = e.target.closest('[data-cam-open]');
+    if (open && open.dataset.camOpen) return window.open(open.dataset.camOpen, '_blank', 'noopener');
+    const onMap = e.target.closest('[data-cam-map]');
+    if (onMap) {
+      const c = state.cams.find((x) => x.id === onMap.dataset.camMap);
+      document.querySelector('.tabs button[data-tab="map"]').click();
+      if (c && state.mapCtx) state.mapCtx.map.setView([c.lat, c.lon], 15);
+    }
+  });
+  $('cam-dialog-close').addEventListener('click', closeCam);
+  $('cam-dialog').addEventListener('close', () => ($('cam-frame').innerHTML = ''));
+  $('cam-dialog').addEventListener('click', (e) => {
+    if (e.target === $('cam-dialog')) closeCam(); // คลิกพื้นหลัง
+  });
+}
+
 // ---------- แผนที่ ----------
 function ensureMap() {
   if (state.mapCtx || !window.L) {
@@ -354,8 +460,8 @@ function ensureMap() {
     return;
   }
   state.mapCtx = createMap('map', state.loc);
-  renderMapData(state.mapCtx, { curated: state.curated, news: state.news }, { fit: true });
-  for (const key of ['flood', 'watch', 'parking', 'news']) {
+  renderMapData(state.mapCtx, { curated: state.curated, news: state.news, cams: state.cams }, { fit: true });
+  for (const key of ['flood', 'watch', 'parking', 'news', 'cams']) {
     $(`lyr-${key}`).addEventListener('change', (e) => toggleLayer(state.mapCtx, key, e.target.checked));
   }
   const onTime = (t) => ($('radar-time').textContent = t);
@@ -408,6 +514,7 @@ function init() {
   initTabs();
   initNewsControls();
   initWindy();
+  initCams();
   renderHelp();
   $('refresh').addEventListener('click', () => {
     loadData();

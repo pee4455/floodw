@@ -219,3 +219,47 @@ table.daily td:first-child, table.daily th:first-child { text-align: left; }
   .stat .v { font-size: 1.15rem; }
   .risk-head { flex-direction: column; align-items: flex-start; }
 }
+
+/* กล้อง */
+.cam-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 240px), 1fr)); gap: 10px; }
+.cam-card { border: 1px solid var(--line); border-radius: 10px; overflow: hidden; display: flex; flex-direction: column; background: var(--card); }
+.cam-thumb {
+  position: relative; display: block; width: 100%; aspect-ratio: 16 / 9; padding: 0; border-radius: 0;
+  background: #0f172a center / cover no-repeat; color: #fff;
+}
+.cam-thumb .play {
+  position: absolute; inset: 0; margin: auto; width: 52px; height: 52px; border-radius: 50%;
+  display: grid; place-items: center; background: rgba(0, 0, 0, .55); font-size: 22px;
+}
+.cam-thumb.noimg .play { background: rgba(255, 255, 255, .12); }
+.cam-state {
+  position: absolute; top: 8px; left: 8px; font-size: .72rem; font-weight: 700; padding: 1px 8px; border-radius: 4px;
+  background: rgba(15, 23, 42, .75); color: #fff;
+}
+.cam-state.live { background: #dc2626; }
+.cam-body { padding: 8px 10px 10px; display: flex; flex-direction: column; gap: 2px; font-size: .85rem; }
+.cam-body h3 { margin: 0; font-size: .95rem; }
+.cam-body .actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+.cam-body .actions button { background: none; color: var(--brand-2); padding: 0; }
+.cam-pin, .cam-marker {
+  display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%;
+  background: #111827; margin-right: 4px; vertical-align: middle;
+}
+.cam-pin::before, .cam-marker::before {
+  content: ""; width: 10px; height: 7px; border-radius: 2px; background: #fff;
+  box-shadow: 3px 0 0 -1px #fff;
+}
+.cam-marker { width: 26px; height: 26px; border: 2px solid #fff; box-shadow: 0 1px 3px rgba(0, 0, 0, .45); margin: 0; }
+.cam-marker.live { background: #dc2626; }
+.cam-dialog {
+  width: min(960px, calc(100vw - 16px)); max-width: none; padding: 0; border: 0; border-radius: 12px;
+  background: var(--card); color: var(--text);
+}
+.cam-dialog::backdrop { background: rgba(0, 0, 0, .6); }
+.cam-dialog-head { display: flex; justify-content: space-between; align-items: center; gap: 8px; padding: 8px 12px; }
+.cam-dialog-head h2 { font-size: 1rem; margin: 0; }
+.cam-dialog-head button { background: var(--accent); color: var(--text); }
+.cam-frame { aspect-ratio: 16 / 9; background: #000; }
+.cam-frame iframe { width: 100%; height: 100%; border: 0; display: block; }
+#cam-dialog-meta { padding: 6px 12px 12px; margin: 0; }
+.popup-cam { display: block; width: 200px; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 6px; margin: 4px 0; background: #0f172a; }
