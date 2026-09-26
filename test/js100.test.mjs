@@ -60,3 +60,11 @@ test('enrichJs100 geotags and categorizes', () => {
   assert.deepEqual(e.depthCm, [20, 30]);
   assert.equal(e.places[0].name, 'ถ.แจ้งวัฒนะ');
 });
+
+test('enrichJs100 picks one main place and skips reports outside Bangkok', () => {
+  const a = enrichJs100('อุบัติเหตุ ถนนติวานนท์ ขาออก จากห้าแยกปากเกร็ด มุ่งหน้าแยกสวนสมเด็จพระศรีนครินทร์');
+  assert.deepEqual(a.places.map((p) => p.name), ['ปากเกร็ด']);
+  const b = enrichJs100('โรงพยาบาลธนบุรี บำรุงเมือง ถนนบำรุงเมือง เขตป้อมปราบศัตรูพ่าย จะทำการซ้อมแผน');
+  assert.deepEqual(b.places.map((p) => p.name), ['ป้อมปราบศัตรูพ่าย']);
+  assert.equal(enrichJs100('น้ำท่วมขัง ถนนสุขุมวิท ขาเข้า ช่วงเลยอินเด็กซ์ ลิฟวิ่ง มอลล์ พัทยา').places.length, 0);
+});

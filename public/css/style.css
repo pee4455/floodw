@@ -272,3 +272,50 @@ table.daily td:first-child, table.daily th:first-child { text-align: left; }
 .cam-modes button { padding: 3px 10px; font-size: .85rem; }
 .traffic-thumb { background: linear-gradient(135deg, #1e3a8a, #0f172a); }
 .cam-org { position: absolute; bottom: 8px; left: 8px; right: 8px; font-size: .75rem; opacity: .85; text-align: left; }
+
+/* ---------- โหมดแผนที่ / Google Maps ---------- */
+.map-modes { margin: 0 0 8px; }
+.map-modes button { font-size: .92rem; }
+.note { background: var(--accent); border-radius: 8px; padding: 6px 10px; margin: 0 0 8px; }
+.note button, .linkish {
+  background: none; border: 0; padding: 0; color: var(--brand); text-decoration: underline; cursor: pointer; font: inherit;
+}
+.gm-layer { position: absolute; left: 0; top: 0; }
+.gm-pin { position: absolute; left: 0; top: 0; width: 0; height: 0; cursor: pointer; }
+.gm-pin-in { position: absolute; transform: translate(-50%, -50%); line-height: 0; }
+.dot-pin {
+  display: block; width: calc(var(--r) * 2); height: calc(var(--r) * 2); border-radius: 50%;
+  background: var(--c); border: 2px solid #fff; box-shadow: 0 0 0 1px rgba(0, 0, 0, .25); opacity: .92;
+}
+.loc-pin { display: block; width: 14px; height: 14px; border-radius: 50%; background: #fff; border: 3px solid #0b6fc2; }
+.gm-popup { font-size: .88rem; max-width: 280px; color: #10223a; }
+.gm-popup ul { padding-left: 16px; margin: 4px 0; }
+.js100-pin {
+  display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; border-radius: 6px;
+  background: #7c3aed; color: #fff; font-size: 10px; font-weight: 700; line-height: 1; border: 2px solid #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, .4); font-style: normal;
+}
+.js100-pin.flood { background: #0369a1; }
+.legend .js100-pin { width: 18px; height: 18px; font-size: 8px; margin-right: 4px; vertical-align: middle; border-width: 1px; }
+.line-sw { display: inline-block; width: 22px; height: 0; border-top: 4px solid #dc2626; margin-right: 4px; vertical-align: middle; }
+.line-sw.caution { border-top: 4px dashed #f97316; }
+.js100-list, .roads-list { list-style: none; padding: 0; margin: 6px 0; }
+.js100-list li { padding: 8px 0; border-bottom: 1px solid var(--line); font-size: .9rem; }
+.js100-list .tag { font-size: .7rem; }
+.roads-list li { border-bottom: 1px solid var(--line); }
+.roads-list button {
+  display: flex; flex-wrap: wrap; gap: 2px 8px; align-items: baseline; width: 100%; text-align: left;
+  background: none; color: var(--text); border: 0; border-radius: 0; padding: 8px 2px; font: inherit; cursor: pointer;
+}
+.roads-list button:hover { background: var(--accent); }
+.roads-list .tiny { flex-basis: 100%; }
+.lvl { font-size: .75rem; font-weight: 700; border-radius: 6px; padding: 1px 6px; color: #fff; }
+.lvl.avoid { background: #dc2626; }
+.lvl.caution { background: #c2410c; }
+.gmaps-key { margin-top: 8px; font-size: .88rem; }
+.gmaps-key summary { cursor: pointer; color: var(--brand); }
+.key-form { display: flex; flex-wrap: wrap; gap: 6px; margin: 6px 0; }
+.key-form input { flex: 1 1 220px; min-width: 0; }
+#gmaps-key-status.warn { color: #b45309; }
+#panel-traffic h3, #panel-flood h3 { font-size: 1rem; margin: 12px 0 4px; }
+.tag.traffic { background: #ede9fe; color: #4c1d95; }

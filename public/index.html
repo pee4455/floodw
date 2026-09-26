@@ -132,30 +132,84 @@
     <!-- แผนที่ -->
     <section id="tab-map" class="tab" role="tabpanel">
       <article class="card map-card">
+        <div class="chips map-modes" id="map-mode" role="group" aria-label="โหมดแผนที่">
+          <button type="button" data-mode="normal" aria-pressed="true">🗺️ ปกติ</button>
+          <button type="button" data-mode="traffic" aria-pressed="false">🚗 โหมดจราจร</button>
+          <button type="button" data-mode="flood" aria-pressed="false">🌊 โหมดน้ำท่วม</button>
+        </div>
         <div class="map-toolbar">
           <label><input type="checkbox" id="lyr-flood" checked> จุดน้ำท่วม</label>
+          <label><input type="checkbox" id="lyr-roads"> ถนนน้ำท่วม/ควรเลี่ยง</label>
           <label><input type="checkbox" id="lyr-watch" checked> จุดเฝ้าระวัง</label>
           <label><input type="checkbox" id="lyr-parking" checked> ที่จอดรถ</label>
           <label><input type="checkbox" id="lyr-news" checked> ข่าวตามพื้นที่</label>
+          <label><input type="checkbox" id="lyr-js100"> จส.100</label>
           <label><input type="checkbox" id="lyr-cams" checked> กล้อง CCTV</label>
+          <label><input type="checkbox" id="lyr-traffic"> จราจรสด (Google)</label>
           <label><input type="checkbox" id="lyr-radar"> เรดาร์ฝน</label>
           <span id="radar-ctl" class="radar-ctl" hidden>
             <button type="button" id="radar-play">▶</button>
             <span id="radar-time" class="small"></span>
           </span>
         </div>
+        <p id="traffic-note" class="note small" hidden></p>
         <div id="map" class="map" aria-label="แผนที่สถานการณ์น้ำท่วมกรุงเทพฯ"></div>
         <div class="legend">
           <span><i class="dot" style="background:#dc2626"></i>ท่วม ≥ 20 ซม.</span>
           <span><i class="dot" style="background:#f97316"></i>ท่วม 10–19 ซม.</span>
           <span><i class="dot" style="background:#eab308"></i>ท่วม &lt; 10 ซม./ไม่ระบุ</span>
+          <span><i class="line-sw avoid"></i>ถนนควรเลี่ยง</span>
+          <span><i class="line-sw caution"></i>ถนนขับช้า/ระวัง</span>
           <span><i class="dot" style="background:#2563eb"></i>จุดเฝ้าระวังแม่น้ำ/คลอง</span>
           <span><i class="pin">P</i>ที่จอดรถหนีน้ำ</span>
+          <span><i class="js100-pin">จส</i>รายงาน จส.100</span>
           <span><i class="cam-pin" aria-hidden="true"></i>ไลฟ์ YouTube</span>
           <span><i class="cam-pin traffic" aria-hidden="true"></i>กล้องจราจร</span>
           <span><i class="dot" style="background:#64748b"></i>ข่าวที่กล่าวถึงพื้นที่ (ตำแหน่งระดับเขต/ถนน)</span>
         </div>
-        <p class="tiny muted">เรดาร์: RainViewer · แผนที่: © OpenStreetMap contributors · เรดาร์ความละเอียดสูงของ กทม. ดูที่ <a href="https://weather.bangkok.go.th/" target="_blank" rel="noopener">weather.bangkok.go.th</a></p>
+        <p class="tiny muted"><span id="map-attrib">แผนที่: © OpenStreetMap contributors</span> · เรดาร์: RainViewer · เรดาร์ความละเอียดสูงของ กทม. ดูที่ <a href="https://weather.bangkok.go.th/" target="_blank" rel="noopener">weather.bangkok.go.th</a></p>
+        <details class="gmaps-key" id="gmaps-key">
+          <summary id="gmaps-key-summary">ใช้ Google Maps (ต้องมี API key)</summary>
+          <p class="small">ตอนนี้แผนที่ใช้ OpenStreetMap ซึ่งไม่มีข้อมูลจราจรสด ใส่ Google Maps API key (เปิดใช้ <b>Maps JavaScript API</b>) เพื่อเปลี่ยนเป็น Google Maps พร้อมเส้นสีจราจรสด · key เก็บไว้ในเบราว์เซอร์นี้เท่านั้น</p>
+          <form id="gmaps-key-form" class="key-form">
+            <input id="gmaps-key-input" type="password" autocomplete="off" spellcheck="false" placeholder="AIza..." aria-label="Google Maps API key">
+            <button type="submit">ใช้ key นี้</button>
+            <button type="button" id="gmaps-key-clear">กลับไปใช้ OpenStreetMap</button>
+          </form>
+          <p id="gmaps-key-status" class="tiny muted"></p>
+        </details>
+      </article>
+
+      <!-- โหมดจราจร -->
+      <article class="card" id="panel-traffic" hidden>
+        <h2>🚗 สภาพจราจร</h2>
+        <p class="small"><a id="gmaps-traffic-link" href="https://www.google.com/maps/@13.7563,100.5018,12z/data=!5m1!1e1" target="_blank" rel="noopener">เปิด Google Maps ดูเส้นจราจรสด ↗</a> · <a href="https://www.js100.com/en/site/traffic" target="_blank" rel="noopener">จส.100 ↗</a> · โทร 1137</p>
+        <h3>รายงานล่าสุดจาก จส.100 <span id="js100-age" class="tiny muted"></span></h3>
+        <div class="news-tools">
+          <input id="js100-q" type="search" placeholder="ค้นหาถนน/พื้นที่ เช่น พระราม 2, บางนา, อุบัติเหตุ">
+        </div>
+        <div class="chips" id="js100-filter">
+          <button type="button" data-js="" aria-pressed="true">ทั้งหมด</button>
+          <button type="button" data-js="flood" aria-pressed="false">น้ำท่วม</button>
+          <button type="button" data-js="accident" aria-pressed="false">อุบัติเหตุ/รถเสีย</button>
+          <button type="button" data-js="jam" aria-pressed="false">รถติด/ปิดถนน</button>
+        </div>
+        <ul id="js100-list" class="js100-list"></ul>
+      </article>
+
+      <!-- โหมดน้ำท่วม -->
+      <article class="card" id="panel-flood" hidden>
+        <h2>🌊 ถนนน้ำท่วม/ควรเลี่ยง</h2>
+        <p class="small" id="roads-meta"></p>
+        <div id="roads-closures"></div>
+        <div class="news-tools">
+          <input id="roads-q" type="search" placeholder="ค้นหาถนน/เขต เช่น วิภาวดี, จตุจักร">
+        </div>
+        <div class="chips" id="roads-zone"></div>
+        <ul id="roads-list" class="roads-list"></ul>
+        <div id="roads-clear"></div>
+        <h3>น้ำท่วมจาก จส.100</h3>
+        <ul id="js100-flood" class="js100-list"></ul>
       </article>
     </section>
 
@@ -190,6 +244,16 @@
       <article class="card">
         <h2>ที่จอดรถหนีน้ำ (ตรวจสอบแล้ว)</h2>
         <p class="small muted">รวบรวมจากข่าว/ประกาศ — โทรสอบถามก่อนเดินทางทุกครั้ง เพราะพื้นที่อาจเต็มหรือเปลี่ยนแปลง</p>
+        <div class="news-tools">
+          <input id="parking-q" type="search" placeholder="ค้นหาที่จอดรถ เช่น ฟิวเจอร์พาร์ค, รังสิต, ปทุมธานี, ฟรี">
+        </div>
+        <div class="chips" id="parking-filter">
+          <button type="button" data-pf="" aria-pressed="true">ทั้งหมด</button>
+          <button type="button" data-pf="open" aria-pressed="false">เปิดอยู่ตอนนี้</button>
+          <button type="button" data-pf="bkk" aria-pressed="false">ในกรุงเทพฯ</button>
+          <button type="button" data-pf="free" aria-pressed="false">จอดฟรี</button>
+        </div>
+        <p id="parking-count" class="tiny muted"></p>
         <div id="parking-list" class="cards"></div>
       </article>
       <article class="card">

@@ -54,11 +54,31 @@ export function parseNewsList(html) {
 }
 
 /** เติมหมวด/ตำแหน่ง/ความลึกน้ำ ให้รายงานจราจรหรือข่าว */
-export function enrichJs100(text) {
+// รายงานที่อยู่นอกกรุงเทพฯ/ปริมณฑลชัดเจน (มอเตอร์เวย์ระบุ กม. ไกลๆ, ต่างจังหวัด) ไม่ปักหมุด
+const OUTSIDE = /พัทยา|ชลบุรี|ระยอง|อยุธยา|บางปะอิน|มหาชัย|กม\.\s?\d{2,}/;
+
+/**
+ * เลือกตำแหน่งหลักเพียงจุดเดียวของรายงาน: "เขตXXX" ที่ระบุตรงๆ ก่อน ไม่งั้นชื่อที่ปรากฏก่อนในข้อความ
+ * (รายงาน จส.100 ขึ้นต้นด้วยถนนที่เกิดเหตุ ส่วนชื่อหลังๆ มักเป็นจุดอ้างอิง/ปลายทาง)
+ */
+export function mainPlace(text) {
+  if (!text || OUTSIDE.test(text)) return [];
   const places = findPlaces(text);
+  const district = places.find((p) => p.kind === 'district' && text.includes(`เขต${p.name}`));
+  if (district) return [district];
+  const pos = (p) => {
+    const keys = [p.name, p.name.replace(/^ถ\./, 'ถนน'), ...(p.match || [])];
+    const idx = keys.map((k) => text.indexOf(k)).filter((i) => i >= 0);
+    return idx.length ? Math.min(...idx) : Infinity;
+  };
+  const best = places.map((p) => ({ p, i: pos(p) })).sort((a, b) => a.i - b.i)[0];
+  return best ? [best.p] : [];
+}
+
+export function enrichJs100(text) {
   return {
     categories: categorize(text),
     depthCm: extractDepthCm(text),
-    places: places.map((p) => ({ name: p.name, lat: p.lat, lon: p.lon, kind: p.kind })),
+    places: mainPlace(text).map((p) => ({ name: p.name, lat: p.lat, lon: p.lon, kind: p.kind })),
   };
 }

@@ -60,3 +60,22 @@ export function parkingState(p, now = Date.now()) {
   if (p.from && today < p.from) return 'soon';
   return 'open';
 }
+
+/** ข้อความสำหรับค้นหา: ตัวพิมพ์เล็ก ตัดช่องว่าง (พิมพ์ "ฟิวเจอร์ พาร์ค" หรือ "ฟิวเจอร์พาร์ค" ก็เจอ) */
+export const searchKey = (s) => String(s ?? '').toLowerCase().replace(/\s+/g, '');
+
+/**
+ * กรองที่จอดรถ
+ * @param {object[]} list
+ * @param {{q?:string, filter?:''|'open'|'bkk'|'free'}} opts
+ */
+export function filterParking(list, { q = '', filter = '' } = {}, now = Date.now()) {
+  const key = searchKey(q);
+  return (list || []).filter((p) => {
+    if (filter === 'open' && parkingState(p, now) !== 'open') return false;
+    if (filter === 'bkk' && !p.inBangkok) return false;
+    if (filter === 'free' && !p.free) return false;
+    if (!key) return true;
+    return searchKey([p.name, p.area, p.floors, p.conditions, p.contact].join(' ')).includes(key);
+  });
+}

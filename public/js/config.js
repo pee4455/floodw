@@ -78,3 +78,11 @@ export const USEFUL_LINKS = [
   { name: 'Windy.com', url: 'https://www.windy.com/?13.756,100.502,9', note: 'เปรียบเทียบโมเดล ECMWF/GFS/ICON' },
   { name: 'GISTDA Disaster', url: 'https://disaster.gistda.or.th/', note: 'ภาพดาวเทียมพื้นที่น้ำท่วม' },
 ];
+
+/**
+ * Google Maps API key สำหรับทั้งเว็บ (ว่าง = ใช้ OpenStreetMap เป็นค่าเริ่มต้น)
+ * ต้องเปิด "Maps JavaScript API" และตั้งข้อจำกัด HTTP referrer เป็นโดเมนของเว็บ เช่น https://pee4455.github.io/floodw/*
+ * key ของ Maps JavaScript API มองเห็นได้ในหน้าเว็บอยู่แล้ว ความปลอดภัยจึงมาจากการจำกัด referrer + โควตา
+ * ผู้ใช้แต่ละคนใส่ key ของตัวเองในหน้าแผนที่ได้ด้วย (เก็บในเบราว์เซอร์นั้นเท่านั้น)
+ */
+export const GOOGLE_MAPS_API_KEY = '';
