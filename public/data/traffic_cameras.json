@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-26T12:27:54.622Z",
+ "generatedAt": "2026-09-26T16:46:16.776Z",
  "sources": [
   {
    "name": "iTIC Foundation / Longdo Traffic",
@@ -13,7 +13,7 @@
   }
  ],
  "total": 63,
- "ok": 11,
+ "ok": 13,
  "cameras": [
   {
    "id": "doh-PER-3-004",
@@ -45,7 +45,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-3-005",
@@ -77,7 +77,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-3-008",
@@ -91,13 +91,14 @@
    "lon": 100.6058,
    "img": null,
    "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_008_IN.stream/playlist.m3u8",
+   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_008_IN.stream/playlist.m3u8",
    "streams": [
     {
      "label": "มุ่งหน้าแยกหลักสี่",
-     "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_008_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
+     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_008_IN.stream/playlist.m3u8",
+     "alt": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_008_IN.stream/playlist.m3u8",
+     "ok": true,
+     "cors": true
     },
     {
      "label": "มุ่งหน้ารังสิต",
@@ -106,10 +107,10 @@
      "cors": null
     }
    ],
-   "ok": null,
+   "ok": true,
    "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "cors": true,
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-3-009",
@@ -143,7 +144,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-3-013",
@@ -175,7 +176,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-3-016",
@@ -207,7 +208,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-3-017",
@@ -241,7 +242,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-3-018",
@@ -273,7 +274,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-4-016",
@@ -305,7 +306,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-4-022",
@@ -337,7 +338,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-9-022",
@@ -369,7 +370,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-9-027",
@@ -403,7 +404,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-10-019",
@@ -435,7 +436,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-11-033",
@@ -449,19 +450,20 @@
    "lon": 100.92626,
    "img": null,
    "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/Phase11/PER_11_033.stream/playlist.m3u8",
+   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.208:1935/Phase11/PER_11_033.stream/playlist.m3u8",
    "streams": [
     {
      "label": "ทิศทางมุ่งหน้าเข้า จ.นครนายก",
-     "hls": "https://streaming2.highwaytraffic.go.th/Phase11/PER_11_033.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
+     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.208:1935/Phase11/PER_11_033.stream/playlist.m3u8",
+     "alt": "https://streaming2.highwaytraffic.go.th/Phase11/PER_11_033.stream/playlist.m3u8",
+     "ok": true,
+     "cors": true
     }
    ],
-   "ok": null,
+   "ok": true,
    "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "cors": true,
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-12-013",
@@ -493,7 +495,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-12-015",
@@ -526,7 +528,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-13-029",
@@ -558,7 +560,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-16-012",
@@ -590,7 +592,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "doh-PER-19-001",
@@ -622,24 +624,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
-  },
-  {
-   "id": "itic-DOH-PER-9-026",
-   "code": "DOH-PER-9-026",
-   "type": "snapshot",
-   "name": "(จ.นนทบุรี) 302 - อ.เมืองนนทบุรี จ.นนทบุรี ทิศทางมุ่งหน้าเข้า กทม.",
-   "org": "กรมทางหลวง",
-   "lat": 13.87167,
-   "lon": 100.46239,
-   "img": "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-9-026",
-   "video": "https://camera1.iticfoundation.org/mjpeg.php?camid=PER-9-026",
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase9/PER_9_026_IN.stream/playlist.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0125",
@@ -656,7 +641,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-DOH-PER-12-017",
@@ -673,7 +658,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-DOH-PER-3-006-out",
@@ -690,7 +675,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-DOH-PER-12-016-out",
@@ -707,7 +692,24 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
+  },
+  {
+   "id": "itic-DOH-PER-9-026",
+   "code": "DOH-PER-9-026",
+   "type": "snapshot",
+   "name": "(จ.นนทบุรี) 302 - อ.เมืองนนทบุรี จ.นนทบุรี ทิศทางมุ่งหน้าเข้า กทม.",
+   "org": "กรมทางหลวง",
+   "lat": 13.87167,
+   "lon": 100.46239,
+   "img": "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-9-026",
+   "video": "https://camera1.iticfoundation.org/mjpeg.php?camid=PER-9-026",
+   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase9/PER_9_026_IN.stream/playlist.m3u8",
+   "source": "itic",
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0102",
@@ -724,7 +726,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0074",
@@ -741,7 +743,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0076",
@@ -758,7 +760,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-DOH-PER-12-019",
@@ -775,7 +777,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0080",
@@ -792,7 +794,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0081",
@@ -809,7 +811,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0124",
@@ -826,7 +828,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-DOH-PER-3-006",
@@ -843,7 +845,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-DOH-PER-9-026-out",
@@ -860,7 +862,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0072",
@@ -877,7 +879,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-DOHBHS0016",
@@ -894,7 +896,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0071",
@@ -911,7 +913,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0030",
@@ -928,7 +930,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0031",
@@ -945,7 +947,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0032",
@@ -962,7 +964,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0033",
@@ -979,7 +981,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0041",
@@ -996,7 +998,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0042",
@@ -1013,7 +1015,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0043",
@@ -1030,7 +1032,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0044",
@@ -1047,7 +1049,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0045",
@@ -1064,7 +1066,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0046",
@@ -1081,7 +1083,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0047",
@@ -1098,7 +1100,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0048",
@@ -1115,7 +1117,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0049",
@@ -1132,7 +1134,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0050",
@@ -1149,7 +1151,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0051",
@@ -1166,7 +1168,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0052",
@@ -1183,7 +1185,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0053",
@@ -1200,7 +1202,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0054",
@@ -1217,7 +1219,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0055",
@@ -1234,7 +1236,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0056",
@@ -1251,7 +1253,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0057",
@@ -1268,7 +1270,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0058",
@@ -1285,7 +1287,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0059",
@@ -1302,7 +1304,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0060",
@@ -1319,7 +1321,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0061",
@@ -1336,7 +1338,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0065",
@@ -1353,7 +1355,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   },
   {
    "id": "itic-ITICM_BMAMI0066",
@@ -1370,7 +1372,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-26T12:27:54.622Z"
+   "checkedAt": "2026-09-26T16:46:16.776Z"
   }
  ]
 }
