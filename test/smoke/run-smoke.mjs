@@ -102,6 +102,15 @@ async function run(viewport, label) {
         await doh.first().click();
         await page.waitForTimeout(400);
         if ((await page.locator('#cam-frame video').count()) === 0) failures.push(`[${label}] กล้อง HLS ไม่เปิดเป็นวิดีโอ`);
+        // กล้องกรมทางหลวงมีปุ่มเลือกทิศทาง (ขาเข้า/ขาออก)
+        const dirs = page.locator('[data-cam-stream]');
+        if ((await dirs.count()) < 2) failures.push(`[${label}] ไม่มีปุ่มเลือกทิศทางกล้อง`);
+        else {
+          await dirs.nth(1).click();
+          await page.waitForTimeout(300);
+          if ((await page.locator('#cam-frame video').count()) === 0) failures.push(`[${label}] สลับทิศทางแล้วไม่มีวิดีโอ`);
+        }
+        if (shotDir) await page.screenshot({ path: `${shotDir}/${label}-doh-dialog.png` });
         await page.click('#cam-dialog-close');
       }
       await page.fill('#cam-q', '');

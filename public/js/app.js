@@ -248,19 +248,19 @@ function renderModelStatus() {
 
 // ---------- ข้อมูลคัดกรอง / ข่าว ----------
 async function loadData() {
-  const [curated, news, camsData, camStatus, itic] = await Promise.all([
+  const [curated, news, camsData, camStatus, traffic] = await Promise.all([
     fetchLocalData('curated'),
     fetchLocalData('news'),
     fetchLocalData('cameras'),
     fetchLocalData('camera_status'),
-    fetchLocalData('itic_cameras'),
+    fetchLocalData('traffic_cameras'),
   ]);
-  state.itic = itic;
+  state.traffic = traffic;
   state.curated = curated;
   state.news = news;
   state.camsData = camsData;
   state.camStatus = camStatus;
-  state.cams = resolveCameras(camsData, camStatus, itic);
+  state.cams = resolveCameras(camsData, camStatus, traffic);
   renderCams();
   renderSituation();
   renderParking();
@@ -436,7 +436,7 @@ function renderCams() {
     })
     .join('');
   const checked = state.camStatus?.generatedAt;
-  const traffic = state.itic?.generatedAt;
+  const traffic = state.traffic?.generatedAt;
   $('cams-checked').textContent = [
     checked ? `ไลฟ์ตรวจล่าสุด ${fmtDateTime(checked)}` : '',
     traffic ? `รายชื่อกล้องจราจร ${fmtDateTime(traffic)}` : '',
@@ -497,19 +497,32 @@ function loadHlsJs() {
 }
 
 /** วิดีโอ HLS: Safari/iOS เล่นได้เอง เบราว์เซอร์อื่นใช้ hls.js */
-async function playHls(c) {
+async function playHls(c, url = c.hls, triedAlt = false) {
   const token = snapToken;
+  // สตรีมสำรอง (เช่น สตรีมตรงของกรมทางหลวง) ใช้เมื่อสตรีมหลักเล่นไม่ได้
+  const alt = triedAlt ? null : c.streams?.find((st) => st.hls === url)?.alt;
   $('cam-frame').innerHTML = '<video id="cam-video" class="cam-snap" autoplay muted playsinline controls></video>';
   const video = $('cam-video');
   setCamStatus('กำลังเชื่อมต่อวิดีโอ…');
   const fail = () => {
     if (token !== snapToken) return;
-    setCamStatus('เล่นวิดีโอไม่ได้ตอนนี้ — ลอง "ภาพนิ่ง" ด้านล่าง');
+    if (alt) {
+      hlsPlayer?.destroy();
+      hlsPlayer = null;
+      return playHls(c, alt, true);
+    }
+    setCamStatus(c.img ? 'เล่นวิดีโอไม่ได้ตอนนี้ — ลอง "ภาพนิ่ง" ด้านล่าง' : 'เล่นวิดีโอไม่ได้ตอนนี้ — ลองทิศทางอื่น หรือเปิดในเว็บต้นทาง');
   };
   video.addEventListener('playing', () => token === snapToken && setCamStatus('● วิดีโอสด'), { once: true });
   video.addEventListener('error', fail, { once: true });
   if (video.canPlayType('application/vnd.apple.mpegurl')) {
-    video.src = c.hls;
+    video.src = url;
+    return;
+  }
+  if (c.cors === false) {
+    // เซิร์ฟเวอร์ไม่อนุญาตให้เว็บอื่นดึงสตรีม: Safari/iPhone เล่นได้ แต่ Chrome/Android ต้องเปิดในเว็บต้นทาง
+    $('cam-frame').innerHTML = '';
+    setCamStatus('เบราว์เซอร์นี้เล่นสตรีมนี้ในแอปไม่ได้ (ต้นทางไม่อนุญาต) — กดลิงก์ "เปิดในเว็บกรมทางหลวง" ด้านล่าง');
     return;
   }
   try {
@@ -518,7 +531,7 @@ async function playHls(c) {
     if (!Hls?.isSupported()) return fail();
     hlsPlayer = new Hls({ lowLatencyMode: true, backBufferLength: 10 });
     hlsPlayer.on(Hls.Events.ERROR, (_e, data) => data.fatal && fail());
-    hlsPlayer.loadSource(c.hls);
+    hlsPlayer.loadSource(url);
     hlsPlayer.attachMedia(video);
   } catch {
     fail();
@@ -534,11 +547,22 @@ function openCam(id) {
     $('cam-dialog').dataset.camId = c.id;
     $('cam-dialog-meta').innerHTML = `${esc(c.area || '')} · <span id="cam-snap-status"></span>
       <br><span class="cam-modes">
-        ${c.hls ? `<button type="button" data-cam-mode="hls">▶ วิดีโอสด</button>` : ''}
-        <button type="button" data-cam-mode="snap">🖼 ภาพนิ่ง (ประหยัดเน็ต)</button>
+        ${
+          c.streams?.length > 1
+            ? c.streams.map((st, i) => `<button type="button" data-cam-mode="hls" data-cam-stream="${i}">▶ ${esc(st.label)}</button>`).join('')
+            : c.hls
+              ? `<button type="button" data-cam-mode="hls">▶ วิดีโอสด</button>`
+              : ''
+        }
+        ${c.img ? `<button type="button" data-cam-mode="snap">🖼 ภาพนิ่ง (ประหยัดเน็ต)</button>` : ''}
         ${c.video ? `<button type="button" data-cam-mode="mjpeg">🎞 วิดีโอสำรอง (MJPEG)</button>` : ''}
       </span>
-      <br><span class="tiny muted">ภาพจากกล้องจราจร ${esc(c.org || '')} ผ่านมูลนิธิศูนย์ข้อมูลจราจรอัจฉริยะไทย (iTIC) / Longdo Traffic</span>`;
+      ${c.detail ? `<br><span class="tiny">${esc(c.detail)}</span>` : ''}
+      <br><span class="tiny muted">${
+        c.source === 'doh'
+          ? 'ภาพจากกล้องกรมทางหลวง · <a href="https://highwaytraffic.go.th/DOHWeb/home.aspx" target="_blank" rel="noopener">เปิดในเว็บกรมทางหลวง</a>'
+          : `ภาพจากกล้องจราจร ${esc(c.org || '')} ผ่านมูลนิธิศูนย์ข้อมูลจราจรอัจฉริยะไทย (iTIC) / Longdo Traffic`
+      }</span>`;
     if (c.hls && c.via !== 'jpeg') playHls(c);
     else playSnapshots(c);
   } else {
@@ -555,15 +579,16 @@ function openCam(id) {
 }
 
 /** สลับโหมดดูกล้องจราจร: วิดีโอ HLS / ภาพนิ่ง / MJPEG */
-function setCamMode(mode) {
+function setCamMode(mode, streamIndex) {
   const c = state.cams.find((x) => x.id === $('cam-dialog').dataset.camId);
   if (!c) return;
   stopSnapshots();
-  if (mode === 'hls' && c.hls) playHls(c);
+  const stream = c.streams?.[streamIndex];
+  if (mode === 'hls' && (stream || c.hls)) playHls(c, stream?.hls || c.hls);
   else if (mode === 'mjpeg' && c.video) {
     $('cam-frame').innerHTML = `<img id="cam-snap" class="cam-snap" alt="${esc(c.name)}" referrerpolicy="no-referrer" src="${esc(c.video)}">`;
     setCamStatus('วิดีโอสำรอง (MJPEG) — ใช้เน็ตมากกว่า');
-  } else playSnapshots(c);
+  } else if (c.img) playSnapshots(c);
 }
 
 function closeCam() {
@@ -600,7 +625,7 @@ function initCams() {
     const play = e.target.closest('[data-cam-play]');
     if (play) return openCam(play.dataset.camPlay);
     const mode = e.target.closest('[data-cam-mode]');
-    if (mode) return setCamMode(mode.dataset.camMode);
+    if (mode) return setCamMode(mode.dataset.camMode, Number(mode.dataset.camStream ?? 0));
     const open = e.target.closest('[data-cam-open]');
     if (open && open.dataset.camOpen) return window.open(open.dataset.camOpen, '_blank', 'noopener');
     const onMap = e.target.closest('[data-cam-map]');

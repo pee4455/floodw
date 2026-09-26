@@ -1,6 +1,6 @@
 // กล้อง CCTV / ไลฟ์ YouTube
 // - youtube: cameras.json + สถานะไลฟ์ camera_status.json
-// - snapshot: กล้องจราจรจากฟีด iTIC/Longdo (itic_cameras.json) ภาพนิ่งอัปเดตทุกไม่กี่วินาที
+// - snapshot: กล้องจราจรจาก iTIC/Longdo และกรมทางหลวง (traffic_cameras.json) — วิดีโอ HLS / ภาพนิ่ง
 
 const STATE_ORDER = { live: 0, online: 1, unknown: 2, offline: 3, unavailable: 4 };
 
@@ -18,19 +18,22 @@ const YT_ID = /^[\w-]{11}$/;
  * @returns {{id:string, type:string, name:string, area:string, lat:number|null, lon:number|null,
  *   videoId:string|null, state:string, channel:string|null, note?:string, tags:string[], approximate?:boolean}[]}
  */
-export function resolveCameras(camerasJson, statusJson, iticJson = null) {
+export function resolveCameras(camerasJson, statusJson, trafficJson = null) {
   const status = statusJson?.status || {};
   const youtube = (camerasJson?.cameras || []).map((c) => {
     const s = status[c.id];
     const videoId = [s?.videoId, c.videoId].find((v) => v && YT_ID.test(v)) || null;
     return { ...c, videoId, state: s?.state || 'unknown', liveTitle: s?.title || null, tags: [...(c.tags || []), 'youtube'] };
   });
-  const snapshots = (iticJson?.cameras || [])
-    .filter((c) => c && c.type === 'snapshot' && isHttps(c.img) && Number.isFinite(c.lat) && Number.isFinite(c.lon))
+  const snapshots = (trafficJson?.cameras || [])
+    .filter((c) => c && c.type === 'snapshot' && (isHttps(c.img) || isHttps(c.hls)) && Number.isFinite(c.lat) && Number.isFinite(c.lon))
     .map((c) => ({
       ...c,
+      img: isHttps(c.img) ? c.img : null,
       video: isHttps(c.video) ? c.video : null,
       hls: isHttps(c.hls) ? c.hls : null,
+      // กล้องกรมทางหลวงมีหลายทิศทาง (ขาเข้า/ขาออก) — เก็บเฉพาะที่ไม่เสีย
+      streams: (c.streams || []).filter((st) => isHttps(st.hls) && st.ok !== false),
       area: c.org || 'กล้องจราจร',
       videoId: null,
       // ok: true = ตรวจแล้วใช้ได้, null = ตรวจจากเซิร์ฟเวอร์ต่างประเทศไม่ได้ (อาจเปิดได้ในไทย), false = เสีย

@@ -32,6 +32,7 @@ export function normalizeItic(items) {
     if (out.has(id)) continue;
     out.set(id, {
       id,
+      code: camid,
       type: 'snapshot',
       name: String(it.title || camid).replace(/\s+/g, ' ').trim(),
       org: String(it.organization || '').trim() || null,
