@@ -1,0 +1,29 @@
+name: Probe js100 (temporary)
+on:
+  push:
+    branches: [claude/bangkok-weather-flood-app-gffs1j]
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Probe js100
+        run: |
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+          for u in https://www.js100.com/en/site/traffic https://www.js100.com/en/site/news https://www.js100.com/en/site/news/view/121571 https://www.js100.com/rss https://www.js100.com/feed; do
+            echo "::group::$u"
+            curl -sSL -m 30 -A "$UA" -o /tmp/b -w "HTTP %{http_code} type=%{content_type} size=%{size_download} final=%{url_effective}\n" "$u" || echo fail
+            python3 - <<'PY'
+          import re, html
+          s = open('/tmp/b', encoding='utf-8', errors='replace').read()
+          print('scripts:', sorted(set(re.findall(r'<script[^>]+src="([^"]+)"', s)))[:20])
+          print('json/api-ish:', sorted(set(re.findall(r'["\'](/[^"\' ]*(?:api|json|ajax|load|feed|traffic|news/view)[^"\' ]*)["\']', s)))[:40])
+          body = re.sub(r'<(script|style)[\s\S]*?</\1>', '', s)
+          body = re.sub(r'<[^>]+>', '\n', body); body = html.unescape(re.sub(r'\n\s*\n+', '\n', body))
+          print(body[:2500])
+          # inline scripts mentioning ajax/url
+          for sc in re.findall(r'<script[^>]*>([\s\S]*?)</script>', s):
+              if re.search(r'ajax|fetch\(|\$\.get|\$\.post|url\s*:', sc): print('INLINE:', sc[:1500])
+          PY
+            echo "::endgroup::"
+          done
