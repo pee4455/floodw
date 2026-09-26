@@ -5,8 +5,10 @@
 import { writeFile, readFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { parseRss, enrich, dedupe, isRelevant } from './lib/news.mjs';
+import { JS100, parseTraffic, parseNewsList, enrichJs100 } from './lib/js100.mjs';
 
 const OUT = fileURLToPath(new URL('../public/data/news.json', import.meta.url));
+const OUT_JS100 = fileURLToPath(new URL('../public/data/js100.json', import.meta.url));
 const MAX_AGE_DAYS = 7;
 const MAX_ITEMS = 200;
 
@@ -40,7 +42,42 @@ async function fetchText(url) {
   }
 }
 
+/**
+ * จส.100: รายงานจราจรล่าสุด + ข่าว → public/data/js100.json
+ * คืนข่าวที่เกี่ยวกับน้ำ/ฝน เพื่อรวมเข้าหน้าข่าวหลักด้วย
+ */
+async function updateJs100() {
+  const post = (offset) =>
+    fetch(JS100.more, {
+      method: 'POST',
+      headers: { 'content-type': 'application/x-www-form-urlencoded', 'user-agent': 'Mozilla/5.0 (compatible; BangkokFloodWatch/1.0)' },
+      body: `per_page=12&offset=${offset}`,
+      signal: AbortSignal.timeout(20000),
+    }).then((r) => (r.ok ? r.text() : ''));
+  const [trafficHtml, newsHtml, more1, more2] = await Promise.all([
+    fetchText(JS100.traffic),
+    fetchText(JS100.news),
+    post(1).catch(() => ''),
+    post(2).catch(() => ''),
+  ]);
+  const traffic = parseTraffic(trafficHtml).map((t, i) => ({ id: `t${i}-${t.published}`, ...t, ...enrichJs100(t.text) }));
+  const news = parseNewsList(`${newsHtml}${more1}${more2}`).map((n) => ({ ...n, ...enrichJs100(n.title) }));
+  if (!traffic.length && !news.length) throw new Error('จส.100: ไม่พบรายการ (หน้าเว็บอาจเปลี่ยนรูปแบบ)');
+  await writeFile(
+    OUT_JS100,
+    `${JSON.stringify({ generatedAt: new Date().toISOString(), source: 'จส.100 (js100.com)', traffic, news }, null, 1)}\n`,
+  );
+  console.log(`จส.100: รายงานจราจร ${traffic.length} รายการ ข่าว ${news.length} รายการ → ${OUT_JS100}`);
+  return news
+    .filter((n) => isRelevant(n.title))
+    .map((n) => ({ title: n.title, link: n.link, published: n.published, source: 'จส.100', summary: '', feed: 'จส.100' }));
+}
+
 async function main() {
+  const js100 = updateJs100().catch((e) => {
+    console.error('จส.100 ล้มเหลว:', e.message);
+    return null;
+  });
   const results = await Promise.allSettled(FEEDS.map((f) => fetchText(f.url)));
   const status = [];
   let items = [];
@@ -54,6 +91,10 @@ async function main() {
       status.push({ feed: feed.name, ok: false, error: String(r.reason?.message || r.reason) });
     }
   });
+
+  const js100News = await js100;
+  status.push(js100News ? { feed: 'จส.100', ok: true, count: js100News.length } : { feed: 'จส.100', ok: false });
+  items.push(...(js100News || []));
 
   // เก็บข่าวเก่าที่ยังไม่หมดอายุไว้ด้วย เผื่อรอบนี้บางแหล่งล้ม
   try {

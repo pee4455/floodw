@@ -3,8 +3,9 @@ import { BANGKOK_DISTRICTS } from './gazetteer.js';
 import { fetchModels, fetchEnsembles, fetchTide, fetchLocalData } from './api.js';
 import { analyze } from './analysis.js';
 import { renderRainChart, renderGauge } from './chart.js';
-import { createMap, renderMapData, setLocation, toggleLayer, enableRadar, disableRadar, toggleRadarPlay } from './map.js';
-import { resolveCameras, canEmbed, embedUrl, thumbUrl, watchUrl, hasLocation, snapshotUrl, sortByDistance, STATE_LABEL } from './cams.js';
+import { initMapView, ensureMap, refreshMap, setMapLocation, showOnMap } from './mapview.js';
+import { resolveCameras, canEmbed, embedUrl, thumbUrl, watchUrl, hasLocation, snapshotUrl, sortByDistance, distanceKm, STATE_LABEL } from './cams.js';
+import { filterParking, searchKey } from './util.js';
 import { esc, safeUrl, fmtDateTime, fmtDate, timeAgo, depthLabel, mm, pct, parkingState } from './util.js';
 
 const $ = (id) => document.getElementById(id);
@@ -25,7 +26,8 @@ const state = {
   result: null,
   modelResults: [],
   ensResults: [],
-  mapCtx: null,
+  floodRoads: null,
+  js100: null,
   cams: [],
   camsData: null,
   camFilter: '',
@@ -34,6 +36,7 @@ const state = {
   showUnverified: false,
   snapTimer: null,
   newsFilter: { cat: null, q: '', bkk: false },
+  parkingFilter: { q: '', filter: '' },
 };
 
 // ---------- ตำแหน่ง ----------
@@ -94,8 +97,9 @@ function initLocationSelect() {
 function changeLocation(loc) {
   state.loc = loc;
   renderCams();
+  renderParking();
   store.set('loc', loc);
-  setLocation(state.mapCtx, loc);
+  setMapLocation(loc);
   loadForecast();
 }
 
@@ -248,14 +252,18 @@ function renderModelStatus() {
 
 // ---------- ข้อมูลคัดกรอง / ข่าว ----------
 async function loadData() {
-  const [curated, news, camsData, camStatus, traffic] = await Promise.all([
+  const [curated, news, camsData, camStatus, traffic, floodRoads, js100] = await Promise.all([
     fetchLocalData('curated'),
     fetchLocalData('news'),
     fetchLocalData('cameras'),
     fetchLocalData('camera_status'),
     fetchLocalData('traffic_cameras'),
+    fetchLocalData('flood_roads'),
+    fetchLocalData('js100'),
   ]);
   state.traffic = traffic;
+  state.floodRoads = floodRoads;
+  state.js100 = js100;
   state.curated = curated;
   state.news = news;
   state.camsData = camsData;
@@ -265,7 +273,7 @@ async function loadData() {
   renderSituation();
   renderParking();
   renderNews();
-  if (state.mapCtx) renderMapData(state.mapCtx, { curated, news, cams: visibleCams() });
+  refreshMap();
 }
 
 function newsItemHtml(n) {
@@ -301,10 +309,14 @@ function renderSituation() {
 }
 
 function renderParking() {
-  const list = state.curated?.parking || [];
+  const all = state.curated?.parking || [];
+  const list = filterParking(all, state.parkingFilter);
   const order = { open: 0, soon: 1, closed: 2 };
   const stLabel = { open: 'เปิดอยู่', soon: 'เร็ว ๆ นี้', closed: 'ปิดแล้ว' };
-  const sorted = [...list].sort((a, b) => order[parkingState(a)] - order[parkingState(b)] || (b.inBangkok ? 1 : 0) - (a.inBangkok ? 1 : 0));
+  const dist = (p) => distanceKm(state.loc, p);
+  // เปิดอยู่ก่อน แล้วเรียงจากใกล้พื้นที่ที่เลือก
+  const sorted = [...list].sort((a, b) => order[parkingState(a)] - order[parkingState(b)] || dist(a) - dist(b));
+  $('parking-count').textContent = `${sorted.length} จาก ${all.length} แห่ง · เรียงจากใกล้${state.loc.name}`;
   $('parking-list').innerHTML = sorted.length
     ? sorted
         .map((p) => {
@@ -313,7 +325,7 @@ function renderParking() {
           return `<div class="pcard">
           <div><span class="badge ${st}">${stLabel[st]}</span> ${p.inBangkok ? '' : '<span class="badge outside">นอก กทม.</span>'} ${p.free ? '<span class="badge open">ฟรี</span>' : ''}</div>
           <h3>${esc(p.name)}</h3>
-          <div class="row muted">${esc(p.area || '')}</div>
+          <div class="row muted">${esc(p.area || '')} · ห่าง ~${dist(p).toFixed(0)} กม.</div>
           <div class="row">🅿️ ${esc(p.floors || '')}${p.capacity ? ` · รับได้ ~${esc(p.capacity.toLocaleString('th-TH'))} คัน` : ''}</div>
           <div class="row">📅 ${esc(fmtDate(p.from))} – ${esc(fmtDate(p.until))}</div>
           ${p.conditions ? `<div class="row">📝 ${esc(p.conditions)}</div>` : ''}
@@ -324,9 +336,26 @@ function renderParking() {
           </div></div>`;
         })
         .join('')
-    : '<p class="muted">ยังไม่มีข้อมูล</p>';
-  const pNews = (state.news?.items || []).filter((n) => n.categories?.includes('parking')).slice(0, 15);
+    : `<p class="muted">${all.length ? 'ไม่พบที่จอดรถตามเงื่อนไข — ลองคำอื่น หรือดูข่าวที่จอดรถด้านล่าง' : 'ยังไม่มีข้อมูล'}</p>`;
+  const nq = searchKey(state.parkingFilter.q);
+  const pNews = (state.news?.items || [])
+    .filter((n) => n.categories?.includes('parking') && (!nq || searchKey(`${n.title} ${n.source}`).includes(nq)))
+    .slice(0, 15);
   $('parking-news').innerHTML = pNews.length ? pNews.map(newsItemHtml).join('') : '<li class="muted">ยังไม่มีข่าว</li>';
+}
+
+function initParkingControls() {
+  $('parking-q').addEventListener('input', (e) => {
+    state.parkingFilter.q = e.target.value;
+    renderParking();
+  });
+  $('parking-filter').addEventListener('click', (e) => {
+    const b = e.target.closest('button[data-pf]');
+    if (!b) return;
+    state.parkingFilter.filter = b.dataset.pf;
+    $('parking-filter').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    renderParking();
+  });
 }
 
 function initNewsControls() {
@@ -615,7 +644,7 @@ function initCams() {
   $('cam-unverified').addEventListener('change', (e) => {
     state.showUnverified = e.target.checked;
     renderCams();
-    if (state.mapCtx) renderMapData(state.mapCtx, { curated: state.curated, news: state.news, cams: visibleCams() });
+    refreshMap();
   });
   $('cam-more').addEventListener('click', () => {
     state.camLimit += 24;
@@ -631,8 +660,7 @@ function initCams() {
     const onMap = e.target.closest('[data-cam-map]');
     if (onMap) {
       const c = state.cams.find((x) => x.id === onMap.dataset.camMap);
-      document.querySelector('.tabs button[data-tab="map"]').click();
-      if (c && state.mapCtx) state.mapCtx.map.setView([c.lat, c.lon], 15);
+      if (c) showOnMap(c.lat, c.lon);
     }
   });
   $('cam-dialog-close').addEventListener('click', closeCam);
@@ -642,38 +670,6 @@ function initCams() {
   });
   $('cam-dialog').addEventListener('click', (e) => {
     if (e.target === $('cam-dialog')) closeCam(); // คลิกพื้นหลัง
-  });
-}
-
-// ---------- แผนที่ ----------
-function ensureMap() {
-  if (state.mapCtx || !window.L) {
-    state.mapCtx?.map.invalidateSize();
-    return;
-  }
-  state.mapCtx = createMap('map', state.loc);
-  renderMapData(state.mapCtx, { curated: state.curated, news: state.news, cams: visibleCams() }, { fit: true });
-  for (const key of ['flood', 'watch', 'parking', 'news', 'cams']) {
-    $(`lyr-${key}`).addEventListener('change', (e) => toggleLayer(state.mapCtx, key, e.target.checked));
-  }
-  const onTime = (t) => ($('radar-time').textContent = t);
-  $('lyr-radar').addEventListener('change', async (e) => {
-    $('radar-ctl').hidden = !e.target.checked;
-    if (e.target.checked) {
-      await enableRadar(state.mapCtx, {
-        onTime,
-        onError: (err) => {
-          $('radar-time').textContent = `โหลดเรดาร์ไม่สำเร็จ (${err.message})`;
-        },
-      });
-    } else {
-      disableRadar(state.mapCtx);
-      $('radar-play').textContent = '▶';
-    }
-  });
-  $('radar-play').addEventListener('click', () => {
-    const playing = toggleRadarPlay(state.mapCtx, onTime);
-    $('radar-play').textContent = playing ? '⏸' : '▶';
   });
 }
 
@@ -703,8 +699,17 @@ function initWindy() {
 // ---------- เริ่มต้น ----------
 function init() {
   initLocationSelect();
+  initMapView(() => ({
+    curated: state.curated,
+    news: state.news,
+    cams: visibleCams(),
+    floodRoads: state.floodRoads,
+    js100: state.js100,
+    loc: state.loc,
+  }));
   initTabs();
   initNewsControls();
+  initParkingControls();
   initWindy();
   initCams();
   renderHelp();

@@ -90,3 +90,19 @@ test('classifyRain follows TMD thresholds', () => {
   assert.equal(classifyRain(35.1, TMD_RAIN_CLASSES).label, 'ฝนหนัก');
   assert.equal(classifyRain(120, TMD_RAIN_CLASSES).label, 'ฝนหนักมาก');
 });
+
+test('filterParking by text and chips', async () => {
+  const { filterParking, searchKey } = await import('../public/js/util.js');
+  const now = Date.parse('2026-09-26T03:00:00Z');
+  const list = [
+    { name: 'ศูนย์การค้าฟิวเจอร์พาร์ค', area: 'ธัญบุรี ปทุมธานี', from: '2026-09-25', until: '2026-09-28', free: true, inBangkok: false },
+    { name: 'อาคารจอดรถ กทม.', area: 'ดินแดง', from: '2026-09-20', until: '2026-09-22', free: false, inBangkok: true },
+  ];
+  assert.equal(searchKey(' ฟิวเจอร์ พาร์ค '), 'ฟิวเจอร์พาร์ค');
+  assert.deepEqual(filterParking(list, { q: 'ฟิวเจอร์ พาร์ค' }, now).map((p) => p.area), ['ธัญบุรี ปทุมธานี']);
+  assert.equal(filterParking(list, { q: 'ปทุมธานี' }, now).length, 1);
+  assert.equal(filterParking(list, { filter: 'open' }, now).length, 1, 'expired lot filtered');
+  assert.equal(filterParking(list, { filter: 'bkk' }, now)[0].area, 'ดินแดง');
+  assert.equal(filterParking(list, { filter: 'free' }, now).length, 1);
+  assert.equal(filterParking(list, {}, now).length, 2);
+});
