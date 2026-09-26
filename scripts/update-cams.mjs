@@ -53,11 +53,22 @@ async function fetchItic() {
 }
 
 // ---------- แหล่ง 2: กรมทางหลวง ----------
-async function pageMethod(method, siteID) {
+/** เปิด session ของเว็บ (ASP.NET) — GetCameraInfo ตอบเฉพาะเมื่อมี session cookie */
+async function dohSession() {
+  const res = await request(`${DOH_BASE}/home.aspx`, { timeout: 30000 });
+  if (!res.ok) throw new Error(`highwaytraffic HTTP ${res.status}`);
+  const cookies = (res.headers.getSetCookie?.() || [res.headers.get('set-cookie') || ''])
+    .map((c) => c.split(';')[0])
+    .filter(Boolean)
+    .join('; ');
+  return { html: await res.text(), cookie: cookies };
+}
+
+async function pageMethod(session, method, siteID) {
   const res = await request(`${DOH_BASE}/home.aspx/${method}`, {
     method: 'POST',
     timeout: 20000,
-    headers: { 'content-type': 'application/json; charset=utf-8' },
+    headers: { 'content-type': 'application/json; charset=utf-8', cookie: session.cookie },
     body: JSON.stringify({ siteID }),
   });
   if (!res.ok) throw new Error(`${method} HTTP ${res.status}`);
@@ -65,28 +76,30 @@ async function pageMethod(method, siteID) {
 }
 
 async function fetchDoh() {
-  const res = await request(`${DOH_BASE}/home.aspx`, { timeout: 30000 });
-  if (!res.ok) throw new Error(`highwaytraffic HTTP ${res.status}`);
-  const sites = parseSiteIds(await res.text());
+  const main = await dohSession();
+  const sites = parseSiteIds(main.html);
   const infos = await mapLimit(sites, 4, async (s) => {
     try {
-      return parseSiteInfo(await pageMethod('GetSiteInfo', s.id));
+      return parseSiteInfo(await pageMethod(main, 'GetSiteInfo', s.id));
     } catch {
       return null;
     }
   });
   const inBox = (i) => i && i.lat >= BKK_BBOX.minLat && i.lat <= BKK_BBOX.maxLat && i.lon >= BKK_BBOX.minLon && i.lon <= BKK_BBOX.maxLon;
   const local = sites.map((s, k) => ({ ...s, info: infos[k] })).filter((s) => inBox(s.info));
-  const cams = await mapLimit(local, 3, async (s) => {
+  // ทำทีละจุดใน session เดียว ตามลำดับเดียวกับหน้าเว็บ (GetSiteInfo → GetCameraInfo)
+  const cams = [];
+  for (const s of local) {
     let streams = [];
     try {
-      streams = parseCameraInfo(await pageMethod('GetCameraInfo', s.id));
+      await pageMethod(main, 'GetSiteInfo', s.id);
+      streams = parseCameraInfo(await pageMethod(main, 'GetCameraInfo', s.id));
     } catch {
       /* ข้ามจุดที่ดึงไม่ได้ */
     }
-    if (!streams.length) return null;
+    if (!streams.length) continue;
     const code = (s.info.code || s.code).toUpperCase();
-    return {
+    cams.push({
       id: `doh-${code}`,
       type: 'snapshot',
       source: 'doh',
@@ -100,10 +113,10 @@ async function fetchDoh() {
       video: null,
       hls: streams[0].hls,
       streams,
-    };
-  });
-  console.log(`highwaytraffic: ทั้งหมด ${sites.length} จุด อยู่ในกรุงเทพฯ/ปริมณฑล ${local.length} จุด`);
-  return cams.filter(Boolean);
+    });
+  }
+  console.log(`highwaytraffic: ทั้งหมด ${sites.length} จุด อยู่ในกรุงเทพฯ/ปริมณฑล ${local.length} จุด มีวิดีโอ ${cams.length} จุด`);
+  return cams;
 }
 
 // ---------- ตรวจกล้อง ----------

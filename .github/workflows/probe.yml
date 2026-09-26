@@ -5,27 +5,21 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Dump local site camera HTML
+      - run: node scripts/update-cams.mjs
+      - name: Dump result
         run: |
-          cat > /tmp/dbg.mjs <<'JS'
-          import { DOH_BASE, parseSiteIds, parseSiteInfo, parseCameraInfo } from './scripts/lib/doh.mjs';
-          import { BKK_BBOX } from './scripts/lib/itic.mjs';
-          const pm = async (m, siteID) => (await (await fetch(`${DOH_BASE}/home.aspx/${m}`, { method: 'POST', headers: { 'content-type': 'application/json; charset=utf-8' }, body: JSON.stringify({ siteID }) })).json()).d;
-          const sites = parseSiteIds(await (await fetch(`${DOH_BASE}/home.aspx`)).text());
-          let shown = 0;
-          for (const s of sites) {
-            const info = parseSiteInfo(await pm('GetSiteInfo', s.id));
-            if (!info || info.lat < BKK_BBOX.minLat || info.lat > BKK_BBOX.maxLat || info.lon < BKK_BBOX.minLon || info.lon > BKK_BBOX.maxLon) continue;
-            const html = await pm('GetCameraInfo', s.id);
-            console.log('=====', s.id, s.code, info.name, info.lat, info.lon, 'parsed:', JSON.stringify(parseCameraInfo(html)));
-            if (shown++ < 3) console.log(String(html).replace(/\s+/g, ' ').slice(0, 3000));
-            else console.log((String(html).match(/(site_code[^ >]*|src="[^"]+"|<img[^>]+>)/g) || []).slice(0, 8).join(' | '));
-          }
-          JS
-          cp /tmp/dbg.mjs ./dbg.mjs && node dbg.mjs
+          python3 - <<'PY'
+          import json
+          d = json.load(open('public/data/traffic_cameras.json'))
+          for c in d['cameras']:
+              if c['source'] == 'doh': print(c['ok'], c.get('cors'), c['code'], c['name'][:40], [ (s['label'], s.get('ok'), s.get('cors')) for s in c['streams']])
+          PY
+          H=$(python3 -c "import json;d=json.load(open('public/data/traffic_cameras.json'));print(next((c['hls'] for c in d['cameras'] if c['source']=='doh' and c['ok']),''))")
+          echo "HLS=$H"; if [ -n "$H" ]; then curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$H" | head -20; fi
+          echo "DUMP_BEGIN"; gzip -c public/data/traffic_cameras.json | base64 -w0; echo; echo "DUMP_END"
