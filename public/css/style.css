@@ -319,3 +319,4 @@ table.daily td:first-child, table.daily th:first-child { text-align: left; }
 #gmaps-key-status.warn { color: #b45309; }
 #panel-traffic h3, #panel-flood h3 { font-size: 1rem; margin: 12px 0 4px; }
 .tag.traffic { background: #ede9fe; color: #4c1d95; }
+.news-list li, .news-list .title, .js100-list li, .pcard { overflow-wrap: anywhere; min-width: 0; }
