@@ -7,17 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Raw item HTML
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/update-news.mjs
+      - name: Dump
         run: |
-          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          curl -sSL -m 30 -A "$UA" -o /tmp/t.html https://www.js100.com/en/site/traffic
-          curl -sSL -m 30 -A "$UA" -o /tmp/n.html https://www.js100.com/en/site/news
-          curl -sSL -m 30 -A "$UA" -o /tmp/m.html -X POST --data 'per_page=12&offset=1' https://www.js100.com/en/site/news/detail_more
           python3 - <<'PY'
-          import re
-          for f, kw in [('/tmp/t.html', 'มอเตอร์เวย์ สาย 7'), ('/tmp/n.html', 'ปภ.แจ้งเตือนน้ำเหนือ'), ('/tmp/m.html', 'href')]:
-              s = open(f, encoding='utf-8', errors='replace').read()
-              print('=====', f, len(s))
-              i = s.find(kw)
-              print(s[max(0, i-2500): i+800] if i >= 0 else s[:3000])
+          import json
+          d = json.load(open('public/data/js100.json'))
+          print('traffic', len(d['traffic']), 'news', len(d['news']))
+          for t in d['traffic'][:5]: print(t['published'], t['categories'], [p['name'] for p in t['places']], t['text'][:80])
+          for n in d['news'][:5]: print(n['published'], n['tags'], n['title'][:70])
+          n = json.load(open('public/data/news.json'))
+          print([f for f in n['feeds'] if f['feed'] == 'จส.100'], sum(1 for i in n['items'] if i.get('feed') == 'จส.100'))
           PY
+          echo "DUMP_BEGIN"; gzip -c public/data/js100.json | base64 -w0; echo; echo "DUMP_END"
+          echo "NEWS_BEGIN"; gzip -c public/data/news.json | base64 -w0; echo; echo "NEWS_END"
