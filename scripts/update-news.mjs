@@ -21,6 +21,8 @@ export const FEEDS = [
   { name: 'Google News: น้ำท่วมขัง กทม.', url: gnews('น้ำท่วมขัง กทม.') },
   { name: 'Google News: จอดรถหนีน้ำ', url: gnews('จอดรถหนีน้ำ') },
   { name: 'Google News: ที่จอดรถฟรี น้ำท่วม', url: gnews('เปิดพื้นที่จอดรถ น้ำท่วม') },
+  { name: 'Google News: จอดรถฟรี น้ำท่วม', url: gnews('จอดรถฟรี น้ำท่วม') },
+  { name: 'Google News: ฝากรถหนีน้ำ', url: gnews('ฝากรถ น้ำท่วม OR อาคารจอดรถ ผู้ประสบภัย') },
   { name: 'Google News: ระดับน้ำเจ้าพระยา', url: gnews('ระดับน้ำ เจ้าพระยา กทม.') },
   { name: 'Google News: เตือนฝนตกหนัก', url: gnews('กรมอุตุ เตือน ฝนตกหนัก กรุงเทพ') },
   { name: 'Google News: ศูนย์พักพิง/ช่วยเหลือ', url: gnews('ศูนย์พักพิง น้ำท่วม กทม.') },
