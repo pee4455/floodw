@@ -7,31 +7,25 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Probe pages and scripts
+      - name: Inspect home.aspx scripts
         run: |
           UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          mkdir -p /tmp/p && cd /tmp/p
-          for u in \
-            "https://highwaytraffic.go.th/DOHWeb/home.aspx" \
-            "http://highwaytraffic.go.th/DOHWeb/CameraDashBoardV2_34.html" \
-            "http://www.highwaytraffic.go.th/DOHMobile/Modules/CCTV2.aspx" ; do
-            f=$(echo "$u" | md5sum | cut -c1-8)
-            echo "::group::$u"
-            curl -sSL -m 30 -A "$UA" -o "$f.html" -w "HTTP %{http_code} type=%{content_type} size=%{size_download} final=%{url_effective}\n" "$u" || echo curl-failed
-            head -c 1500 "$f.html"; echo
-            echo "--- scripts/links"
-            grep -oiE "(src|href)=[\"'][^\"']+[\"']" "$f.html" | grep -viE "\.(css|png|gif|ico|svg|woff)" | sort -u | head -50
-            echo "--- endpoint-ish strings"
-            grep -oiE "[\"'][^\"' ]*(ashx|asmx|api|json|cctv|camera|Camera|GetCam|\.aspx/)[^\"' ]*[\"']" "$f.html" | sort -u | head -60
-            echo "::endgroup::"
-          done
-          # follow local JS files referenced by the dashboard page
-          for f in *.html; do
-            for js in $(grep -oiE "src=[\"'][^\"']+\.js[^\"']*[\"']" "$f" | sed -E "s/src=[\"']//; s/[\"']$//" | grep -viE "jquery|bootstrap|google|leaflet|longdo|min\.js" | head -8); do
-              case "$js" in http*) U="$js";; /*) U="http://highwaytraffic.go.th$js";; *) U="http://highwaytraffic.go.th/DOHWeb/$js";; esac
-              echo "::group::JS $U"
-              curl -sSL -m 20 -A "$UA" "$U" -o /tmp/p/js.txt -w "HTTP %{http_code} size=%{size_download}\n"
-              grep -oiE "[\"'][^\"' ]*(ashx|asmx|api|json|cctv|Cam|m3u8|jpg|\.aspx)[^\"' ]*[\"']" /tmp/p/js.txt | sort -u | head -60
-              echo "::endgroup::"
-            done
+          curl -sSL -m 30 -A "$UA" -c /tmp/cj -o /tmp/h.html "https://highwaytraffic.go.th/DOHWeb/home.aspx"
+          python3 - <<'PY'
+          import re
+          s = open('/tmp/h.html', encoding='utf-8', errors='replace').read()
+          s = re.sub(r'value="[A-Za-z0-9+/=]{200,}"', 'value="<b64>"', s)
+          for kw in ['SiteCameraHandler', 'GetCameraInfo', 'function MoveLocation2', 'MoveLocation2(2753)', 'camera01', 'm3u8', '.jpg', 'lat', 'new google.maps', 'L.marker', 'addMarker', 'markers']:
+              for m in list(re.finditer(re.escape(kw), s))[:2]:
+                  a, b = max(0, m.start() - 700), min(len(s), m.end() + 900)
+                  print('=====', kw, m.start()); print(s[a:b]); print()
+          # all <script src>
+          print('SCRIPTS', sorted(set(re.findall(r'<script[^>]+src="([^"]+)"', s))))
+          print('IDS', len(set(re.findall(r'MoveLocation2\((\d+)\)', s))))
+          PY
+      - name: Try handler
+        run: |
+          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
+          for q in "" "?Action=GetCameraInfo&id=2753" "?action=GetCameraInfo&CameraID=2753" "?Method=GetCameraInfo&cid=2753"; do
+            echo "== GET $q"; curl -sS -m 20 -A "$UA" -b /tmp/cj "https://highwaytraffic.go.th/DOHWeb/SiteCameraHandler.ashx$q" | head -c 800; echo
           done
