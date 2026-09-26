@@ -19,7 +19,7 @@ jobs:
       - name: Unit tests
         run: npm test
       - name: Validate data files
-        run: node -e "for (const f of ['curated','news','cameras','camera_status']) JSON.parse(require('fs').readFileSync('public/data/'+f+'.json','utf8'))"
+        run: node -e "for (const f of ['curated','news','cameras','camera_status','itic_cameras']) JSON.parse(require('fs').readFileSync('public/data/'+f+'.json','utf8'))"
       - name: Install Chromium
         run: npx playwright-core install --with-deps chromium
       - name: Browser smoke test

@@ -65,3 +65,24 @@ test('parseWatchPage: ended stream / removed video / channel without live', () =
   assert.equal(channel.videoId, null);
   assert.equal(cameraState(channel), 'offline');
 });
+
+test('resolveCameras adds iTIC traffic cameras with tri-state status', async () => {
+  const { resolveCameras, canEmbed, sortByDistance, snapshotUrl } = await import('../public/js/cams.js');
+  const itic = {
+    cameras: [
+      { id: 'itic-ok', type: 'snapshot', name: 'ok', org: 'กรมทางหลวง', lat: 13.9, lon: 100.6, img: 'https://h/jpeg.cgi?camid=1', hls: 'https://h/p.m3u8', ok: true },
+      { id: 'itic-unknown', type: 'snapshot', name: 'unk', lat: 13.7, lon: 100.5, img: 'https://h/jpeg.cgi?camid=2', ok: null },
+      { id: 'itic-bad', type: 'snapshot', name: 'bad', lat: 13.7, lon: 100.5, img: 'https://h/jpeg.cgi?camid=3', ok: false },
+      { id: 'itic-http', type: 'snapshot', name: 'http', lat: 13.7, lon: 100.5, img: 'http://h/x.jpg', ok: true },
+    ],
+  };
+  const r = resolveCameras({ cameras: [] }, null, itic);
+  assert.deepEqual(r.map((c) => [c.id, c.state]), [['itic-ok', 'online'], ['itic-unknown', 'unknown'], ['itic-bad', 'offline']]);
+  assert.equal(canEmbed(r[0]), true);
+  assert.equal(canEmbed(r[2]), false);
+  assert.deepEqual(r[0].tags, ['traffic']);
+  assert.equal(snapshotUrl(r[0], 5000), 'https://h/jpeg.cgi?camid=1&_=5');
+  const sorted = sortByDistance(r, { lat: 13.71, lon: 100.51 });
+  assert.equal(sorted[0].id, 'itic-unknown');
+  assert.ok(sorted[0].distance < 2);
+});

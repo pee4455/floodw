@@ -8,10 +8,12 @@
       "name": "แม่น้ำเจ้าพระยา ท่าเรือซอยวัดสวนพลู (Jack's Bar)",
       "area": "บางรัก — ริมเจ้าพระยา ใกล้โรงแรมแชงกรีลา",
       "lat": 13.7195,
-      "lon": 100.5130,
+      "lon": 100.513,
       "videoId": "UdDpOaGviq4",
       "channel": null,
-      "tags": ["river"],
+      "tags": [
+        "river"
+      ],
       "note": "ดูระดับน้ำเจ้าพระยาเทียบกับตลิ่ง/ท่าเรือ ช่วงน้ำขึ้นสูงสุด",
       "approximate": true
     },
@@ -20,11 +22,13 @@
       "type": "youtube",
       "name": "แม่น้ำเจ้าพระยา (Bangkok Live Cam)",
       "area": "ริมแม่น้ำเจ้าพระยา ช่วงกลางเมือง",
-      "lat": 13.7290,
+      "lat": 13.729,
       "lon": 100.5105,
       "videoId": "ZTlDaQq7Bm8",
       "channel": null,
-      "tags": ["river"],
+      "tags": [
+        "river"
+      ],
       "note": "ตำแหน่งบนแผนที่เป็นค่าประมาณ",
       "approximate": true
     },
@@ -37,7 +41,9 @@
       "lon": 100.5295,
       "videoId": "CW4Js-oyc58",
       "channel": null,
-      "tags": ["road"],
+      "tags": [
+        "road"
+      ],
       "note": "ดูฝนตก/น้ำขังบนถนนสาทร",
       "approximate": true
     },
@@ -50,7 +56,9 @@
       "lon": 100.5595,
       "videoId": "Q71sLS8h9a4",
       "channel": null,
-      "tags": ["road"],
+      "tags": [
+        "road"
+      ],
       "note": "ถนนสุขุมวิทช่วงอโศก — จุดน้ำขังบ่อยเมื่อฝนตกหนัก",
       "approximate": true
     },
@@ -59,11 +67,13 @@
       "type": "youtube",
       "name": "ถนนสุขุมวิท (Live Street Webcam)",
       "area": "สุขุมวิท",
-      "lat": 13.7330,
-      "lon": 100.5680,
+      "lat": 13.733,
+      "lon": 100.568,
       "videoId": "TfOOzM6mPT4",
       "channel": null,
-      "tags": ["road"],
+      "tags": [
+        "road"
+      ],
       "note": "ตำแหน่งบนแผนที่เป็นค่าประมาณ",
       "approximate": true
     },
@@ -76,20 +86,10 @@
       "lon": null,
       "videoId": null,
       "channel": "@Livecam-Bangkok",
-      "tags": ["road"],
+      "tags": [
+        "road"
+      ],
       "note": "ช่องที่ถ่ายทอดสดถนนในกรุงเทพฯ หลายจุด"
-    },
-    {
-      "id": "yt-thaipbs-live",
-      "type": "youtube",
-      "name": "Thai PBS ถ่ายทอดสด",
-      "area": "ข่าว/รายงานสถานการณ์น้ำ",
-      "lat": null,
-      "lon": null,
-      "videoId": null,
-      "channel": "@ThaiPBS",
-      "tags": ["news"],
-      "note": "ช่วงสถานการณ์น้ำท่วมมักมีรายงานสดจากพื้นที่"
     }
   ],
   "officialSources": [
@@ -97,37 +97,49 @@
       "name": "กล้อง CCTV ดูระดับน้ำ — สำนักการระบายน้ำ กทม.",
       "url": "https://dds.bangkok.go.th/cctv.php",
       "note": "กล้องที่จุดเสี่ยงน้ำท่วม/คลอง/ประตูระบายน้ำ ดูระดับน้ำได้โดยตรง — เหมาะที่สุดสำหรับเช็กน้ำท่วม",
-      "tags": ["flood"]
+      "tags": [
+        "flood"
+      ]
     },
     {
       "name": "BMA Traffic — กล้อง CCTV จราจร กทม.",
       "url": "https://cpudapp.bangkok.go.th/bmatraffic/",
       "note": "กล้องหลายพันตัวตามแยก/ถนนทั่วกรุงเทพฯ ค้นตามชื่อถนน (มีแอป BMA Traffic บน iOS/Android)",
-      "tags": ["road"]
+      "tags": [
+        "road"
+      ]
     },
     {
       "name": "Longdo Traffic — รายการกล้อง",
       "url": "https://traffic.longdo.com/cameralist",
       "note": "รวมภาพกล้องจราจรกรุงเทพฯ/ปริมณฑล พร้อมแผนที่รถติด",
-      "tags": ["road"]
+      "tags": [
+        "road"
+      ]
     },
     {
       "name": "iTIC Live — กล้องจราจร",
       "url": "https://live.iticfoundation.org/",
       "note": "มูลนิธิศูนย์ข้อมูลจราจรอัจฉริยะไทย: กล้องและเหตุการณ์จราจรล่าสุด",
-      "tags": ["road"]
+      "tags": [
+        "road"
+      ]
     },
     {
       "name": "ระดับน้ำ (สถานีโทรมาตร) — ThaiWater / สทนช.",
       "url": "https://nationalthaiwater.onwr.go.th/waterlevel",
       "note": "ระดับน้ำแม่น้ำ/คลองจากสถานีวัดทั่วประเทศ",
-      "tags": ["river"]
+      "tags": [
+        "river"
+      ]
     },
     {
       "name": "EGAT Real-time CCTV — เขื่อน กฟผ.",
       "url": "https://egatwater.egat.co.th/RealTimeCCTV",
       "note": "ภาพสดเขื่อน/ท้ายเขื่อนต้นน้ำ ใช้ดูสถานการณ์น้ำเหนือ",
-      "tags": ["river"]
+      "tags": [
+        "river"
+      ]
     }
   ]
 }

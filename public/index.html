@@ -151,7 +151,8 @@
           <span><i class="dot" style="background:#eab308"></i>ท่วม &lt; 10 ซม./ไม่ระบุ</span>
           <span><i class="dot" style="background:#2563eb"></i>จุดเฝ้าระวังแม่น้ำ/คลอง</span>
           <span><i class="pin">P</i>ที่จอดรถหนีน้ำ</span>
-          <span><i class="cam-pin" aria-hidden="true"></i>กล้องถ่ายทอดสด</span>
+          <span><i class="cam-pin" aria-hidden="true"></i>ไลฟ์ YouTube</span>
+          <span><i class="cam-pin traffic" aria-hidden="true"></i>กล้องจราจร</span>
           <span><i class="dot" style="background:#64748b"></i>ข่าวที่กล่าวถึงพื้นที่ (ตำแหน่งระดับเขต/ถนน)</span>
         </div>
         <p class="tiny muted">เรดาร์: RainViewer · แผนที่: © OpenStreetMap contributors · เรดาร์ความละเอียดสูงของ กทม. ดูที่ <a href="https://weather.bangkok.go.th/" target="_blank" rel="noopener">weather.bangkok.go.th</a></p>
@@ -161,15 +162,21 @@
     <!-- กล้อง -->
     <section id="tab-cams" class="tab" role="tabpanel">
       <article class="card">
-        <h2>กล้องถ่ายทอดสด</h2>
-        <p class="small muted">กดที่ภาพเพื่อดูสดในแอป · ระบบตรวจสถานะไลฟ์อัตโนมัติทุก 30 นาที <span id="cams-checked"></span></p>
+        <h2>กล้องดูสถานการณ์สด</h2>
+        <p class="small muted">กล้องจราจร (กทม./ทางหลวง/ทางพิเศษ ผ่าน iTIC) + ไลฟ์ YouTube · เรียงจากกล้องที่ใกล้พื้นที่ที่เลือกด้านบน · ระบบตรวจกล้องอัตโนมัติทุก 30 นาที และซ่อนกล้องที่ภาพเสีย<br><span id="cams-checked"></span></p>
+        <div class="news-tools">
+          <input id="cam-q" type="search" placeholder="ค้นหากล้อง เช่น วิภาวดี, ลาดกระบัง, สุขุมวิท">
+        </div>
         <div class="chips" id="cam-filter">
           <button type="button" data-tag="" aria-pressed="true">ทั้งหมด</button>
+          <button type="button" data-tag="traffic" aria-pressed="false">กล้องจราจร</button>
+          <button type="button" data-tag="youtube" aria-pressed="false">ไลฟ์ YouTube</button>
           <button type="button" data-tag="river" aria-pressed="false">แม่น้ำ</button>
-          <button type="button" data-tag="road" aria-pressed="false">ถนน</button>
-          <button type="button" data-tag="news" aria-pressed="false">ข่าวสด</button>
         </div>
+        <label id="cam-unverified-wrap" class="small" hidden><input type="checkbox" id="cam-unverified"> แสดงกล้องที่ระบบยังตรวจไม่ได้ (<span id="cam-unverified-count"></span> ตัว — อาจเปิดได้จากในไทย)</label>
+        <p id="cams-count" class="tiny muted"></p>
         <div id="cam-list" class="cam-grid"></div>
+        <button type="button" id="cam-more" class="link-btn" hidden>แสดงเพิ่ม</button>
       </article>
       <article class="card">
         <h2>กล้อง CCTV ทางการ (เปิดในเว็บต้นทาง)</h2>

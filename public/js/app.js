@@ -4,7 +4,7 @@ import { fetchModels, fetchEnsembles, fetchTide, fetchLocalData } from './api.js
 import { analyze } from './analysis.js';
 import { renderRainChart, renderGauge } from './chart.js';
 import { createMap, renderMapData, setLocation, toggleLayer, enableRadar, disableRadar, toggleRadarPlay } from './map.js';
-import { resolveCameras, canEmbed, embedUrl, thumbUrl, watchUrl, hasLocation, STATE_LABEL } from './cams.js';
+import { resolveCameras, canEmbed, embedUrl, thumbUrl, watchUrl, hasLocation, snapshotUrl, sortByDistance, STATE_LABEL } from './cams.js';
 import { esc, safeUrl, fmtDateTime, fmtDate, timeAgo, depthLabel, mm, pct, parkingState } from './util.js';
 
 const $ = (id) => document.getElementById(id);
@@ -29,6 +29,10 @@ const state = {
   cams: [],
   camsData: null,
   camFilter: '',
+  camQuery: '',
+  camLimit: 24,
+  showUnverified: false,
+  snapTimer: null,
   newsFilter: { cat: null, q: '', bkk: false },
 };
 
@@ -89,6 +93,7 @@ function initLocationSelect() {
 
 function changeLocation(loc) {
   state.loc = loc;
+  renderCams();
   store.set('loc', loc);
   setLocation(state.mapCtx, loc);
   loadForecast();
@@ -243,22 +248,24 @@ function renderModelStatus() {
 
 // ---------- ข้อมูลคัดกรอง / ข่าว ----------
 async function loadData() {
-  const [curated, news, camsData, camStatus] = await Promise.all([
+  const [curated, news, camsData, camStatus, itic] = await Promise.all([
     fetchLocalData('curated'),
     fetchLocalData('news'),
     fetchLocalData('cameras'),
     fetchLocalData('camera_status'),
+    fetchLocalData('itic_cameras'),
   ]);
+  state.itic = itic;
   state.curated = curated;
   state.news = news;
   state.camsData = camsData;
   state.camStatus = camStatus;
-  state.cams = resolveCameras(camsData, camStatus);
+  state.cams = resolveCameras(camsData, camStatus, itic);
   renderCams();
   renderSituation();
   renderParking();
   renderNews();
-  if (state.mapCtx) renderMapData(state.mapCtx, { curated, news, cams: state.cams });
+  if (state.mapCtx) renderMapData(state.mapCtx, { curated, news, cams: visibleCams() });
 }
 
 function newsItemHtml(n) {
@@ -362,38 +369,65 @@ function renderNews() {
 }
 
 // ---------- กล้อง ----------
+/** กล้องที่ควรแสดง: กล้องจราจรเฉพาะที่ตรวจแล้วว่าใช้ได้ (+ ที่ยังตรวจไม่ได้ ถ้าผู้ใช้เลือก) */
+function visibleCams() {
+  return state.cams.filter(
+    (c) => c.type !== 'snapshot' || c.state === 'online' || (state.showUnverified && c.state === 'unknown'),
+  );
+}
+
 function camCountLabel() {
   const live = state.cams.filter((x) => x.state === 'live').length;
-  return live ? `กล้องไลฟ์อยู่ ${live} ตัว` : `กล้อง ${state.cams.length} ตัว`;
+  const traffic = visibleCams().filter((x) => x.type === 'snapshot').length;
+  return [live ? `ไลฟ์ ${live}` : '', traffic ? `กล้องจราจร ${traffic}` : ''].filter(Boolean).join(' · ') || `กล้อง ${state.cams.length} ตัว`;
+}
+
+function camThumb(c, playable, link) {
+  const action = playable ? `data-cam-play="${esc(c.id)}"` : `data-cam-open="${esc(link || '')}"`;
+  const badge = `<span class="cam-state ${esc(c.state)}">${c.state === 'live' ? '● ' : ''}${esc(STATE_LABEL[c.state] || c.state)}</span>`;
+  if (c.type === 'snapshot') {
+    // ไม่โหลดภาพตัวอย่างอัตโนมัติ: เซิร์ฟเวอร์ภาพกล้องจราจรช้า (~20 วิ/ภาพ) — โหลดเมื่อกดดูเท่านั้น
+    return `<button type="button" class="cam-thumb noimg traffic-thumb" ${action} aria-label="ดู ${esc(c.name)}">
+      ${badge}<span class="play">▶</span><span class="cam-org">${esc(c.org || 'กล้องจราจร')}</span></button>`;
+  }
+  const thumb = c.videoId ? `style="background-image:url('${esc(thumbUrl(c.videoId))}')"` : '';
+  return `<button type="button" class="cam-thumb${c.videoId ? '' : ' noimg'}" ${thumb} ${action} aria-label="ดู ${esc(c.name)}">
+    ${badge}<span class="play">▶</span></button>`;
 }
 
 function renderCams() {
-  const list = state.cams.filter((c) => !state.camFilter || c.tags.includes(state.camFilter));
+  const q = state.camQuery;
+  const all = sortByDistance(visibleCams(), state.loc).filter(
+    (c) => (!state.camFilter || c.tags.includes(state.camFilter)) && (!q || `${c.name} ${c.area || ''}`.includes(q)),
+  );
+  const list = all.slice(0, state.camLimit);
   $('cam-list').innerHTML = list.length
     ? list
         .map((c) => {
           const link = watchUrl(c);
           const playable = canEmbed(c);
-          const thumb = c.videoId ? `style="background-image:url('${esc(thumbUrl(c.videoId))}')"` : '';
-          return `<div class="cam-card">
-          <button type="button" class="cam-thumb${c.videoId ? '' : ' noimg'}" ${thumb}
-            ${playable ? `data-cam-play="${esc(c.id)}"` : `data-cam-open="${esc(link || '')}"`} aria-label="ดู ${esc(c.name)}">
-            <span class="cam-state ${esc(c.state)}">${c.state === 'live' ? '● ' : ''}${esc(STATE_LABEL[c.state] || c.state)}</span>
-            <span class="play">▶</span>
-          </button>
+          const dist = c.distance != null ? `<span class="tiny muted">ห่างจาก${esc(state.loc.name)} ${c.distance.toFixed(1)} กม.</span>` : '';
+          return `<div class="cam-card" data-cam-card="${esc(c.id)}">
+          ${camThumb(c, playable, link)}
           <div class="cam-body">
             <h3>${esc(c.name)}</h3>
             <span class="muted">${esc(c.area || '')}</span>
+            ${dist}
             ${c.note ? `<span class="tiny muted">${esc(c.note)}</span>` : ''}
             <div class="actions">
               ${playable ? `<button type="button" data-cam-play="${esc(c.id)}">▶ ดูในแอป</button>` : ''}
-              ${link ? `<a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : ''}
+              ${link && c.type === 'youtube' ? `<a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : ''}
               ${hasLocation(c) ? `<button type="button" data-cam-map="${esc(c.id)}">📍 แผนที่</button>` : ''}
             </div>
           </div></div>`;
         })
         .join('')
-    : '<p class="muted">ไม่มีกล้องในหมวดนี้</p>';
+    : '<p class="muted">ไม่พบกล้องตามเงื่อนไข</p>';
+  const unverified = state.cams.filter((c) => c.type === 'snapshot' && c.state === 'unknown').length;
+  $('cam-unverified-wrap').hidden = unverified === 0;
+  $('cam-unverified-count').textContent = unverified;
+  $('cam-more').hidden = all.length <= state.camLimit;
+  $('cam-more').textContent = `แสดงเพิ่ม (${all.length - state.camLimit} ตัว)`;
   $('cam-official').innerHTML = (state.camsData?.officialSources || [])
     .map((o) => {
       const u = safeUrl(o.url);
@@ -402,25 +436,138 @@ function renderCams() {
     })
     .join('');
   const checked = state.camStatus?.generatedAt;
-  $('cams-checked').textContent = checked ? `(ตรวจล่าสุด ${fmtDateTime(checked)})` : '';
+  const traffic = state.itic?.generatedAt;
+  $('cams-checked').textContent = [
+    checked ? `ไลฟ์ตรวจล่าสุด ${fmtDateTime(checked)}` : '',
+    traffic ? `รายชื่อกล้องจราจร ${fmtDateTime(traffic)}` : '',
+  ]
+    .filter(Boolean)
+    .join(' · ');
+  $('cams-count').textContent = `${all.length} กล้อง · เรียงจากใกล้${state.loc.name}`;
+}
+
+let snapToken = 0;
+let hlsPlayer = null;
+
+function stopSnapshots() {
+  snapToken++; // ยกเลิกรอบโหลดภาพที่ค้างอยู่
+  clearTimeout(state.snapTimer);
+  state.snapTimer = null;
+  hlsPlayer?.destroy();
+  hlsPlayer = null;
+}
+
+const setCamStatus = (t) => {
+  const el = document.getElementById('cam-snap-status');
+  if (el) el.textContent = t;
+};
+
+/** ภาพนิ่งกล้องจราจร: โหลดภาพใหม่หลังภาพเดิมเสร็จ 5 วินาที (เซิร์ฟเวอร์ช้า จึงไม่ยิงถี่) */
+function playSnapshots(c) {
+  const token = snapToken;
+  $('cam-frame').innerHTML = `<img id="cam-snap" class="cam-snap" alt="${esc(c.name)}" referrerpolicy="no-referrer">`;
+  setCamStatus('กำลังโหลดภาพนิ่ง (อาจใช้เวลา 10–20 วินาที)…');
+  const tick = () => {
+    const next = new Image();
+    next.referrerPolicy = 'no-referrer';
+    const done = (ok) => {
+      if (token !== snapToken) return;
+      if (ok) {
+        $('cam-snap').src = next.src;
+        setCamStatus(`ภาพนิ่ง อัปเดต ${new Date().toLocaleTimeString('th-TH', { timeZone: 'Asia/Bangkok' })}`);
+      } else setCamStatus('กล้องไม่ตอบสนอง — ลองใหม่อัตโนมัติ');
+      state.snapTimer = setTimeout(tick, 5000);
+    };
+    next.onload = () => done(next.naturalWidth > 1);
+    next.onerror = () => done(false);
+    next.src = snapshotUrl(c);
+  };
+  tick();
+}
+
+function loadHlsJs() {
+  if (window.Hls) return Promise.resolve(window.Hls);
+  return new Promise((resolve, reject) => {
+    const sc = document.createElement('script');
+    sc.src = 'vendor/hls/hls.light.min.js';
+    sc.onload = () => resolve(window.Hls);
+    sc.onerror = () => reject(new Error('โหลดตัวเล่นวิดีโอไม่สำเร็จ'));
+    document.head.append(sc);
+  });
+}
+
+/** วิดีโอ HLS: Safari/iOS เล่นได้เอง เบราว์เซอร์อื่นใช้ hls.js */
+async function playHls(c) {
+  const token = snapToken;
+  $('cam-frame').innerHTML = '<video id="cam-video" class="cam-snap" autoplay muted playsinline controls></video>';
+  const video = $('cam-video');
+  setCamStatus('กำลังเชื่อมต่อวิดีโอ…');
+  const fail = () => {
+    if (token !== snapToken) return;
+    setCamStatus('เล่นวิดีโอไม่ได้ตอนนี้ — ลอง "ภาพนิ่ง" ด้านล่าง');
+  };
+  video.addEventListener('playing', () => token === snapToken && setCamStatus('● วิดีโอสด'), { once: true });
+  video.addEventListener('error', fail, { once: true });
+  if (video.canPlayType('application/vnd.apple.mpegurl')) {
+    video.src = c.hls;
+    return;
+  }
+  try {
+    const Hls = await loadHlsJs();
+    if (token !== snapToken) return;
+    if (!Hls?.isSupported()) return fail();
+    hlsPlayer = new Hls({ lowLatencyMode: true, backBufferLength: 10 });
+    hlsPlayer.on(Hls.Events.ERROR, (_e, data) => data.fatal && fail());
+    hlsPlayer.loadSource(c.hls);
+    hlsPlayer.attachMedia(video);
+  } catch {
+    fail();
+  }
 }
 
 function openCam(id) {
   const c = state.cams.find((x) => x.id === id);
   if (!c || !canEmbed(c)) return;
+  stopSnapshots();
   $('cam-dialog-title').textContent = `📷 ${c.name}`;
-  $('cam-frame').innerHTML = `<iframe src="${esc(embedUrl(c.videoId))}" title="${esc(c.name)}"
-    allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
-  const link = watchUrl(c);
-  $('cam-dialog-meta').innerHTML = `${esc(c.area || '')}${c.note ? ` · ${esc(c.note)}` : ''}
-    ${link ? ` · <a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : ''}
-    <br><span class="tiny muted">ภาพจากผู้ถ่ายทอดสดบน YouTube — ถ้าขึ้นว่าไลฟ์จบแล้ว แสดงว่ากล้องปิดอยู่ชั่วคราว</span>`;
+  if (c.type === 'snapshot') {
+    $('cam-dialog').dataset.camId = c.id;
+    $('cam-dialog-meta').innerHTML = `${esc(c.area || '')} · <span id="cam-snap-status"></span>
+      <br><span class="cam-modes">
+        ${c.hls ? `<button type="button" data-cam-mode="hls">▶ วิดีโอสด</button>` : ''}
+        <button type="button" data-cam-mode="snap">🖼 ภาพนิ่ง (ประหยัดเน็ต)</button>
+        ${c.video ? `<button type="button" data-cam-mode="mjpeg">🎞 วิดีโอสำรอง (MJPEG)</button>` : ''}
+      </span>
+      <br><span class="tiny muted">ภาพจากกล้องจราจร ${esc(c.org || '')} ผ่านมูลนิธิศูนย์ข้อมูลจราจรอัจฉริยะไทย (iTIC) / Longdo Traffic</span>`;
+    if (c.hls && c.via !== 'jpeg') playHls(c);
+    else playSnapshots(c);
+  } else {
+    $('cam-frame').innerHTML = `<iframe src="${esc(embedUrl(c.videoId))}" title="${esc(c.name)}"
+      allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen referrerpolicy="strict-origin-when-cross-origin"></iframe>`;
+    const link = watchUrl(c);
+    $('cam-dialog-meta').innerHTML = `${esc(c.area || '')}${c.note ? ` · ${esc(c.note)}` : ''}
+      ${link ? ` · <a href="${esc(link)}" target="_blank" rel="noopener">เปิดใน YouTube</a>` : ''}
+      <br><span class="tiny muted">ภาพจากผู้ถ่ายทอดสดบน YouTube — ถ้าขึ้นว่าไลฟ์จบแล้ว แสดงว่ากล้องปิดอยู่ชั่วคราว</span>`;
+  }
   const dlg = $('cam-dialog');
   if (dlg.showModal) dlg.showModal();
   else dlg.setAttribute('open', '');
 }
 
+/** สลับโหมดดูกล้องจราจร: วิดีโอ HLS / ภาพนิ่ง / MJPEG */
+function setCamMode(mode) {
+  const c = state.cams.find((x) => x.id === $('cam-dialog').dataset.camId);
+  if (!c) return;
+  stopSnapshots();
+  if (mode === 'hls' && c.hls) playHls(c);
+  else if (mode === 'mjpeg' && c.video) {
+    $('cam-frame').innerHTML = `<img id="cam-snap" class="cam-snap" alt="${esc(c.name)}" referrerpolicy="no-referrer" src="${esc(c.video)}">`;
+    setCamStatus('วิดีโอสำรอง (MJPEG) — ใช้เน็ตมากกว่า');
+  } else playSnapshots(c);
+}
+
 function closeCam() {
+  stopSnapshots();
   $('cam-frame').innerHTML = ''; // หยุดวิดีโอ
   const dlg = $('cam-dialog');
   if (dlg.open) dlg.close ? dlg.close() : dlg.removeAttribute('open');
@@ -431,12 +578,29 @@ function initCams() {
     const b = e.target.closest('button[data-tag]');
     if (!b) return;
     state.camFilter = b.dataset.tag;
+    state.camLimit = 24;
     $('cam-filter').querySelectorAll('button').forEach((x) => x.setAttribute('aria-pressed', String(x === b)));
+    renderCams();
+  });
+  $('cam-q').addEventListener('input', (e) => {
+    state.camQuery = e.target.value.trim();
+    state.camLimit = 24;
+    renderCams();
+  });
+  $('cam-unverified').addEventListener('change', (e) => {
+    state.showUnverified = e.target.checked;
+    renderCams();
+    if (state.mapCtx) renderMapData(state.mapCtx, { curated: state.curated, news: state.news, cams: visibleCams() });
+  });
+  $('cam-more').addEventListener('click', () => {
+    state.camLimit += 24;
     renderCams();
   });
   document.addEventListener('click', (e) => {
     const play = e.target.closest('[data-cam-play]');
     if (play) return openCam(play.dataset.camPlay);
+    const mode = e.target.closest('[data-cam-mode]');
+    if (mode) return setCamMode(mode.dataset.camMode);
     const open = e.target.closest('[data-cam-open]');
     if (open && open.dataset.camOpen) return window.open(open.dataset.camOpen, '_blank', 'noopener');
     const onMap = e.target.closest('[data-cam-map]');
@@ -447,7 +611,10 @@ function initCams() {
     }
   });
   $('cam-dialog-close').addEventListener('click', closeCam);
-  $('cam-dialog').addEventListener('close', () => ($('cam-frame').innerHTML = ''));
+  $('cam-dialog').addEventListener('close', () => {
+    stopSnapshots();
+    $('cam-frame').innerHTML = '';
+  });
   $('cam-dialog').addEventListener('click', (e) => {
     if (e.target === $('cam-dialog')) closeCam(); // คลิกพื้นหลัง
   });
@@ -460,7 +627,7 @@ function ensureMap() {
     return;
   }
   state.mapCtx = createMap('map', state.loc);
-  renderMapData(state.mapCtx, { curated: state.curated, news: state.news, cams: state.cams }, { fit: true });
+  renderMapData(state.mapCtx, { curated: state.curated, news: state.news, cams: visibleCams() }, { fit: true });
   for (const key of ['flood', 'watch', 'parking', 'news', 'cams']) {
     $(`lyr-${key}`).addEventListener('change', (e) => toggleLayer(state.mapCtx, key, e.target.checked));
   }
