@@ -7,7 +7,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { ITIC_FEED_URL, BKK_BBOX, normalizeItic, looksLikeImage, parsePlaylist } from './lib/itic.mjs';
-import { DOH_BASE, parseSiteIds, parseSiteInfo, parseCameraInfo, dohCodeFromItic } from './lib/doh.mjs';
+import { DOH_BASE, parseSiteIds, parseSiteInfo, parseCameraInfo, mergeDohWithItic } from './lib/doh.mjs';
 
 const OUT = fileURLToPath(new URL('../public/data/traffic_cameras.json', import.meta.url));
 const UA = 'Mozilla/5.0 (compatible; BangkokFloodWatch/1.0; +https://github.com/pee4455/floodw)';
@@ -154,7 +154,15 @@ async function checkCamera(cam) {
   if (cam.streams?.length) {
     const rs = [];
     for (const s of cam.streams) {
-      const r = await checkHls(s.hls);
+      let r = await checkHls(s.hls);
+      if (r.ok !== true && s.alt) {
+        // สตรีมหลักไม่ผ่าน ลองสตรีมสำรอง ถ้าผ่านสลับมาใช้เป็นหลัก
+        const r2 = await checkHls(s.alt);
+        if (r2.ok === true || (r.ok === false && r2.ok === null)) {
+          [s.hls, s.alt] = [s.alt, s.hls];
+          r = r2;
+        }
+      }
       s.ok = r.ok;
       s.cors = r.cors ?? null;
       rs.push(r);
@@ -192,11 +200,9 @@ async function main() {
   const sources = { itic: itic.status === 'fulfilled', doh: doh.status === 'fulfilled' };
   if (!sources.itic) console.error('iTIC:', itic.reason?.message);
   if (!sources.doh) console.error('highwaytraffic:', doh.reason?.message);
-  const dohCams = sources.doh ? doh.value : [];
-  const dohCodes = new Set(dohCams.map((c) => c.code));
-  // กล้องทางหลวงที่ iTIC ส่งต่อมาซ้ำกับของกรมทางหลวงโดยตรง → ใช้ของกรมทางหลวง (มีทั้งขาเข้า/ขาออก)
-  const iticCams = (sources.itic ? itic.value : []).filter((c) => !dohCodes.has(dohCodeFromItic(c.code)));
-  const cams = [...dohCams, ...iticCams];
+  // กล้องทางหลวงที่ iTIC ส่งต่อมา = กล้องชุดเดียวกับของกรมทางหลวง → รวมเป็นจุดเดียว (ขาเข้า/ขาออก)
+  const merged = mergeDohWithItic(sources.doh ? doh.value : [], sources.itic ? itic.value : []);
+  const cams = [...merged.doh, ...merged.itic];
   if (cams.length === 0) throw new Error('ไม่มีกล้องจากทั้งสองแหล่ง — ไม่เขียนทับไฟล์เดิม');
 
   const checks = await checkAll(cams);

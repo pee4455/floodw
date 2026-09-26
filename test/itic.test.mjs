@@ -79,3 +79,28 @@ test('highwaytraffic parsers', async () => {
   assert.equal(dohCodeFromItic('DOH-PER-3-006-out'), 'PER-3-006');
   assert.equal(dohCodeFromItic('ITICM_BMAMI0125'), null);
 });
+
+test('mergeDohWithItic uses iTIC relay streams and drops duplicates', async () => {
+  const { mergeDohWithItic, streamKey } = await import('../scripts/lib/doh.mjs');
+  assert.equal(streamKey('https://streaming1.highwaytraffic.go.th/Phase3/PER_3_006_IN.stream/playlist.m3u8'), 'phase3/per_3_006_in.stream');
+  const doh = [
+    {
+      id: 'doh-PER-3-006',
+      code: 'PER-3-006',
+      streams: [
+        { label: 'มุ่งหน้าบางบัวทอง', hls: 'https://streaming1.highwaytraffic.go.th/Phase3/PER_3_006_IN.stream/playlist.m3u8' },
+        { label: 'มุ่งหน้าบางแค', hls: 'https://streaming1.highwaytraffic.go.th/Phase3/PER_3_006_OUT.stream/playlist.m3u8' },
+      ],
+    },
+  ];
+  const itic = [
+    { id: 'itic-DOH-PER-3-006', code: 'DOH-PER-3-006', hls: 'https://camerai1.iticfoundation.org/pass/1.2.3.4:1935/Phase3/PER_3_006_IN.stream/playlist.m3u8' },
+    { id: 'itic-DOH-PER-3-006-out', code: 'DOH-PER-3-006-out', hls: null },
+    { id: 'itic-ITICM_1', code: 'ITICM_1', hls: 'https://camera1.iticfoundation.org/hls/x.m3u8' },
+  ];
+  const r = mergeDohWithItic(doh, itic);
+  assert.equal(r.doh[0].streams[0].hls, itic[0].hls);
+  assert.equal(r.doh[0].streams[0].alt, doh[0].streams[0].hls);
+  assert.equal(r.doh[0].streams[1].alt, undefined, 'no relay → direct only');
+  assert.deepEqual(r.itic.map((c) => c.id), ['itic-ITICM_1']);
+});

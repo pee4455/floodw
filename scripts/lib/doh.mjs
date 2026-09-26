@@ -43,3 +43,35 @@ export function dohCodeFromItic(camid) {
   const m = String(camid || '').match(/^DOH-(PER-\d+-\d+)/i);
   return m ? m[1].toUpperCase() : null;
 }
+
+/** ส่วนท้ายของ URL สตรีมที่ใช้จับคู่ระหว่างกรมทางหลวงกับ iTIC เช่น phase3/per_3_006_in.stream */
+export function streamKey(url) {
+  const m = String(url || '').match(/\/(Phase\d+\/[^/]+\.stream)\//i);
+  return m ? m[1].toLowerCase() : null;
+}
+
+/**
+ * รวมกล้องกรมทางหลวงกับ iTIC: สตรีมที่ iTIC ส่งต่อ (relay) ใช้เป็นหลักเพราะเปิดให้เว็บอื่นเล่นได้ (CORS)
+ * ส่วนสตรีมตรงของกรมทางหลวงเก็บเป็นสำรอง (alt) — กล้อง iTIC ที่จับคู่ได้จะถูกรวมเข้าไป ไม่แสดงซ้ำ
+ * @returns {{doh: object[], itic: object[]}}
+ */
+export function mergeDohWithItic(dohCams, iticCams) {
+  const relay = new Map();
+  for (const c of iticCams) {
+    const k = streamKey(c.hls);
+    if (k) relay.set(k, c);
+  }
+  const used = new Set();
+  const doh = dohCams.map((cam) => ({
+    ...cam,
+    streams: cam.streams.map((st) => {
+      const r = relay.get(streamKey(st.hls));
+      if (!r) return { ...st };
+      used.add(r.id);
+      return { label: st.label, hls: r.hls, alt: st.hls };
+    }),
+  }));
+  const dohCodes = new Set(dohCams.map((c) => c.code));
+  const itic = iticCams.filter((c) => !used.has(c.id) && !dohCodes.has(dohCodeFromItic(c.code)));
+  return { doh, itic };
+}
