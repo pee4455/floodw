@@ -7,4 +7,4 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
-      - run: node scripts/probe-parking.mjs https://www.thairath.co.th/news/society/2962048 https://www.thairath.co.th/news/society/2962076 https://www.pptvhd36.com/news/%E0%B8%AA%E0%B8%B1%E0%B8%87%E0%B8%84%E0%B8%A1/284132 https://www.prachachat.net/biz-movement/news-2071910 https://www.bangkokbiznews.com/news/news-update/1253547
+      - run: node scripts/probe-parking.mjs https://www.thairath.co.th/news/society/2962048 https://www.thairath.co.th/news/society/2962076 https://www.thairath.co.th/amp/news/society/2962048 https://www.fashionisland.co.th/ https://www.nbm.co.th/th/parkandride/
