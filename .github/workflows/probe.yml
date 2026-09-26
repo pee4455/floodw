@@ -5,23 +5,21 @@ on:
 jobs:
   probe:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 15
     steps:
-      - name: PageMethods
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: node scripts/update-cams.mjs
+      - name: Dump result
         run: |
-          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          B=https://highwaytraffic.go.th/DOHWeb
-          curl -sSL -m 30 -A "$UA" -c /tmp/cj -o /tmp/h.html "$B/home.aspx"
           python3 - <<'PY'
-          import re
-          s = open('/tmp/h.html', encoding='utf-8', errors='replace').read()
-          for kw in ['GetCameraInfo:function', 'GetSiteInfo:function', 'PageMethods.set_path', 'mmmap.', 'showMarker', 'Marker(', 'lat:', 'lon:']:
-              for m in list(re.finditer(re.escape(kw), s))[:2]:
-                  print('=====', kw); print(s[max(0,m.start()-300):m.end()+500]); print()
+          import json
+          d = json.load(open('public/data/traffic_cameras.json'))
+          for c in d['cameras']:
+              if c['source'] == 'doh': print(c['ok'], c.get('cors'), c['code'], c['name'][:40], [ (s['label'], s.get('ok'), s.get('cors')) for s in c['streams']])
           PY
-          for m in GetCameraInfo GetSiteInfo GetSiteInfo2; do
-            for body in '{"id":2753}' '{"siteID":2753}' '{"site_id":2753}'; do
-              echo "== $m $body"
-              curl -sS -m 25 -A "$UA" -b /tmp/cj -H 'Content-Type: application/json; charset=utf-8' -X POST --data "$body" "$B/home.aspx/$m" | head -c 2500; echo
-            done
-          done
+          H=$(python3 -c "import json;d=json.load(open('public/data/traffic_cameras.json'));print(next((c['hls'] for c in d['cameras'] if c['source']=='doh' and c['ok']),''))")
+          echo "HLS=$H"; [ -n "$H" ] && curl -sS -m 15 -D - -H "Origin: https://pee4455.github.io" "$H" | head -20
+          echo "DUMP_BEGIN"; gzip -c public/data/traffic_cameras.json | base64 -w0; echo; echo "DUMP_END"
