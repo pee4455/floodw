@@ -7,23 +7,17 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Probe js100
+      - name: Raw item HTML
         run: |
           UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          for u in https://www.js100.com/en/site/traffic https://www.js100.com/en/site/news https://www.js100.com/en/site/news/view/121571 https://www.js100.com/rss https://www.js100.com/feed; do
-            echo "::group::$u"
-            curl -sSL -m 30 -A "$UA" -o /tmp/b -w "HTTP %{http_code} type=%{content_type} size=%{size_download} final=%{url_effective}\n" "$u" || echo fail
-            python3 - <<'PY'
-          import re, html
-          s = open('/tmp/b', encoding='utf-8', errors='replace').read()
-          print('scripts:', sorted(set(re.findall(r'<script[^>]+src="([^"]+)"', s)))[:20])
-          print('json/api-ish:', sorted(set(re.findall(r'["\'](/[^"\' ]*(?:api|json|ajax|load|feed|traffic|news/view)[^"\' ]*)["\']', s)))[:40])
-          body = re.sub(r'<(script|style)[\s\S]*?</\1>', '', s)
-          body = re.sub(r'<[^>]+>', '\n', body); body = html.unescape(re.sub(r'\n\s*\n+', '\n', body))
-          print(body[:2500])
-          # inline scripts mentioning ajax/url
-          for sc in re.findall(r'<script[^>]*>([\s\S]*?)</script>', s):
-              if re.search(r'ajax|fetch\(|\$\.get|\$\.post|url\s*:', sc): print('INLINE:', sc[:1500])
+          curl -sSL -m 30 -A "$UA" -o /tmp/t.html https://www.js100.com/en/site/traffic
+          curl -sSL -m 30 -A "$UA" -o /tmp/n.html https://www.js100.com/en/site/news
+          curl -sSL -m 30 -A "$UA" -o /tmp/m.html -X POST --data 'per_page=12&offset=1' https://www.js100.com/en/site/news/detail_more
+          python3 - <<'PY'
+          import re
+          for f, kw in [('/tmp/t.html', 'มอเตอร์เวย์ สาย 7'), ('/tmp/n.html', 'ปภ.แจ้งเตือนน้ำเหนือ'), ('/tmp/m.html', 'href')]:
+              s = open(f, encoding='utf-8', errors='replace').read()
+              print('=====', f, len(s))
+              i = s.find(kw)
+              print(s[max(0, i-2500): i+800] if i >= 0 else s[:3000])
           PY
-            echo "::endgroup::"
-          done
