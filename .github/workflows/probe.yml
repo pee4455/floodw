@@ -7,25 +7,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: Inspect home.aspx scripts
+      - name: PageMethods
         run: |
           UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          curl -sSL -m 30 -A "$UA" -c /tmp/cj -o /tmp/h.html "https://highwaytraffic.go.th/DOHWeb/home.aspx"
+          B=https://highwaytraffic.go.th/DOHWeb
+          curl -sSL -m 30 -A "$UA" -c /tmp/cj -o /tmp/h.html "$B/home.aspx"
           python3 - <<'PY'
           import re
           s = open('/tmp/h.html', encoding='utf-8', errors='replace').read()
-          s = re.sub(r'value="[A-Za-z0-9+/=]{200,}"', 'value="<b64>"', s)
-          for kw in ['SiteCameraHandler', 'GetCameraInfo', 'function MoveLocation2', 'MoveLocation2(2753)', 'camera01', 'm3u8', '.jpg', 'lat', 'new google.maps', 'L.marker', 'addMarker', 'markers']:
+          for kw in ['GetCameraInfo:function', 'GetSiteInfo:function', 'PageMethods.set_path', 'mmmap.', 'showMarker', 'Marker(', 'lat:', 'lon:']:
               for m in list(re.finditer(re.escape(kw), s))[:2]:
-                  a, b = max(0, m.start() - 700), min(len(s), m.end() + 900)
-                  print('=====', kw, m.start()); print(s[a:b]); print()
-          # all <script src>
-          print('SCRIPTS', sorted(set(re.findall(r'<script[^>]+src="([^"]+)"', s))))
-          print('IDS', len(set(re.findall(r'MoveLocation2\((\d+)\)', s))))
+                  print('=====', kw); print(s[max(0,m.start()-300):m.end()+500]); print()
           PY
-      - name: Try handler
-        run: |
-          UA='Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36'
-          for q in "" "?Action=GetCameraInfo&id=2753" "?action=GetCameraInfo&CameraID=2753" "?Method=GetCameraInfo&cid=2753"; do
-            echo "== GET $q"; curl -sS -m 20 -A "$UA" -b /tmp/cj "https://highwaytraffic.go.th/DOHWeb/SiteCameraHandler.ashx$q" | head -c 800; echo
+          for m in GetCameraInfo GetSiteInfo GetSiteInfo2; do
+            for body in '{"id":2753}' '{"siteID":2753}' '{"site_id":2753}'; do
+              echo "== $m $body"
+              curl -sS -m 25 -A "$UA" -b /tmp/cj -H 'Content-Type: application/json; charset=utf-8' -X POST --data "$body" "$B/home.aspx/$m" | head -c 2500; echo
+            done
           done
