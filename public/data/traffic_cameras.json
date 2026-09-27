@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T01:23:21.796Z",
+ "generatedAt": "2026-09-27T07:06:24.853Z",
  "sources": [
   {
    "name": "iTIC Foundation / Longdo Traffic",
@@ -13,7 +13,7 @@
   }
  ],
  "total": 64,
- "ok": 14,
+ "ok": 16,
  "cameras": [
   {
    "id": "doh-PER-3-004",
@@ -45,7 +45,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-3-005",
@@ -77,7 +77,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-3-008",
@@ -110,7 +110,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-3-009",
@@ -144,7 +144,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-3-013",
@@ -176,7 +176,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-3-016",
@@ -208,7 +208,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-3-017",
@@ -242,7 +242,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-3-018",
@@ -274,7 +274,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-4-016",
@@ -306,7 +306,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-4-022",
@@ -338,7 +338,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-9-022",
@@ -370,7 +370,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-9-027",
@@ -404,7 +404,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-10-019",
@@ -436,7 +436,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-11-033",
@@ -450,20 +450,20 @@
    "lon": 100.92626,
    "img": null,
    "video": null,
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.208:1935/Phase11/PER_11_033.stream/playlist.m3u8",
+   "hls": "https://streaming2.highwaytraffic.go.th/Phase11/PER_11_033.stream/playlist.m3u8",
    "streams": [
     {
      "label": "ทิศทางมุ่งหน้าเข้า จ.นครนายก",
-     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.208:1935/Phase11/PER_11_033.stream/playlist.m3u8",
-     "alt": "https://streaming2.highwaytraffic.go.th/Phase11/PER_11_033.stream/playlist.m3u8",
-     "ok": true,
-     "cors": true
+     "hls": "https://streaming2.highwaytraffic.go.th/Phase11/PER_11_033.stream/playlist.m3u8",
+     "alt": "https://camerai1.iticfoundation.org/pass/180.180.242.208:1935/Phase11/PER_11_033.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
     }
    ],
-   "ok": true,
+   "ok": null,
    "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "cors": null,
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-12-013",
@@ -495,7 +495,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-12-015",
@@ -528,7 +528,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-13-029",
@@ -560,7 +560,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-16-012",
@@ -592,7 +592,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "doh-PER-19-001",
@@ -624,7 +624,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0076",
@@ -641,7 +641,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0125",
@@ -655,10 +655,10 @@
    "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.19:8802",
    "hls": "https://camera1.iticfoundation.org/hls/10.8.0.19_8802.m3u8",
    "source": "itic",
-   "ok": null,
+   "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-12-016",
@@ -675,7 +675,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-12-016-out",
@@ -692,7 +692,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-3-006-out",
@@ -709,7 +709,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-9-026",
@@ -726,7 +726,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0074",
@@ -740,10 +740,10 @@
    "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8001",
    "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8001.m3u8",
    "source": "itic",
-   "ok": null,
-   "via": "jpeg",
-   "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-12-017",
@@ -760,7 +760,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0102",
@@ -774,10 +774,10 @@
    "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8004",
    "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8554.m3u8",
    "source": "itic",
-   "ok": null,
-   "via": "jpeg",
-   "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-12-019",
@@ -794,7 +794,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0080",
@@ -806,12 +806,12 @@
    "lon": 100.51528,
    "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.18:8002",
    "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.18:8002",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.18_8002.m3u8",
+   "hls": "https://camera1.iticfoundation.org/hls2/10.8.0.18_8002.m3u8",
    "source": "itic",
-   "ok": null,
+   "ok": true,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0081",
@@ -823,12 +823,12 @@
    "lon": 100.51608,
    "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.18:8001",
    "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.18:8001",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.18_8001.m3u8",
+   "hls": "https://camera1.iticfoundation.org/hls2/10.8.0.18_8001.m3u8",
    "source": "itic",
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0124",
@@ -845,7 +845,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-3-006",
@@ -862,7 +862,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOH-PER-9-026-out",
@@ -879,7 +879,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0072",
@@ -896,7 +896,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-DOHBHS0016",
@@ -913,7 +913,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0071",
@@ -930,7 +930,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0030",
@@ -947,7 +947,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0031",
@@ -964,7 +964,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0032",
@@ -981,7 +981,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0033",
@@ -998,7 +998,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0041",
@@ -1015,7 +1015,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0042",
@@ -1032,7 +1032,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0043",
@@ -1049,7 +1049,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0044",
@@ -1066,7 +1066,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0045",
@@ -1083,7 +1083,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0046",
@@ -1100,7 +1100,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0047",
@@ -1117,7 +1117,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0048",
@@ -1134,7 +1134,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0049",
@@ -1151,7 +1151,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0050",
@@ -1168,7 +1168,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0051",
@@ -1185,7 +1185,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0052",
@@ -1202,7 +1202,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0053",
@@ -1219,7 +1219,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0054",
@@ -1236,7 +1236,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0055",
@@ -1253,7 +1253,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0056",
@@ -1270,7 +1270,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0057",
@@ -1287,7 +1287,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0058",
@@ -1304,7 +1304,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0059",
@@ -1321,7 +1321,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0060",
@@ -1338,7 +1338,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0061",
@@ -1355,7 +1355,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0065",
@@ -1372,7 +1372,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   },
   {
    "id": "itic-ITICM_BMAMI0066",
@@ -1389,7 +1389,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T01:23:21.796Z"
+   "checkedAt": "2026-09-27T07:06:24.853Z"
   }
  ]
 }
