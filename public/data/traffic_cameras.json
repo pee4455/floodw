@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-09-27T23:55:36.067Z",
+ "generatedAt": "2026-09-28T05:12:23.774Z",
  "sources": [
   {
    "name": "iTIC Foundation / Longdo Traffic",
@@ -12,8 +12,8 @@
    "ok": true
   }
  ],
- "total": 60,
- "ok": 23,
+ "total": 55,
+ "ok": 15,
  "cameras": [
   {
    "id": "doh-PER-3-004",
@@ -45,7 +45,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-3-005",
@@ -77,7 +77,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-3-008",
@@ -91,14 +91,13 @@
    "lon": 100.6058,
    "img": null,
    "video": null,
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_008_IN.stream/playlist.m3u8",
+   "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_008_IN.stream/playlist.m3u8",
    "streams": [
     {
      "label": "มุ่งหน้าแยกหลักสี่",
-     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_008_IN.stream/playlist.m3u8",
-     "alt": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_008_IN.stream/playlist.m3u8",
-     "ok": true,
-     "cors": true
+     "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_008_IN.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
     },
     {
      "label": "มุ่งหน้ารังสิต",
@@ -107,10 +106,10 @@
      "cors": null
     }
    ],
-   "ok": true,
+   "ok": null,
    "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "cors": null,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-3-009",
@@ -124,27 +123,25 @@
    "lon": 100.6617,
    "img": null,
    "video": null,
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_009_IN.stream/playlist.m3u8",
+   "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_IN.stream/playlist.m3u8",
    "streams": [
     {
      "label": "ทิศทางมุ่งหน้าบางนา",
-     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_009_IN.stream/playlist.m3u8",
-     "alt": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_IN.stream/playlist.m3u8",
-     "ok": true,
-     "cors": true
+     "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_IN.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
     },
     {
      "label": "ทิศทางมุ่งหน้าบางปะกง",
-     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_009_OUT.stream/playlist.m3u8",
-     "alt": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_OUT.stream/playlist.m3u8",
-     "ok": true,
-     "cors": true
+     "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_009_OUT.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
     }
    ],
-   "ok": true,
+   "ok": null,
    "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "cors": null,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-3-013",
@@ -176,7 +173,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-3-016",
@@ -208,7 +205,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-3-017",
@@ -222,27 +219,25 @@
    "lon": 100.6882,
    "img": null,
    "video": null,
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_017.stream/playlist.m3u8",
+   "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_017.stream/playlist.m3u8",
    "streams": [
     {
      "label": "ทิศทางมุ่งหน้า ถ.พหลโยธิน",
-     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_017.stream/playlist.m3u8",
-     "alt": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_017.stream/playlist.m3u8",
-     "ok": true,
-     "cors": true
+     "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_017.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
     },
     {
      "label": "ทิศทางมุ่งหน้า ถ.กาญจนาภิเษก",
-     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_017.stream/playlist.m3u8",
-     "alt": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_017.stream/playlist.m3u8",
-     "ok": true,
-     "cors": true
+     "hls": "https://streaming1.highwaytraffic.go.th/Phase3/PER_3_017.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
     }
    ],
-   "ok": true,
+   "ok": null,
    "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "cors": null,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-3-018",
@@ -274,7 +269,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-4-016",
@@ -306,7 +301,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-4-022",
@@ -338,7 +333,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-9-022",
@@ -370,7 +365,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-9-027",
@@ -384,14 +379,13 @@
    "lon": 100.78716,
    "img": null,
    "video": null,
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase9/PER_9_027_IN.stream/playlist.m3u8",
+   "hls": "https://streaming1.highwaytraffic.go.th/Phase9/PER_9_027_IN.stream/playlist.m3u8",
    "streams": [
     {
      "label": "ทิศทางมุ่งหน้าเข้า มีนบุรี",
-     "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase9/PER_9_027_IN.stream/playlist.m3u8",
-     "alt": "https://streaming1.highwaytraffic.go.th/Phase9/PER_9_027_IN.stream/playlist.m3u8",
-     "ok": true,
-     "cors": true
+     "hls": "https://streaming1.highwaytraffic.go.th/Phase9/PER_9_027_IN.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
     },
     {
      "label": "ทิศทางมุ่งหน้าเข้า จ.ฉะเชิงเทรา",
@@ -400,10 +394,10 @@
      "cors": null
     }
    ],
-   "ok": true,
+   "ok": null,
    "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "cors": null,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-10-019",
@@ -435,7 +429,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-11-033",
@@ -461,7 +455,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-12-013",
@@ -493,7 +487,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-12-015",
@@ -525,7 +519,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-13-029",
@@ -557,7 +551,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-16-012",
@@ -589,7 +583,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "doh-PER-19-001",
@@ -621,92 +615,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-DOH-PER-3-006",
-   "code": "DOH-PER-3-006",
-   "type": "snapshot",
-   "name": "(จ.นนทบุรี) ถ.กาญจนาภิเษก บางใหญ่ ทิศทางมุ่งหน้าบางแค",
-   "org": "กรมทางหลวง",
-   "lat": 13.83,
-   "lon": 100.4132,
-   "img": "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-3-006",
-   "video": "https://camera1.iticfoundation.org/mjpeg.php?camid=PER-3-006",
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_006_IN.stream/playlist.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-DOHBHS0016",
-   "code": "DOHBHS0016",
-   "type": "snapshot",
-   "name": "(กรุงเทพมหานคร) ถ.วิภาดีรังสิต ดอนเมือง ขาออก",
-   "org": "กรมทางหลวง",
-   "lat": 13.92816,
-   "lon": 100.60593,
-   "img": "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-3-008_2",
-   "video": "https://camera1.iticfoundation.org/mjpeg.php?camid=PER-3-008_2",
-   "hls": null,
-   "source": "itic",
-   "ok": false,
-   "via": "jpeg",
-   "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-DOH-PER-9-026",
-   "code": "DOH-PER-9-026",
-   "type": "snapshot",
-   "name": "(จ.นนทบุรี) 302 - อ.เมืองนนทบุรี จ.นนทบุรี ทิศทางมุ่งหน้าเข้า กทม.",
-   "org": "กรมทางหลวง",
-   "lat": 13.87167,
-   "lon": 100.46239,
-   "img": "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-9-026",
-   "video": "https://camera1.iticfoundation.org/mjpeg.php?camid=PER-9-026",
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase9/PER_9_026_IN.stream/playlist.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-DOH-PER-9-026-out",
-   "code": "DOH-PER-9-026-out",
-   "type": "snapshot",
-   "name": "(จ.นนทบุรี) 302 - อ.เมืองนนทบุรี จ.นนทบุรี ทิศทางมุ่งหน้าออก บางใหญ่",
-   "org": "กรมทางหลวง",
-   "lat": 13.87187,
-   "lon": 100.46239,
-   "img": "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-9-026-out",
-   "video": "https://camera1.iticfoundation.org/mjpeg.php?camid=PER-9-026-out",
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase9/PER_9_026_OUT.stream/playlist.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-ITICM_BMAMI0102",
-   "code": "ITICM_BMAMI0102",
-   "type": "snapshot",
-   "name": "(กรุงเทพมหานคร) ทางด่วน แยกทางด่วนพระราม4",
-   "org": "iTIC Motion",
-   "lat": 13.7223,
-   "lon": 100.5526,
-   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8004",
-   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8004",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8554.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0124",
@@ -723,7 +632,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0125",
@@ -740,109 +649,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-DOH-PER-3-006-out",
-   "code": "DOH-PER-3-006-out",
-   "type": "snapshot",
-   "name": "(จ.นนทบุรี) ถ.กาญจนาภิเษก บางใหญ่ ทิศทางมุ่งหน้าบางบัวทอง",
-   "org": "กรมทางหลวง",
-   "lat": 13.8302,
-   "lon": 100.4132,
-   "img": "https://camera1.iticfoundation.org/jpeg.cgi?camid=PER-3-006-out",
-   "video": "https://camera1.iticfoundation.org/mjpeg.php?camid=PER-3-006-out",
-   "hls": "https://camerai1.iticfoundation.org/pass/180.180.242.207:1935/Phase3/PER_3_006_OUT.stream/playlist.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-ITICM_BMAMI0071",
-   "code": "ITICM_BMAMI0071",
-   "type": "snapshot",
-   "name": "(กรุงเทพมหานคร) ถ.พระราม4 แยกทางด่วนพระราม4",
-   "org": "iTIC Motion",
-   "lat": 13.72309,
-   "lon": 100.5522,
-   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8002",
-   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8002",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8002.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-ITICM_BMAMI0072",
-   "code": "ITICM_BMAMI0072",
-   "type": "snapshot",
-   "name": "(กรุงเทพมหานคร) ทางด่วน แยกทางด่วนพระราม4",
-   "org": "iTIC Motion",
-   "lat": 13.72257,
-   "lon": 100.55328,
-   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8003",
-   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8003",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8003.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-ITICM_BMAMI0074",
-   "code": "ITICM_BMAMI0074",
-   "type": "snapshot",
-   "name": "(กรุงเทพมหานคร) ถ.พระราม4 แยกทางด่วนพระราม4",
-   "org": "iTIC Motion",
-   "lat": 13.72336,
-   "lon": 100.55169,
-   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8001",
-   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8001",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8001.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-ITICM_BMAMI0076",
-   "code": "ITICM_BMAMI0076",
-   "type": "snapshot",
-   "name": "(กรุงเทพมหานคร) ถนนสาทรหน้าสถานเอกอัครราชทูตเยอรมนี",
-   "org": "iTIC Motion",
-   "lat": 13.72539,
-   "lon": 100.5426,
-   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.15:8002",
-   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.15:8002",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.15_8552.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
-  },
-  {
-   "id": "itic-ITICM_BMAMI0080",
-   "code": "ITICM_BMAMI0080",
-   "type": "snapshot",
-   "name": "(กรุงเทพมหานคร) เชิงสะพานตากสิน ฝั่งสาทร บริเวณจุดกลับใต้สะพาน",
-   "org": "iTIC Motion",
-   "lat": 13.71853,
-   "lon": 100.51528,
-   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.18:8002",
-   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.18:8002",
-   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.18_8002.m3u8",
-   "source": "itic",
-   "ok": true,
-   "via": "hls",
-   "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0081",
@@ -859,7 +666,109 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
+  },
+  {
+   "id": "itic-ITICM_BMAMI0102",
+   "code": "ITICM_BMAMI0102",
+   "type": "snapshot",
+   "name": "(กรุงเทพมหานคร) ทางด่วน แยกทางด่วนพระราม4",
+   "org": "iTIC Motion",
+   "lat": 13.7223,
+   "lon": 100.5526,
+   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8004",
+   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8004",
+   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8554.m3u8",
+   "source": "itic",
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
+  },
+  {
+   "id": "itic-ITICM_BMAMI0071",
+   "code": "ITICM_BMAMI0071",
+   "type": "snapshot",
+   "name": "(กรุงเทพมหานคร) ถ.พระราม4 แยกทางด่วนพระราม4",
+   "org": "iTIC Motion",
+   "lat": 13.72309,
+   "lon": 100.5522,
+   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8002",
+   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8002",
+   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8002.m3u8",
+   "source": "itic",
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
+  },
+  {
+   "id": "itic-ITICM_BMAMI0072",
+   "code": "ITICM_BMAMI0072",
+   "type": "snapshot",
+   "name": "(กรุงเทพมหานคร) ทางด่วน แยกทางด่วนพระราม4",
+   "org": "iTIC Motion",
+   "lat": 13.72257,
+   "lon": 100.55328,
+   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8003",
+   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8003",
+   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8003.m3u8",
+   "source": "itic",
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
+  },
+  {
+   "id": "itic-ITICM_BMAMI0074",
+   "code": "ITICM_BMAMI0074",
+   "type": "snapshot",
+   "name": "(กรุงเทพมหานคร) ถ.พระราม4 แยกทางด่วนพระราม4",
+   "org": "iTIC Motion",
+   "lat": 13.72336,
+   "lon": 100.55169,
+   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.14:8001",
+   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.14:8001",
+   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.14_8001.m3u8",
+   "source": "itic",
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
+  },
+  {
+   "id": "itic-ITICM_BMAMI0076",
+   "code": "ITICM_BMAMI0076",
+   "type": "snapshot",
+   "name": "(กรุงเทพมหานคร) ถนนสาทรหน้าสถานเอกอัครราชทูตเยอรมนี",
+   "org": "iTIC Motion",
+   "lat": 13.72539,
+   "lon": 100.5426,
+   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.15:8002",
+   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.15:8002",
+   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.15_8552.m3u8",
+   "source": "itic",
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
+  },
+  {
+   "id": "itic-ITICM_BMAMI0080",
+   "code": "ITICM_BMAMI0080",
+   "type": "snapshot",
+   "name": "(กรุงเทพมหานคร) เชิงสะพานตากสิน ฝั่งสาทร บริเวณจุดกลับใต้สะพาน",
+   "org": "iTIC Motion",
+   "lat": 13.71853,
+   "lon": 100.51528,
+   "img": "https://camera1.iticfoundation.org/jpeg2.php?camid=10.8.0.18:8002",
+   "video": "https://camera1.iticfoundation.org/mjpeg2.php?camid=10.8.0.18:8002",
+   "hls": "https://camera1.iticfoundation.org/hls/10.8.0.18_8002.m3u8",
+   "source": "itic",
+   "ok": true,
+   "via": "hls",
+   "cors": true,
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0030",
@@ -876,7 +785,7 @@
    "ok": true,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0031",
@@ -893,7 +802,7 @@
    "ok": true,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0032",
@@ -910,7 +819,7 @@
    "ok": true,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0033",
@@ -927,7 +836,7 @@
    "ok": true,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0041",
@@ -944,7 +853,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0042",
@@ -961,7 +870,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0043",
@@ -978,7 +887,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0044",
@@ -995,7 +904,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0045",
@@ -1012,7 +921,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0046",
@@ -1029,7 +938,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0047",
@@ -1046,7 +955,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0048",
@@ -1063,7 +972,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0049",
@@ -1080,7 +989,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0050",
@@ -1097,7 +1006,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0051",
@@ -1114,7 +1023,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0052",
@@ -1131,7 +1040,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0053",
@@ -1148,7 +1057,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0054",
@@ -1165,7 +1074,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0055",
@@ -1182,7 +1091,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0056",
@@ -1199,7 +1108,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0057",
@@ -1216,7 +1125,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0058",
@@ -1233,7 +1142,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0059",
@@ -1250,7 +1159,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0060",
@@ -1267,7 +1176,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0061",
@@ -1284,7 +1193,7 @@
    "ok": false,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0065",
@@ -1301,7 +1210,7 @@
    "ok": true,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   },
   {
    "id": "itic-ITICM_BMAMI0066",
@@ -1318,7 +1227,7 @@
    "ok": true,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-09-27T23:55:36.067Z"
+   "checkedAt": "2026-09-28T05:12:23.774Z"
   }
  ]
 }
