@@ -1,60 +1,60 @@
 {
- "generatedAt": "2026-10-02T11:17:40.614Z",
+ "generatedAt": "2026-10-02T16:48:17.257Z",
  "feeds": [
   {
    "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "ok": true,
-   "count": 100
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: น้ำท่วมขัง กทม.",
-   "ok": true,
-   "count": 100
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: จอดรถหนีน้ำ",
-   "ok": true,
-   "count": 47
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
-   "ok": true,
-   "count": 51
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
-   "ok": true,
-   "count": 45
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ฝากรถหนีน้ำ",
-   "ok": true,
-   "count": 53
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
-   "ok": true,
-   "count": 100
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: เตือนฝนตกหนัก",
-   "ok": true,
-   "count": 56
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
-   "ok": true,
-   "count": 49
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News (EN): Bangkok flood",
-   "ok": true,
-   "count": 100
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "จส.100",
    "ok": true,
-   "count": 17
+   "count": 16
   }
  ],
  "items": [
