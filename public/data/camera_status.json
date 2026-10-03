@@ -1,41 +1,41 @@
 {
- "generatedAt": "2026-10-02T21:16:08.689Z",
+ "generatedAt": "2026-10-03T00:41:31.410Z",
  "status": {
   "yt-chaophraya-suanplu": {
-   "state": "unavailable",
+   "state": "unknown",
    "videoId": "UdDpOaGviq4",
-   "title": "Chao Phraya River, Bangkok, Thailand | Jack's Bar | Live Camera Stream",
-   "checkedAt": "2026-10-02T21:16:08.689Z"
+   "error": "HTTP 429",
+   "checkedAt": "2026-10-03T00:41:31.410Z"
   },
   "yt-chaophraya-2": {
-   "state": "offline",
+   "state": "unknown",
    "videoId": "ZTlDaQq7Bm8",
-   "title": null,
-   "checkedAt": "2026-10-02T21:16:08.689Z"
+   "error": "HTTP 429",
+   "checkedAt": "2026-10-03T00:41:31.410Z"
   },
   "yt-sathorn-skywalk": {
-   "state": "offline",
+   "state": "unknown",
    "videoId": "CW4Js-oyc58",
-   "title": null,
-   "checkedAt": "2026-10-02T21:16:08.689Z"
+   "error": "HTTP 429",
+   "checkedAt": "2026-10-03T00:41:31.410Z"
   },
   "yt-sukhumvit-19": {
-   "state": "offline",
+   "state": "unknown",
    "videoId": "Q71sLS8h9a4",
-   "title": null,
-   "checkedAt": "2026-10-02T21:16:08.689Z"
+   "error": "HTTP 429",
+   "checkedAt": "2026-10-03T00:41:31.410Z"
   },
   "yt-sukhumvit-street": {
-   "state": "offline",
+   "state": "unknown",
    "videoId": "TfOOzM6mPT4",
-   "title": null,
-   "checkedAt": "2026-10-02T21:16:08.689Z"
+   "error": "HTTP 429",
+   "checkedAt": "2026-10-03T00:41:31.410Z"
   },
   "yt-livecam-bangkok": {
    "state": "offline",
    "videoId": null,
    "title": null,
-   "checkedAt": "2026-10-02T21:16:08.689Z"
+   "checkedAt": "2026-10-03T00:41:31.410Z"
   }
  }
 }
