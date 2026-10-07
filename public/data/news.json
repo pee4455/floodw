@@ -1,55 +1,55 @@
 {
- "generatedAt": "2026-10-06T21:10:55.569Z",
+ "generatedAt": "2026-10-07T00:58:53.462Z",
  "feeds": [
   {
    "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "ok": true,
-   "count": 100
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: น้ำท่วมขัง กทม.",
-   "ok": true,
-   "count": 100
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: จอดรถหนีน้ำ",
-   "ok": true,
-   "count": 24
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
-   "ok": true,
-   "count": 51
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
-   "ok": true,
-   "count": 53
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ฝากรถหนีน้ำ",
-   "ok": true,
-   "count": 50
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
-   "ok": true,
-   "count": 95
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: เตือนฝนตกหนัก",
-   "ok": true,
-   "count": 58
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
-   "ok": true,
-   "count": 51
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "Google News (EN): Bangkok flood",
-   "ok": true,
-   "count": 100
+   "ok": false,
+   "error": "HTTP 503"
   },
   {
    "feed": "จส.100",
@@ -2568,21 +2568,6 @@
    "bangkok": false
   },
   {
-   "title": "เช็กเรดาร์ฝนกรุงเทพวันนี้ 6 ต.ค. 69 ฝนถล่มเขตไหน น้ำท่วมจุดใด อัปเดตด่วน",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE12TkhDSUNaMDVzd3BpNG1heFl2U3lFbjdNZTF0UTFwZ3R3ZUJpenZPekthbzNzY2JtWVNDdUFZSTNSLTh0VmdfcDZPOWJiMVUwRjNia0JBNFdmMFZr?oc=5",
-   "published": "2026-10-06T04:55:00.000Z",
-   "source": "Thansettakij",
-   "summary": "เช็กเรดาร์ฝนกรุงเทพวันนี้ 6 ต.ค. 69 ฝนถล่มเขตไหน น้ำท่วมจุดใด อัปเดตด่วน &nbsp;&nbsp; Thansettakij",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "flood",
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
    "title": "โอนจ่ายล็อตแรกแล้ว 600 คน นายกฯ สั่งเร่งจ่ายเงินเยียวยาน้ำท่วม. กำชับทุกหน่วยระดมกำลังช่วยเหลือ–ฟื้นฟูต่อเนื่อง",
    "link": "https://www.js100.com/en/site/news/view/164953",
    "published": "2026-10-06T04:55:00.000Z",
@@ -2596,6 +2581,21 @@
    "depthCm": null,
    "places": [],
    "bangkok": false
+  },
+  {
+   "title": "เช็กเรดาร์ฝนกรุงเทพวันนี้ 6 ต.ค. 69 ฝนถล่มเขตไหน น้ำท่วมจุดใด อัปเดตด่วน",
+   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE12TkhDSUNaMDVzd3BpNG1heFl2U3lFbjdNZTF0UTFwZ3R3ZUJpenZPekthbzNzY2JtWVNDdUFZSTNSLTh0VmdfcDZPOWJiMVUwRjNia0JBNFdmMFZr?oc=5",
+   "published": "2026-10-06T04:55:00.000Z",
+   "source": "Thansettakij",
+   "summary": "เช็กเรดาร์ฝนกรุงเทพวันนี้ 6 ต.ค. 69 ฝนถล่มเขตไหน น้ำท่วมจุดใด อัปเดตด่วน &nbsp;&nbsp; Thansettakij",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [
+    "flood",
+    "weather"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
   },
   {
    "title": "สธ. เผยสถานพยาบาลน้ำท่วมปิดชั่วคราว 55 แห่ง ถอดบทเรียนน้ำท่วมหาดใหญ่ สำรองยา-อาหาร ปรับปรุงการจ่ายไฟ-ให้ออกซิเจน",
