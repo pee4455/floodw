@@ -1,15 +1,15 @@
 {
- "generatedAt": "2026-10-18T20:59:31.144Z",
+ "generatedAt": "2026-10-18T22:59:33.090Z",
  "feeds": [
   {
    "feed": "Google News: น้ำท่วมกรุงเทพ",
    "ok": true,
-   "count": 37
+   "count": 38
   },
   {
    "feed": "Google News: น้ำท่วมขัง กทม.",
    "ok": true,
-   "count": 71
+   "count": 74
   },
   {
    "feed": "Google News: จอดรถหนีน้ำ",
@@ -19,7 +19,7 @@
   {
    "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
    "ok": true,
-   "count": 52
+   "count": 51
   },
   {
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
@@ -29,7 +29,7 @@
   {
    "feed": "Google News: ฝากรถหนีน้ำ",
    "ok": true,
-   "count": 19
+   "count": 18
   },
   {
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
@@ -39,7 +39,7 @@
   {
    "feed": "Google News: เตือนฝนตกหนัก",
    "ok": true,
-   "count": 32
+   "count": 30
   },
   {
    "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
@@ -49,7 +49,7 @@
   {
    "feed": "Google News (EN): Bangkok flood",
    "ok": true,
-   "count": 36
+   "count": 38
   },
   {
    "feed": "จส.100",
@@ -59,12 +59,54 @@
  ],
  "items": [
   {
+   "title": "กรมอุตุฯ เตือนภาคใต้-ตะวันออก ฝนตกหนักถึงหนักมาก กทม. ฝนร้อยละ 70",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFA0ZlQ4WG8zWVRmQUtkem16UExPOXR2TVlDbl9BOEhFclZtWlZaMTZtN2ZZbXJoMUxXSWtfZG92a1ozakR2Vi1HMUh2emhNbXRKTW9CVDByOTA?oc=5",
+   "published": "2026-10-18T22:33:00.000Z",
+   "source": "banmuang.co.th",
+   "summary": "กรมอุตุฯ เตือนภาคใต้-ตะวันออก ฝนตกหนักถึงหนักมาก กทม. ฝนร้อยละ 70 &nbsp;&nbsp; banmuang.co.th",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "categories": [
+    "weather"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "Traders in Khlong Chan Flats rebuild after historic floods",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxPRk1DVGE2dERHc0xXQ1AtRU1hYk1ZenhDanNnM0pNUTg4bDZMdmw5TVVSSnMyWV9BMnVRUTB6RmwwMzlOYi1LQ1pxMHZkVEs2bXc0blQ0dGViSkthaWczdEx3VVB2REZnbXNoM2xZTDVEajBpNm8zXzZJLXJzbHluckRYVlFUbk5jSjRjZ1RWOXBDYnB3d0lIVjdqTWd6VlJHRktYSWRWcU1oUlI1dFRzVg?oc=5",
+   "published": "2026-10-18T21:22:00.000Z",
+   "source": "Bangkok Post",
+   "summary": "Traders in Khlong Chan Flats rebuild after historic floods &nbsp;&nbsp; Bangkok Post",
+   "feed": "Google News (EN): Bangkok flood",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
    "title": "กทม. ไม่ทิ้งเพื่อนซี้สี่ขา เดินหน้าช่วยสัตว์เลี้ยงประสบภัยน้ำท่วมกว่า 1,500 ตัว ดูแลครบวงจรยันฟื้นฟูหลังน้ำลด",
    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBHU0NJUC1sdnNuVUdSQlRsT05jdkNxamFBVlowNEx5YkJvYzZ3VzBOV29mU0d0UVd4eURRZVFrdTJoR3RCaVdsZjdrNDNyaUk0YXRaVlFYQkU?oc=5",
    "published": "2026-10-18T19:41:45.000Z",
    "source": "thestandard.co",
    "summary": "กทม. ไม่ทิ้งเพื่อนซี้สี่ขา เดินหน้าช่วยสัตว์เลี้ยงประสบภัยน้ำท่วมกว่า 1,500 ตัว ดูแลครบวงจรยันฟื้นฟูหลังน้ำลด &nbsp;&nbsp; thestandard.co",
    "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "Thailand weather alert warns of flash floods in Bangkok, East and South",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNa1dBU19XTmg1RF8wdWs2R0JrclBMelZYZUE1Xy1XLXVteW9OUzQxZDY5LTZuRlhnNDJHM3k4OGZZdVZhS1pvMDlkM0gxRk9pU0hzcGZKbklmRmhMOURzaC12VU44S3FmZUZhTW5YZmVUdFhRZUhmUzF1TzJiT2t3OEJvdHdZREpqNnNndUZBM3Y3bTJYQzZGX1YxR3RPU3cwMG5zajRmUVNDdmw5NnZfZ0ZWeEprdElKOGc?oc=5",
+   "published": "2026-10-18T18:29:39.000Z",
+   "source": "Pattaya Mail",
+   "summary": "Thailand weather alert warns of flash floods in Bangkok, East and South &nbsp;&nbsp; Pattaya Mail",
+   "feed": "Google News (EN): Bangkok flood",
    "categories": [
     "flood"
    ],
@@ -130,6 +172,20 @@
    "depthCm": null,
    "places": [],
    "bangkok": false
+  },
+  {
+   "title": "กรมอุตุนิยมวิทยา ประกาศปรับพื้นที่ฝนหนัก กทม.โดนเต็มๆ",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9BT1R0aE96aGFKNGJSQ0dpVWxGQUxVNTlnbHlFSFRWTGh3Slg0TDZ3czBpSW1UVWQwMllZb241M1VLOTZPa1Q2dkhkSERoSTBfblBJ?oc=5",
+   "published": "2026-10-18T15:01:00.000Z",
+   "source": "thainewsonline",
+   "summary": "กรมอุตุนิยมวิทยา ประกาศปรับพื้นที่ฝนหนัก กทม.โดนเต็มๆ &nbsp;&nbsp; thainewsonline",
+   "feed": "Google News: เตือนฝนตกหนัก",
+   "categories": [
+    "weather"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
   },
   {
    "title": "กทม. เร่งส่งชื่อผู้ประสบภัยน้ำท่วม 8.8 หมื่นครัวเรือนให้ ปภ. จ่ายเยียวยากว่า 649 ล้านบาท ย้ำเปิดรับลงทะเบียนทุกวันไม่มีวันหยุด",
@@ -441,6 +497,20 @@
    "feed": "Google News: น้ำท่วมขัง กทม.",
    "categories": [
     "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "ประกาศแล้ว! กรมอุตุฯ เตือน 24 ชม.ข้างหน้า เปิดพื้นที่ฝนตกหนักมาก | มุมข่าว",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE54cXMwaS1iUDRvbmp2VGRFd2JGYnlackdpTC1neF9taWh3bUlnTS15ZnBXTWQzazRRM0RyOHRzWGgxeWFGZnhqNEU3T0FKUHRyZGdJSWZB?oc=5",
+   "published": "2026-10-18T09:32:40.000Z",
+   "source": "LINE TODAY",
+   "summary": "ประกาศแล้ว! กรมอุตุฯ เตือน 24 ชม.ข้างหน้า เปิดพื้นที่ฝนตกหนักมาก | มุมข่าว &nbsp;&nbsp; LINE TODAY",
+   "feed": "Google News: เตือนฝนตกหนัก",
+   "categories": [
+    "weather"
    ],
    "depthCm": null,
    "places": [],
@@ -970,7 +1040,7 @@
    "published": "2026-10-18T02:37:16.000Z",
    "source": "Thairath.co.th",
    "summary": "กทม. วันนี้มีฝนฟ้าคะนอง 60% ของพื้นที่ เตือนช่วง 21-25 ต.ค. เฝ้าระวังฝนเพิ่ม &nbsp;&nbsp; Thairath.co.th",
-   "feed": "Google News: เตือนฝนตกหนัก",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
    "categories": [
     "weather"
    ],
@@ -998,7 +1068,7 @@
    "published": "2026-10-18T02:33:08.000Z",
    "source": "Thairath.co.th",
    "summary": "ยกการ์ดสูง! กทม. สั่งเฝ้าระวังคลองแสนแสบ เร่งเปิดประตูระบายน้ำ | 17 ต.ค. 69 | ไทยรัฐนิวส์โชว์ &nbsp;&nbsp; Thairath.co.th",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
    "categories": [
     "river"
    ],
@@ -1376,7 +1446,7 @@
    "published": "2026-10-17T15:40:00.000Z",
    "source": "bangkokbiznews",
    "summary": "ปภ. เตือนด่วน 35 จังหวัด - กทม. ฝนตกหนัก เสี่ยงน้ำท่วม ดินถล่ม 18-25 ต.ค. &nbsp;&nbsp; bangkokbiznews",
-   "feed": "Google News: เตือนฝนตกหนัก",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
    "categories": [
     "flood",
     "weather"
@@ -1576,8 +1646,8 @@
    "title": "ระทึก!ไฟไหม้รถยนต์ไฟฟ้า จอดรอซ่อมหลังจมน้ำท่วม วอดเสียหายทั้งคันคาโชว์รูม",
    "link": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1BdFo0dmRFV21fMm9rTjRJNjAyZ29RODVveklJakU1MEFzby1zb3lOQ0l2bWdHQzYySWlzMlJLWjlOVFpkRnFfQlh1dWVKMnVBdHJPUFNpaWh4QQ?oc=5",
    "published": "2026-10-17T12:10:00.000Z",
-   "source": "CH3Plus.com",
-   "summary": "ระทึก!ไฟไหม้รถยนต์ไฟฟ้า จอดรอซ่อมหลังจมน้ำท่วม วอดเสียหายทั้งคันคาโชว์รูม &nbsp;&nbsp; CH3Plus.com",
+   "source": "ช่อง3",
+   "summary": "ระทึก!ไฟไหม้รถยนต์ไฟฟ้า จอดรอซ่อมหลังจมน้ำท่วม วอดเสียหายทั้งคันคาโชว์รูม &nbsp;&nbsp; ช่อง3",
    "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
    "categories": [
     "flood"
@@ -1737,6 +1807,21 @@
    "depthCm": null,
    "places": [],
    "bangkok": true
+  },
+  {
+   "title": "ผบช.สอท. นำทีมลุยน้ำท่วมฉะเชิงเทรา มอบถุงยังชีพ 300 ชุด พร้อมน้ำดื่ม ถึงมือชาวบ้านผู้ประสบภัย",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9Ed1MyMHlETUlFT0NWNzVFaGV1cklVR1RmdDJoUnBZMXMxSVlDV0lILVJ6UC1BWnFpUnhKVjhWZW8xYjU3MUtxcUZZZnRrS0NiT3d1ZE1R?oc=5",
+   "published": "2026-10-17T10:55:05.000Z",
+   "source": "COP'S Magazine",
+   "summary": "ผบช.สอท. นำทีมลุยน้ำท่วมฉะเชิงเทรา มอบถุงยังชีพ 300 ชุด พร้อมน้ำดื่ม ถึงมือชาวบ้านผู้ประสบภัย &nbsp;&nbsp; COP'S Magazine",
+   "feed": "Google News: ฝากรถหนีน้ำ",
+   "categories": [
+    "flood",
+    "help"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
   },
   {
    "title": "“ลดน้ำขัง ไล่น้ำเสีย” เร่งสูบ–ระบาย พร้อมใช้น้ำดีไล่น้ำเสียคลองรังสิต",
@@ -3060,103 +3145,6 @@
    "categories": [
     "flood",
     "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "Istanbul’s worst floods in 80 years leave four dead",
-   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxPNEl1ZzZpdEtaV3M4TWVicUVLcFp0azgtNVZMcU5TWUgtc19LYjJubmpqOTdkUXRoNm5LZXFFUUV5TlNRczFfNWVyMXlPdm5DNVJtZkkyN0MwTjNtQ0l6MFVDeV9yd2JQVllBXzlrRzAxX3hBNVVLOGRsaEE0Z3FWOUh5NzBtaVV3REhoN3J5OTdkcEJHQkFjZ0tWclgydnEwNkJzMEtMb2FPYUNVTlBSdmkta1HSAbQBQVVfeXFMTzRJdWc2aXRLWldzOE1lYnFFS3BadGs4LTVWTHFOU1lILXNfS2Iybm5qajk3ZFF0aDZuS2VxRVFFeU5TUXMxXzVlcjF5T3ZuQzVSbWZJMjdDME4zbUNJejBVQ3lfcndiUFZZQV85a0cwMV94QTVVSzhkbGhBNGdxVjlIeTcwbWlVd0RIaDdyeTk3ZHBCR0JBY2dLVnJYMnZxMDZCczBLTG9hT2FDVU5QUnZpLWtR?oc=5",
-   "published": "2026-10-16T11:25:00.000Z",
-   "source": "Al Arabiya English",
-   "summary": "Istanbul’s worst floods in 80 years leave four dead &nbsp;&nbsp; Al Arabiya English",
-   "feed": "Google News (EN): Bangkok flood",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "กรมอุตุฯ เตือน กทม. โดนฝน 60%! ส่วน 3 ภาค ระวัง 'ฝนตกหนัก-ลมกระโชกแรง-เสี่ยงน้ำท่วม-น้ำป่าหลาก'",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE4zQVRDWDNCX3k0RktHTmR1TE9sYVE0aTVnMFc1VlVjT0ViYUpkdkxHMFFodmRQMHltaXYtMGRDXzFLWS1zdzFxYmNSQTk3QlVrWXVGcGJaQWkyeS1uaTNZbkNOcVBKMEk2djlzUjFB?oc=5",
-   "published": "2026-10-16T11:16:00.000Z",
-   "source": "Head Topics",
-   "summary": "กรมอุตุฯ เตือน กทม. โดนฝน 60%! ส่วน 3 ภาค ระวัง 'ฝนตกหนัก-ลมกระโชกแรง-เสี่ยงน้ำท่วม-น้ำป่าหลาก' &nbsp;&nbsp; Head Topics",
-   "feed": "Google News: น้ำท่วมขัง กทม.",
-   "categories": [
-    "flood",
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "กทม.เดินหน้าฟื้นฟู 15 เขตน้ำท่วม แผนระยาวเล็งขยายคลองเดิม 8–9 แห่ง",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE01NmZ1SS1sR3IySmFpakpFNUFaRHZEcTRlMlVOLXJlRFQwMkZUNkt3c2l6dm5PVUNvLWtxREk4QUN1Y3dyZ2dOYVZaZlRvZ2pZc2tUOFRlS2E?oc=5",
-   "published": "2026-10-16T11:12:34.000Z",
-   "source": "Thai PBS",
-   "summary": "กทม.เดินหน้าฟื้นฟู 15 เขตน้ำท่วม แผนระยาวเล็งขยายคลองเดิม 8–9 แห่ง &nbsp;&nbsp; Thai PBS",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "AI วิเคราะห์น้ำท่วมประเทศไทยปี 2593 จังหวัดไหนเสี่ยงจมน้ำ พื้นที่ไหนมีโอกาสรอด?",
-   "link": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE1ab2FKNmlzLWRYc0dFMVlnQndoS3pSNG9TckpkOXdHdG52V0NoTjAxemZxZzc4Wkc0T2xNRVhBRGJRTkhVNTVpdF8wa29XQkRv?oc=5",
-   "published": "2026-10-16T11:00:00.000Z",
-   "source": "Thaiger",
-   "summary": "AI วิเคราะห์น้ำท่วมประเทศไทยปี 2593 จังหวัดไหนเสี่ยงจมน้ำ พื้นที่ไหนมีโอกาสรอด? &nbsp;&nbsp; Thaiger",
-   "feed": "Google News: น้ำท่วมขัง กทม.",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "น้ำท่วม 69:ยังมี 20 จังหวัดได้รับผลกระทบ-เปิดประตูระบายน้ำสถานีหนองจอกเพิ่ม 10 ซม.",
-   "link": "https://www.js100.com/en/site/news/view/165220",
-   "published": "2026-10-16T10:46:00.000Z",
-   "source": "จส.100",
-   "summary": "",
-   "feed": "จส.100",
-   "categories": [
-    "flood",
-    "river"
-   ],
-   "depthCm": [
-    10,
-    10
-   ],
-   "places": [
-    {
-     "name": "หนองจอก",
-     "lat": 13.855,
-     "lon": 100.862,
-     "kind": "district",
-     "outside": false
-    }
-   ],
-   "bangkok": true
-  },
-  {
-   "title": "กรมประมงชี้ เหตุ ปลานิลลอยตายเกลื่อนคลองส่งน้ำ ปม ช็อคน้ำ ขาดออกซิเจน หลังน้ำท่วมหนัก",
-   "link": "https://www.js100.com/en/site/news/view/165219",
-   "published": "2026-10-16T10:39:00.000Z",
-   "source": "จส.100",
-   "summary": "",
-   "feed": "จส.100",
-   "categories": [
-    "flood"
    ],
    "depthCm": null,
    "places": [],
