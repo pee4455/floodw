@@ -1,15 +1,15 @@
 {
- "generatedAt": "2026-10-20T21:31:26.488Z",
+ "generatedAt": "2026-10-21T00:04:27.420Z",
  "feeds": [
   {
    "feed": "Google News: น้ำท่วมกรุงเทพ",
    "ok": true,
-   "count": 58
+   "count": 57
   },
   {
    "feed": "Google News: น้ำท่วมขัง กทม.",
    "ok": true,
-   "count": 61
+   "count": 55
   },
   {
    "feed": "Google News: จอดรถหนีน้ำ",
@@ -19,22 +19,22 @@
   {
    "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
    "ok": true,
-   "count": 54
+   "count": 56
   },
   {
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
    "ok": true,
-   "count": 50
+   "count": 46
   },
   {
    "feed": "Google News: ฝากรถหนีน้ำ",
    "ok": true,
-   "count": 21
+   "count": 22
   },
   {
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
    "ok": true,
-   "count": 45
+   "count": 26
   },
   {
    "feed": "Google News: เตือนฝนตกหนัก",
@@ -49,15 +49,29 @@
   {
    "feed": "Google News (EN): Bangkok flood",
    "ok": true,
-   "count": 47
+   "count": 35
   },
   {
    "feed": "จส.100",
    "ok": true,
-   "count": 6
+   "count": 9
   }
  ],
  "items": [
+  {
+   "title": "Flood victims to get B10.5bn",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxOckFIbk9HSEdvekN3MVJ4LVlfSUxxajZXQmxJQmo1NEVXdXQ5OXp2TlJIclRJMEM1WEVaU0ZteUJuRWpGREtsSTNBSS10eWNxNHNKNUh6TzFGSjc5VjV0THhGd21XQVpBb3NUX2FYaGJHWUR6N19SMGV4b2tHaUh0QzdOQU0zQ2s?oc=5",
+   "published": "2026-10-20T22:22:00.000Z",
+   "source": "Bangkok Post",
+   "summary": "Flood victims to get B10.5bn &nbsp;&nbsp; Bangkok Post",
+   "feed": "Google News (EN): Bangkok flood",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
   {
    "title": "กปน. ประกาศแจ้ง กทม.-นนทบุรี-สมุทรปราการ น้ำไม่ไหลหลายจุด 21-23 ต.ค.นี้",
    "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTFAxZkZqYTZXZVF1aEs1Qks1d3JsbjJHdzJCMTc5Z05JM3NNMTd0R2p0NEY0cG4wWVp1elJOX1FhTzRkVjRRRnlUVFB4NklNZVpfczVYVTJUTTQ1Q2lh?oc=5",
@@ -759,6 +773,20 @@
    "bangkok": true
   },
   {
+   "title": "Cabinet approves ฿10.5bn central fund for flood relief",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE5nU19pZE5hdFYwMHBGd3ctVTRoNUU1aThaYUVkQlU4MjNkeFRLVkdMdjBQTGVZLWREUk5LdFhYZGVEN0FURWlmdDdQZEV4OHpJMlZN?oc=5",
+   "published": "2026-10-20T06:54:00.000Z",
+   "source": "Thai PBS World",
+   "summary": "Cabinet approves ฿10.5bn central fund for flood relief &nbsp;&nbsp; Thai PBS World",
+   "feed": "Google News (EN): Bangkok flood",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
    "title": "ฝนตกหนัก เตรียมตัวอย่างไร? ปภ.เตือน 5 เรื่องสำคัญก่อนน้ำท่วม",
    "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE8weTd0eU9HSlVZSlRReF90bkw1TzRBdkloVXlCYTNyVGtHTG9sS3VrUHlTV0dzQ0lFcDF0RzZVQUtlajBQWUtvOC1uLWJmTE54ODJGWg?oc=5",
    "published": "2026-10-20T06:49:46.000Z",
@@ -1439,6 +1467,20 @@
    "bangkok": true
   },
   {
+   "title": "กลับรถแล้วจอดเสีย! ถนนเลียบคลองส่งน้ำสุวรรณภูมิ รถติดขัดยาว | สวพ.FM91",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9hSWtIMkYyVzJuNFdoRFFMNVRkemNvRVF3N0lyenRMSlV6bGlKbXhTeGhwV0NzcnFmR2p1ODIzSkR4dHlXNFBvRXNhcmpEa1JxY2NjVVlR?oc=5",
+   "published": "2026-10-20T00:33:03.000Z",
+   "source": "LINE TODAY",
+   "summary": "กลับรถแล้วจอดเสีย! ถนนเลียบคลองส่งน้ำสุวรรณภูมิ รถติดขัดยาว | สวพ.FM91 &nbsp;&nbsp; LINE TODAY",
+   "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
+   "categories": [
+    "traffic"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
    "title": "ถอดบทเรียนน้ำท่วมกรุงเทพฯ-ภาคใต้ เร่งเชื่อมข้อมูลเตือนภัยถึงชุมชน",
    "link": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9zbExtZDVjZnNfdHhTZlJuTXJreG5sUDRoUHhBdFZHOUllZXpSYTNPRFkzc0tjSmR3T0loRFBtTGhkWW5sS3hNcUprTFdQVXJFTnBZYjBlbkdFN1dXSHJtdm5NcGhVZ2ZvbUVj?oc=5",
    "published": "2026-10-20T00:27:31.000Z",
@@ -1629,7 +1671,7 @@
    "published": "2026-10-19T17:30:00.000Z",
    "source": "thansettakij",
    "summary": "สภาพอากาศวันนี้ -25 ต.ค.อีสาน กลาง-กทม ตะวันออก ใต้ฝนเพิ่ม-ฝนหนักบางแห่ง &nbsp;&nbsp; thansettakij",
-   "feed": "Google News: ระดับน้ำเจ้าพระยา",
+   "feed": "Google News: เตือนฝนตกหนัก",
    "categories": [],
    "depthCm": null,
    "places": [],
@@ -1753,7 +1795,7 @@
    "published": "2026-10-19T12:18:06.000Z",
    "source": "LINE TODAY",
    "summary": "ผู้เชี่ยวชาญด้านรถยนต์ จี้ปม รถไฟฟ้าลุยน้ำท่วมไฟไหม้ หวั่น! คนตื่นกลัวรถยนต์ไฟฟ้า &nbsp;&nbsp; LINE TODAY",
-   "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
+   "feed": "Google News: จอดรถฟรี น้ำท่วม",
    "categories": [
     "flood"
    ],
@@ -2089,7 +2131,7 @@
    "published": "2026-10-19T09:48:23.000Z",
    "source": "Facebook",
    "summary": "รองผู้ว่าฯ ทวิดา แจงเงื่อนไขเรียกคืนเงินเยียวยาน้ำท่วมกลุ่ม ‘บ้านพักราชการ’ เปิดช่องทางผ่อนจ่าย . #TheStandardNewsMoments &nbsp;&nbsp; Facebook",
-   "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
    "categories": [
     "flood",
     "help"
@@ -2506,7 +2548,7 @@
    "published": "2026-10-19T07:30:02.000Z",
    "source": "Vietnam.vn",
    "summary": "ดำเนินการเชิงรุกเพื่อให้แน่ใจว่ามีความปลอดภัยจากอัคคีภัย การดับเพลิง และปฏิบัติการกู้ภัยในช่วงฤดูฝนและพายุ &nbsp;&nbsp; Vietnam.vn",
-   "feed": "Google News: จอดรถฟรี น้ำท่วม",
+   "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
    "categories": [
     "weather"
    ],
@@ -2609,6 +2651,20 @@
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
    "categories": [
     "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "'ครม.เงา' จี้รัฐบาลเปิดแผนระบายน้ำตะวันออก ซัดเยียวยาช้า",
+   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE5xLUhOeEdzY2xZNmROUk9IRkdoa1Z2T0hYN28xN2V4aTlPRmdyS0lBM2tGcFNVVllSbWI3cERHWlJ2a2dZWDFVN3ozNUZ1a1B6aHh1b3U3cUpSSUZwNTJUZkNXZkpIQnNYXzRidmx3?oc=5",
+   "published": "2026-10-19T06:35:00.000Z",
+   "source": "Head Topics",
+   "summary": "'ครม.เงา' จี้รัฐบาลเปิดแผนระบายน้ำตะวันออก ซัดเยียวยาช้า &nbsp;&nbsp; Head Topics",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
+   "categories": [
+    "help"
    ],
    "depthCm": null,
    "places": [],
@@ -3026,69 +3082,6 @@
    "depthCm": null,
    "places": [],
    "bangkok": false
-  },
-  {
-   "title": "เปิดรายชื่อ 22 จังหวัด - กทม. ยังถูกน้ำท่วม กระทบกว่า 6 แสนครัวเรือน",
-   "link": "https://news.google.com/rss/articles/CBMiVEFVX3lxTE5lMWJuazdxc1FlckVpVndOSFk5UzJVeHp6VnB0Y1M0VkF4RWVvalhlTkpUN05fQWkxTWRJZ210QUtSeDFVMzRrTjVOQl9CNVpBVzlpNg?oc=5",
-   "published": "2026-10-19T03:39:57.000Z",
-   "source": "TNN Thailand",
-   "summary": "เปิดรายชื่อ 22 จังหวัด - กทม. ยังถูกน้ำท่วม กระทบกว่า 6 แสนครัวเรือน &nbsp;&nbsp; TNN Thailand",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "กทม. เพิ่มจุดลงทะเบียนรับเงินเยียวยาน้ำท่วม เร่งระบายน้ำหนองจอก",
-   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5EVEJ4bUNtYWNEODd1blhoOHJFUlZNdzNSQ0hoZjhDbVVtcmdCQW1vZjZtOFFwREY3TW9uVnY3eTU5SHFxSU5OSDI5N1prcG9od3Nyd3NycE1ZYWV4dE91V21McTBodw?oc=5",
-   "published": "2026-10-19T03:39:00.000Z",
-   "source": "bangkokbiznews",
-   "summary": "กทม. เพิ่มจุดลงทะเบียนรับเงินเยียวยาน้ำท่วม เร่งระบายน้ำหนองจอก &nbsp;&nbsp; bangkokbiznews",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "flood",
-    "help"
-   ],
-   "depthCm": null,
-   "places": [
-    {
-     "name": "หนองจอก",
-     "lat": 13.855,
-     "lon": 100.862,
-     "kind": "district",
-     "outside": false
-    }
-   ],
-   "bangkok": true
-  },
-  {
-   "title": "น้ำท่วมเปลี่ยน Mindset คนกรุงเลือกที่อยู่ คอนโดฯ กทม. แบกสต็อก 3.7 แสนล้าน",
-   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBNY1dNd0VqV3QwTEFpcGVRV3BGY2Q0c1dQTVlxZGx2ODRxcnFTbnJocWxZeDkzMlJBQ3lKRDNXMDlkYWdMTUlDaGFkNFBrYjhtMXQ4WF83OVJzY1pvRmJGREhtQjVoLXUxVktlY0ZvNHp1UTJ5?oc=5",
-   "published": "2026-10-19T03:31:25.000Z",
-   "source": "homeday.co.th",
-   "summary": "น้ำท่วมเปลี่ยน Mindset คนกรุงเลือกที่อยู่ คอนโดฯ กทม. แบกสต็อก 3.7 แสนล้าน &nbsp;&nbsp; homeday.co.th",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "กรุงเทพฯ เสี่ยงจมน้ำ? เรื่องนี้เป็นจริงแค่ไหน ถึงเวลาต้องย้ายเมืองหลวงหรือยัง",
-   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPNjN3WjB1aHpRazB6YmJ5NGFkc2o1cmhDQ0NfekxkRXJXX190VFk2MGk0S0JBaGw3Q0VqM1dlei1Ud2dnSk9udnJFeFlTNjNoTG5IcGNRRk9sT2ViRGZBbUdNaDhzSGY0dV9jQjljbER5anIxa2NOOFB5cUhvSnh1N1p1dUt5ZFhOY1RLSVlQOElxdw?oc=5",
-   "published": "2026-10-19T03:29:39.000Z",
-   "source": "Thai PBS",
-   "summary": "กรุงเทพฯ เสี่ยงจมน้ำ? เรื่องนี้เป็นจริงแค่ไหน ถึงเวลาต้องย้ายเมืองหลวงหรือยัง &nbsp;&nbsp; Thai PBS",
-   "feed": "Google News: น้ำท่วมขัง กทม.",
-   "categories": [],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
   }
  ]
 }
