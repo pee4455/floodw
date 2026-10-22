@@ -31,7 +31,8 @@
     <button role="tab" data-tab="forecast">พยากรณ์</button>
     <button role="tab" data-tab="map">แผนที่</button>
     <button role="tab" data-tab="cams">กล้อง CCTV</button>
-    <button role="tab" data-tab="parking">ที่จอดรถ</button>
+    <button role="tab" data-tab="parking">จอดหนีน้ำ</button>
+    <button role="tab" data-tab="gpark">ที่จอดรถ</button>
     <button role="tab" data-tab="news">ข่าว</button>
     <button role="tab" data-tab="help">ช่วยเหลือ</button>
   </nav>
@@ -266,6 +267,54 @@
       </article>
     </section>
 
+    <!-- ที่จอดรถทั่วไป -->
+    <section id="tab-gpark" class="tab" role="tabpanel">
+      <article class="card map-card">
+        <h2>ที่จอดรถแถวนี้ · ค่าจอด เวลาเปิด-ปิด</h2>
+        <p class="small muted">เลื่อน/ซูมแผนที่เพื่อดูที่จอดในบริเวณนั้น · ค่าจอดเปลี่ยนได้ ตรวจสอบป้ายหน้าที่จอดอีกครั้ง ·
+          ค่าจอดห้างแบบละเอียดดูได้ที่ <a href="https://jodnai.com/th" target="_blank" rel="noopener">JodNai จอดไหน ↗</a></p>
+        <div class="news-tools">
+          <input id="gp-q" type="search" placeholder="ค้นหาทั้งกรุงเทพฯ เช่น เซ็นทรัล, จอดแล้วจร, สยาม">
+          <label class="small">จอด
+            <select id="gp-hours">
+              <option value="1">1 ชม.</option>
+              <option value="2" selected>2 ชม.</option>
+              <option value="3">3 ชม.</option>
+              <option value="4">4 ชม.</option>
+              <option value="6">6 ชม.</option>
+              <option value="8">8 ชม.</option>
+              <option value="12">12 ชม.</option>
+            </select></label>
+          <label class="small">เรียง
+            <select id="gp-sort">
+              <option value="near">ใกล้สุด</option>
+              <option value="cheap">ถูกสุด</option>
+            </select></label>
+        </div>
+        <div class="chips" id="gp-filter">
+          <button type="button" data-gf="" aria-pressed="true">ทั้งหมด</button>
+          <button type="button" data-gf="open" aria-pressed="false">เปิดอยู่</button>
+          <button type="button" data-gf="priced" aria-pressed="false">รู้ค่าจอด</button>
+          <button type="button" data-gf="free" aria-pressed="false">จอดฟรี/มีชม.ฟรี</button>
+          <button type="button" data-gf="mall" aria-pressed="false">ห้าง</button>
+          <button type="button" data-gf="building" aria-pressed="false">อาคารจอด (หนีน้ำ)</button>
+          <button type="button" data-gf="park_ride" aria-pressed="false">จอดแล้วจร</button>
+        </div>
+        <div id="gp-map" class="map gp-map" aria-label="แผนที่ที่จอดรถ"></div>
+        <div class="legend">
+          <span><i class="dot" style="background:#16a34a"></i>จอดฟรี/มีชั่วโมงฟรี</span>
+          <span><i class="dot" style="background:#2563eb"></i>รู้ค่าจอด</span>
+          <span><i class="dot" style="background:#7c3aed"></i>ห้าง (ยังไม่มีค่าจอด)</span>
+          <span><i class="dot" style="background:#94a3b8"></i>ไม่มีข้อมูลค่าจอด</span>
+          <span><i class="dot ring"></i>ที่จอดใต้ดิน (เสี่ยงน้ำท่วม)</span>
+        </div>
+        <p id="gp-count" class="tiny muted"></p>
+        <div id="gp-list" class="cards"></div>
+        <button type="button" id="gp-more" class="link-btn" hidden>แสดงเพิ่ม</button>
+        <p class="tiny muted"><span id="gp-meta"></span> · ข้อมูลที่จอด © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> (ODbL) — ข้อมูลผิด/ไม่ครบ กด ✎ OSM เพื่อช่วยแก้ไขได้</p>
+      </article>
+    </section>
+
     <!-- ข่าว -->
     <section id="tab-news" class="tab" role="tabpanel">
       <article class="card">
@@ -297,7 +346,8 @@
           <li>พยากรณ์: <a href="https://open-meteo.com/" target="_blank" rel="noopener">Open-Meteo</a> (ECMWF, UKMO, DWD ICON, NOAA GFS, JMA, ECCC GEM) — CC BY 4.0</li>
           <li>เรดาร์ฝน: <a href="https://www.rainviewer.com/" target="_blank" rel="noopener">RainViewer</a></li>
           <li>ข่าว: รวบรวมอัตโนมัติจาก Google News RSS ทุก 30 นาที — จัดหมวดและระบุตำแหน่งด้วยคำสำคัญ อาจคลาดเคลื่อน ให้เปิดอ่านต้นฉบับ</li>
-          <li>จุดน้ำท่วม/ที่จอดรถ: ผู้ดูแลตรวจสอบจากข่าวและประกาศก่อนลง (แก้ไขได้ที่ <code>public/data/curated.json</code>)</li>
+          <li>จุดน้ำท่วม/ที่จอดรถหนีน้ำ: ผู้ดูแลตรวจสอบจากข่าวและประกาศก่อนลง (แก้ไขได้ที่ <code>public/data/curated.json</code>)</li>
+          <li>ที่จอดรถทั่วไป: © <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">OpenStreetMap contributors</a> (ODbL) อัปเดตสัปดาห์ละครั้ง + ค่าจอดที่ผู้ดูแลตรวจสอบจากแหล่งทางการ (<code>public/data/parking_rates.json</code>)</li>
           <li>ดัชนีเสี่ยงเป็นการประเมินเบื้องต้น ใช้ประกอบการตัดสินใจเท่านั้น ให้ยึดประกาศของ กทม. กรมอุตุนิยมวิทยา และ ปภ. เป็นหลัก</li>
         </ul>
       </article>

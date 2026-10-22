@@ -8,7 +8,8 @@
     "update-news": "node scripts/update-news.mjs",
     "smoke": "node test/smoke/run-smoke.mjs",
     "check-cams": "node scripts/check-cams.mjs",
-    "update-cams": "node scripts/update-cams.mjs"
+    "update-cams": "node scripts/update-cams.mjs",
+    "update-parking": "node scripts/update-parking.mjs"
   },
   "repository": {
     "type": "git",

@@ -53,9 +53,9 @@ async function run(viewport, label) {
   if (!/บางโมเดล/.test(status)) failures.push(`[${label}] ไม่แจ้งเตือนโมเดลที่ล่ม: "${status}"`);
   if (shotDir) await page.screenshot({ path: `${shotDir}/${label}-overview.png`, fullPage: true });
 
-  for (const tab of ['forecast', 'map', 'cams', 'parking', 'news', 'help']) {
+  for (const tab of ['forecast', 'map', 'cams', 'parking', 'gpark', 'news', 'help']) {
     await page.click(`.tabs button[data-tab="${tab}"]`);
-    await page.waitForTimeout(tab === 'map' ? 800 : 200);
+    await page.waitForTimeout(tab === 'map' || tab === 'gpark' ? 800 : 200);
     if (tab === 'forecast') {
       if ((await page.locator('#rain-chart svg rect.bar').count()) === 0) failures.push(`[${label}] กราฟฝนไม่มีแท่ง`);
       if ((await page.locator('#daily-table tbody tr').count()) !== 7) failures.push(`[${label}] ตารางรายวันไม่ครบ 7 วัน`);
@@ -127,14 +127,31 @@ async function run(viewport, label) {
       await page.click('#cam-filter button[data-tag=""]');
     }
     if (tab === 'parking') {
-      const all = await page.locator('.pcard').count();
+      const all = await page.locator('#parking-list .pcard').count();
       if (all === 0) failures.push(`[${label}] ไม่มีการ์ดที่จอดรถ`);
       await page.fill('#parking-q', 'ไม่มีที่จอดชื่อนี้แน่นอน');
       await page.waitForTimeout(150);
-      if ((await page.locator('.pcard').count()) !== 0) failures.push(`[${label}] ค้นหาที่จอดรถไม่กรอง`);
+      if ((await page.locator('#parking-list .pcard').count()) !== 0) failures.push(`[${label}] ค้นหาที่จอดรถไม่กรอง`);
       await page.fill('#parking-q', '');
       await page.waitForTimeout(150);
-      if ((await page.locator('.pcard').count()) !== all) failures.push(`[${label}] ล้างคำค้นที่จอดรถแล้วรายการไม่กลับมา`);
+      if ((await page.locator('#parking-list .pcard').count()) !== all) failures.push(`[${label}] ล้างคำค้นที่จอดรถแล้วรายการไม่กลับมา`);
+    }
+    if (tab === 'gpark') {
+      // หมุดวาดบน canvas (preferCanvas) จึงนับจาก DOM ไม่ได้ — ตรวจว่ามี canvas และจำนวนที่จอดทั้งหมด
+      if ((await page.locator('#gp-map canvas').count()) === 0) failures.push(`[${label}] แผนที่ที่จอดรถไม่วาดหมุด`);
+      const total = Number(((await page.textContent('#gp-meta')) || '').replace(/,/g, '').match(/^(\d+)/)?.[1] || 0);
+      if (total < 100) failures.push(`[${label}] ที่จอดรถทั่วไปน้อยผิดปกติ (${total})`);
+      if ((await page.locator('#gp-list .gp-card').count()) === 0) failures.push(`[${label}] ไม่มีการ์ดที่จอดรถแถวนี้`);
+      await page.fill('#gp-q', 'จอดแล้วจร');
+      await page.waitForTimeout(200);
+      const found = await page.locator('#gp-list .gp-card').count();
+      if (found === 0) failures.push(`[${label}] ค้นหา "จอดแล้วจร" ไม่เจอ`);
+      await page.fill('#gp-q', '');
+      await page.click('#gp-filter button[data-gf="mall"]');
+      await page.waitForTimeout(200);
+      const kinds = await page.locator('#gp-list .gp-card .badge.kind').allTextContents();
+      if (kinds.some((k) => k !== 'ห้าง/ศูนย์การค้า')) failures.push(`[${label}] ตัวกรองห้างไม่ทำงาน`);
+      await page.click('#gp-filter button[data-gf=""]');
     }
     if (tab === 'news') {
       const all = await page.locator('#news-list li').count();
