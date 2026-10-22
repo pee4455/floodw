@@ -5,6 +5,7 @@ import { analyze } from './analysis.js';
 import { renderRainChart, renderGauge } from './chart.js';
 import { initMapView, ensureMap, refreshMap, setMapLocation, showOnMap } from './mapview.js';
 import { resolveCameras, canEmbed, embedUrl, thumbUrl, watchUrl, hasLocation, snapshotUrl, sortByDistance, distanceKm, STATE_LABEL } from './cams.js';
+import { initGpark, ensureGparkMap, setGparkLocation, setGparkData } from './gpark.js';
 import { filterParking, searchKey } from './util.js';
 import { esc, safeUrl, fmtDateTime, fmtDate, timeAgo, depthLabel, mm, pct, parkingState } from './util.js';
 
@@ -100,6 +101,7 @@ function changeLocation(loc) {
   renderParking();
   store.set('loc', loc);
   setMapLocation(loc);
+  setGparkLocation(loc);
   loadForecast();
 }
 
@@ -118,6 +120,7 @@ function initTabs() {
     document.querySelectorAll('.tab').forEach((s) => s.classList.toggle('active', s.id === `tab-${name}`));
     if (push) history.replaceState(null, '', `#${name}`);
     if (name === 'map') ensureMap();
+    if (name === 'gpark') ensureGparkMap();
     if (name === 'forecast' && state.result) renderRainChart($('rain-chart'), state.result.chart);
   };
   buttons.forEach((b) => b.addEventListener('click', () => show(b.dataset.tab)));
@@ -276,6 +279,12 @@ async function loadData() {
   refreshMap();
 }
 
+/** ที่จอดรถทั่วไป (OSM) — ไฟล์ใหญ่และเปลี่ยนช้า โหลดครั้งเดียวแยกจากข้อมูลที่อัปเดตทุก 30 นาที */
+async function loadGparkData() {
+  const [osm, rates] = await Promise.all([fetchLocalData('parking_osm'), fetchLocalData('parking_rates')]);
+  setGparkData(osm, rates);
+}
+
 function newsItemHtml(n) {
   const link = safeUrl(n.link);
   const tags = (n.categories || []).map((c) => `<span class="tag ${esc(c)}">${esc(CATEGORY_LABELS[c] || c)}</span>`).join('');
@@ -302,7 +311,7 @@ function renderSituation() {
   const active = (c.floodPoints || []).filter((p) => p.status !== 'cleared').length;
   const openParking = (c.parking || []).filter((p) => parkingState(p) === 'open').length;
   $('sit-counts').innerHTML = `<button type="button" data-goto="map">🌊 จุดน้ำท่วม ${active} จุด</button>
-    <button type="button" data-goto="parking">🅿️ ที่จอดรถเปิดอยู่ ${openParking} แห่ง</button>
+    <button type="button" data-goto="parking">🅿️ ที่จอดรถหนีน้ำเปิดอยู่ ${openParking} แห่ง</button>
     <button type="button" data-goto="map">🔵 จุดเฝ้าระวัง ${(c.watchPoints || []).length} จุด</button>
     <button type="button" data-goto="cams">📷 ${camCountLabel()}</button>`;
   $('tips').innerHTML = (c.tips || []).map((t) => `<li>${esc(t)}</li>`).join('');
@@ -710,6 +719,7 @@ function init() {
   initTabs();
   initNewsControls();
   initParkingControls();
+  initGpark(state.loc);
   initWindy();
   initCams();
   renderHelp();
@@ -725,6 +735,7 @@ function init() {
     }, 200);
   });
   loadData().then(loadForecast);
+  loadGparkData();
   setInterval(() => {
     loadData();
     loadForecast();

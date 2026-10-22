@@ -10,7 +10,8 @@
 | **พยากรณ์** | กราฟฝนรายชั่วโมง 3 วัน (ค่ากลาง 6 โมเดล + ช่วงต่ำสุด–สูงสุด + โอกาสฝนจาก ensemble), ตาราง 7 วันพร้อมโอกาสฝน ≥10/35/90 มม. และ "ความเห็นตรงกันของโมเดล", แผนที่ Windy |
 | **แผนที่** | จุดน้ำท่วม (สีตามความลึก), จุดเฝ้าระวังแม่น้ำ/คลอง, ที่จอดรถหนีน้ำ, ข่าวตามพื้นที่, **กล้อง CCTV (ไอคอนกล้อง)**, เรดาร์ฝนแบบเคลื่อนไหว — จุดน้ำท่วมมีปุ่มดูกล้องที่อยู่ใกล้ · มี 3 โหมด: **ปกติ**, **จราจร** (เส้นจราจรสดของ Google + รายงาน จส.100 + กล้องจราจร) และ **น้ำท่วม** (ถนนน้ำท่วม/ควรเลี่ยงเป็นเส้นบนแผนที่ ค้นหา/กรองตามโซน กดแล้วซูมไปที่ถนน, ประกาศปิดถนน, เส้นทางที่ยังไปได้, รายงานน้ำท่วมจาก จส.100, เรดาร์) · ใช้ Google Maps ได้เมื่อใส่ API key (ไม่มี key ใช้ OpenStreetMap) |
 | **กล้อง CCTV** | กล้องจราจรกรุงเทพฯ/ปริมณฑลจากกรมทางหลวง (highwaytraffic.go.th — ขาเข้า/ขาออก) และฟีดสาธารณะ iTIC/Longdo ดูวิดีโอสด HLS หรือภาพนิ่งในแอป + ไลฟ์ YouTube (แม่น้ำเจ้าพระยา สาทร สุขุมวิท) — ตรวจทุกกล้องอัตโนมัติทุก 30 นาที ซ่อนกล้องที่เสีย เรียงจากใกล้พื้นที่ที่เลือก + ลิงก์กล้องทางการ (สำนักการระบายน้ำ กทม., BMA Traffic ฯลฯ) |
-| **ที่จอดรถ** | สถานที่เปิดให้จอดรถหนีน้ำ พร้อมสถานะเปิด/ปิดตามวันที่ ปุ่มนำทาง โทร และแหล่งข่าว · พิมพ์ค้นหาชื่อ/ย่าน/เงื่อนไข และกรองเฉพาะที่เปิดอยู่/ในกรุงเทพฯ/ฟรี เรียงจากที่เปิดอยู่และใกล้พื้นที่ที่เลือก |
+| **จอดหนีน้ำ** | สถานที่เปิดให้จอดรถหนีน้ำ พร้อมสถานะเปิด/ปิดตามวันที่ ปุ่มนำทาง โทร และแหล่งข่าว · พิมพ์ค้นหาชื่อ/ย่าน/เงื่อนไข และกรองเฉพาะที่เปิดอยู่/ในกรุงเทพฯ/ฟรี เรียงจากที่เปิดอยู่และใกล้พื้นที่ที่เลือก |
+| **ที่จอดรถ** | ที่จอดรถทั่วกรุงเทพฯ-ปริมณฑล ~800 แห่ง (ห้าง อาคารจอด ลานจอด จอดแล้วจร) จาก OpenStreetMap บนแผนที่ + รายการ "ที่จอดรถแถวนี้" ตามกรอบแผนที่ · ค่าจอด (ฟรีกี่ชม./ชม. ถัดไป/สูงสุดต่อวัน) และ**ประมาณค่าจอด**ตามจำนวนชั่วโมงที่จะจอด เรียงถูกสุดได้ · สถานะเปิด/กำลังจะปิด/ปิดตามเวลาไทย · เตือนที่จอดใต้ดิน (เสี่ยงน้ำท่วม) และชี้อาคารจอดหลายชั้น · ปุ่มแก้ข้อมูลใน OSM และลิงก์ไป JodNai สำหรับค่าจอดห้าง |
 | **ข่าว** | ข่าวอัปเดตอัตโนมัติทุก 30 นาที กรองตามหมวด (ที่จอดรถ/จุดน้ำท่วม/แม่น้ำ/เตือนภัย/ช่วยเหลือ/จราจร) ค้นหาตามเขตหรือถนนได้ |
 | **ช่วยเหลือ** | เบอร์ฉุกเฉิน (1555, 1784, 1669 …), Traffy Fondue, เรดาร์ กทม., กรมอุตุฯ, ThaiWater, GISTDA |
 
@@ -42,12 +43,17 @@ public/                  เว็บ static (ไม่ต้อง build) — d
   data/traffic_cameras.json 🤖 กล้องจราจรจากกรมทางหลวง + iTIC/Longdo + ผลตรวจ (สร้างอัตโนมัติ)
   data/js100.json        🤖 รายงานจราจร/ข่าวจาก จส.100 (สร้างอัตโนมัติ)
   data/flood_roads.json  ✏️ ถนนน้ำท่วม/ควรเลี่ยง สำหรับโหมดน้ำท่วม (แก้ด้วยมือ)
+  data/parking_osm.json  🤖 ที่จอดรถ/ห้างจาก OpenStreetMap (สร้างอัตโนมัติ สัปดาห์ละครั้ง)
+  data/parking_rates.json ✏️ ค่าจอด/เวลาเปิด-ปิดที่ผู้ดูแลตรวจสอบจากแหล่งทางการ (แก้ด้วยมือ)
+  js/parking.js          เวลาเปิด-ปิด (opening_hours), ค่าจอด, ประมาณค่าจอด (pure)
+  js/gpark.js            แท็บที่จอดรถทั่วไป: แผนที่ + รายการที่จอดแถวนี้
   js/map.js, js/gmap.js  แผนที่ Leaflet/OpenStreetMap และ Google Maps (ใช้ข้อมูลชุดเดียวกันจาก js/mapfeatures.js)
   js/mapview.js          โหมดแผนที่ แผงรายการ และตั้งค่า Google Maps key
 scripts/update-news.mjs  ดึงข่าวจาก RSS + จส.100 → news.json, js100.json
 scripts/check-cams.mjs   ตรวจว่ากล้อง YouTube ยังไลฟ์อยู่ → camera_status.json
 scripts/update-cams.mjs  ดึงกล้องจากกรมทางหลวง + iTIC รวมจุดซ้ำ แล้วตรวจว่าเล่นได้จริง → traffic_cameras.json
-.github/workflows/       CI, ดึงข่าวทุก 30 นาที, deploy GitHub Pages
+scripts/update-parking.mjs ดึงที่จอดรถ/ห้างจาก OpenStreetMap (Overpass API) → parking_osm.json
+.github/workflows/       CI, ดึงข่าวทุก 30 นาที, ดึงที่จอดรถ OSM ทุกสัปดาห์, deploy GitHub Pages
 docs/RESEARCH.md         งานวิจัยและเหตุผล
 ```
 
@@ -60,6 +66,7 @@ npm test             # unit tests
 npm run update-news  # ดึงข่าวล่าสุดมาใส่ public/data/news.json
 npm run check-cams   # ตรวจสถานะไลฟ์ของกล้อง YouTube
 npm run update-cams  # ดึง/ตรวจกล้องจราจร (กรมทางหลวง + iTIC)
+npm run update-parking # ดึงที่จอดรถ/ห้างจาก OpenStreetMap
 npm run smoke        # ทดสอบหน้าเว็บจริงใน Chromium (จำลอง API)
 ```
 
@@ -72,12 +79,12 @@ npm run smoke        # ทดสอบหน้าเว็บจริงใน
 
 ใช้กับ static hosting อื่นได้เหมือนกัน (Netlify, Cloudflare Pages, Vercel) โดยชี้ไปที่โฟลเดอร์ `public/`
 
-## อัปเดตจุดน้ำท่วม / ที่จอดรถ (ผู้ดูแล)
+## อัปเดตจุดน้ำท่วม / ที่จอดรถหนีน้ำ (ผู้ดูแล)
 
 แก้ `public/data/curated.json` แล้ว commit:
 
 - `floodPoints[]` — จุดน้ำท่วม: `name`, `district`, `lat`, `lon`, `depthCm: [ต่ำ, สูง]`, `status` (`active` / `receding` / `cleared`), `reportedAt`, `source`
-- `parking[]` — ที่จอดรถ: `name`, `area`, `lat`, `lon`, `capacity`, `floors`, `from`, `until` (YYYY-MM-DD), `conditions`, `contact`, `inBangkok`, `source`
+- `parking[]` — ที่จอดรถหนีน้ำ: `name`, `area`, `lat`, `lon`, `capacity`, `floors`, `from`, `until` (YYYY-MM-DD), `conditions`, `contact`, `inBangkok`, `source`
 - `watchPoints[]` — จุดเฝ้าระวังแม่น้ำ/คลอง
 - `riverAlert` — ระดับเตือนแม่น้ำเจ้าพระยา 0–3 (ใช้ในดัชนีเสี่ยง) ตั้งตามประกาศกรมชลประทาน/กทม.
 - `situation` — สรุปสถานการณ์และแหล่งข่าว
@@ -109,6 +116,23 @@ npm run smoke        # ทดสอบหน้าเว็บจริงใน
 
 > ข้อมูลตั้งต้นรวบรวมจากข่าววันที่ 25 ก.ย. 2569 และพิกัดบางจุดเป็นค่าประมาณ (มีป้าย `approximate`)
 
+### ที่จอดรถทั่วไป (`public/data/parking_osm.json` + `parking_rates.json`)
+
+- **ตำแหน่ง/ประเภท/ความจุ** มาจาก OpenStreetMap (`amenity=parking` ที่เปิดให้คนทั่วไป และ `shop=mall`) ดึงใหม่ทุกสัปดาห์ด้วย `npm run update-parking` — **อย่าแก้ `parking_osm.json` ด้วยมือ** (จะถูกเขียนทับ) ถ้าข้อมูลผิด ให้แก้ใน [openstreetmap.org](https://www.openstreetmap.org/) (การ์ดแต่ละแห่งมีปุ่ม ✎ OSM) แล้วรอรอบดึงถัดไป
+- **ค่าจอด/เวลาเปิด-ปิดที่ตรวจสอบแล้ว** ใส่ใน `parking_rates.json` — ใช้เฉพาะข้อมูลจาก**แหล่งทางการ** (เว็บไซต์/ประกาศ/ป้ายของสถานที่) และใส่ `source` ทุกครั้ง · **ห้ามคัดลอกจากเว็บรวบรวมข้อมูลอื่น** เช่น JodNai ซึ่งเป็นฐานข้อมูลที่เขารวบรวมเอง และ robots.txt ของเขาไม่อนุญาตให้ดึงข้อมูลอัตโนมัติ — ถ้าจะใช้ข้อมูลของเขาต้องขออนุญาตก่อน
+
+```json
+{ "osm": "way/123456", "hours": "Mo-Su 10:00-22:00",
+  "rate": { "freeHours": 2, "perHour": 20, "capDay": 300 },
+  "rateNote": "ต้องประทับตราจากร้านค้า",
+  "source": { "title": "เว็บไซต์ห้าง: ค่าบริการที่จอดรถ", "url": "https://..." }, "checkedAt": "2026-10-22" }
+```
+
+- `osm` — id จาก OSM (ดูจากลิงก์ ✎ OSM เช่น `way/123456`) · ถ้าไม่มีใน OSM ให้ใส่ `name`, `lat`, `lon`, `kind` (`mall`/`building`/`underground`/`surface`/`park_ride`) แทน
+- `hours` — รูปแบบ [opening_hours ของ OSM](https://wiki.openstreetmap.org/wiki/Key:opening_hours) เช่น `24/7`, `Mo-Fr 06:00-24:00; Sa,Su 08:00-24:00`, `10:00-02:00` (ข้ามเที่ยงคืน)
+- `rate` — `free` (ฟรีตลอด), `freeHours` (ฟรี N ชม. แรก · `freeFor: "customers"` = เฉพาะลูกค้า), `firstHours` + `firstThb` (N ชม. แรกเหมา X บาท), `perHour` (ชม. ละ / ชม. ถัดไป), `perDay` (เหมาวันละ), `flat` (ครั้งละ), `capDay` (สูงสุดต่อวัน), `note`
+- unit test ตรวจว่าทุกรายการมี `source.url` และ id ตรงกับข้อมูล OSM
+
 ## ใช้ Google Maps (ไม่บังคับ)
 
 ค่าเริ่มต้นแผนที่ใช้ OpenStreetMap (ไม่ต้องใช้ key แต่ไม่มีเส้นจราจรสด — โหมดจราจรจะมีลิงก์เปิด Google Maps แทน) ถ้าต้องการให้เป็น Google Maps พร้อมเส้นจราจรสดในแอป:
@@ -127,6 +151,7 @@ npm run smoke        # ทดสอบหน้าเว็บจริงใน
 - พยากรณ์: [Open-Meteo](https://open-meteo.com/) (CC BY 4.0, ใช้ฟรีสำหรับงานที่ไม่ใช่เชิงพาณิชย์)
 - เรดาร์: [RainViewer](https://www.rainviewer.com/)
 - แผนที่: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors, [Leaflet](https://leafletjs.com/)
+- ที่จอดรถทั่วไป: © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors ([ODbL](https://opendatacommons.org/licenses/odbl/)) ผ่าน [Overpass API](https://overpass-api.de/) + ค่าจอดที่ผู้ดูแลตรวจสอบจากแหล่งทางการ
 - ข่าว: Google News RSS (ลิงก์ไปยังต้นฉบับของแต่ละสำนักข่าว) และ [จส.100](https://www.js100.com/en/site/traffic) (รายงานจราจร/น้ำท่วม — ปักหมุดตามถนน/เขตที่กล่าวถึง ตำแหน่งโดยประมาณ)
 - แผนที่ Google Maps + ชั้นข้อมูลจราจร (เมื่อใส่ API key)
 - กล้องจราจร: [กรมทางหลวง highwaytraffic.go.th](https://highwaytraffic.go.th/DOHWeb/home.aspx) (ตำแหน่ง ชื่อจุด และสตรีมขาเข้า/ขาออก) และฟีดสาธารณะของมูลนิธิศูนย์ข้อมูลจราจรอัจฉริยะไทย (iTIC) ผ่าน [Longdo Traffic](https://traffic.longdo.com/feed/) — กล้องทางหลวงที่ iTIC ส่งต่อจะรวมเป็นจุดเดียวกับของกรมทางหลวง โดยใช้สตรีมของ iTIC เป็นหลัก (เปิด CORS) และสตรีมตรงของกรมทางหลวงเป็นสำรอง — เล่นวิดีโอด้วย [hls.js](https://github.com/video-dev/hls.js) (Apache-2.0)

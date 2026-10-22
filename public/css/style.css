@@ -208,6 +208,26 @@ table.daily td:first-child, table.daily th:first-child { text-align: left; }
 .badge.soon { background: #ca8a04; }
 .badge.closed { background: #64748b; }
 .badge.outside { background: #7c3aed; }
+.badge.unknown { background: var(--accent); color: var(--muted); }
+.badge.kind { background: var(--accent); color: var(--text); }
+.badge.verified { background: #0f766e; }
+
+/* ที่จอดรถทั่วไป */
+.gp-map { height: min(55vh, 480px); margin: 6px 0 4px; }
+.gp-card .gp-rate { font-weight: 600; font-size: .9rem; }
+.gp-card .gp-cost { color: #15803d; font-weight: 600; }
+.gp-card .gp-flood { border-radius: 6px; padding: 2px 6px; }
+.gp-card .gp-flood.warn { background: #fff1e6; color: #9a3412; }
+.gp-card .gp-flood.ok { background: var(--accent); }
+.gp-card.flash { outline: 3px solid var(--brand-2); }
+.legend .dot.ring { background: #94a3b8; box-shadow: 0 0 0 2px #ea580c; }
+#gp-hours, #gp-sort { color: var(--text); }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) .gp-card .gp-cost { color: #4ade80; }
+  :root:not([data-theme="light"]) .gp-card .gp-flood.warn { background: #3a1d0b; color: #fdba74; }
+}
+:root[data-theme="dark"] .gp-card .gp-cost { color: #4ade80; }
+:root[data-theme="dark"] .gp-card .gp-flood.warn { background: #3a1d0b; color: #fdba74; }
 
 .contacts, .links { list-style: none; padding: 0; margin: 0; }
 .contacts li, .links li { padding: 7px 0; border-bottom: 1px solid var(--line); display: flex; justify-content: space-between; gap: 10px; align-items: baseline; }

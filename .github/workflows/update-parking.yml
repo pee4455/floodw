@@ -1,0 +1,40 @@
+name: Update parking data
+
+# ดึงที่จอดรถ/ห้างในกรุงเทพฯ-ปริมณฑลจาก OpenStreetMap สัปดาห์ละครั้ง (ข้อมูล OSM เปลี่ยนช้า — ไม่ยิง Overpass ถี่)
+# แล้ว commit public/data/parking_osm.json · ค่าจอดที่ผู้ดูแลตรวจสอบอยู่ใน parking_rates.json (แก้ด้วยมือ)
+on:
+  schedule:
+    - cron: '23 20 * * 0' # อาทิตย์ 20:23 UTC = จันทร์ 03:23 เวลาไทย
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-data
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Fetch OSM parking
+        run: node scripts/update-parking.mjs
+      - name: Commit if changed
+        run: |
+          # generatedAt เปลี่ยนทุกครั้ง — commit เฉพาะเมื่อรายการที่จอดเปลี่ยนจริง
+          if git diff -U0 -- public/data/parking_osm.json | grep -E '^[+-][^+-]' | grep -qv '"generatedAt"'; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add public/data/parking_osm.json
+            git commit -m "data: อัปเดตที่จอดรถจาก OpenStreetMap $(TZ=Asia/Bangkok date '+%Y-%m-%d')"
+            git pull --rebase origin main
+            git push
+          else
+            echo "ไม่มีข้อมูลใหม่"
+          fi
