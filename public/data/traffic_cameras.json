@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-26T23:47:21.699Z",
+ "generatedAt": "2026-10-27T04:51:34.779Z",
  "sources": [
   {
    "name": "iTIC Foundation / Longdo Traffic",
@@ -12,7 +12,7 @@
    "ok": true
   }
  ],
- "total": 38,
+ "total": 40,
  "ok": 9,
  "cameras": [
   {
@@ -45,7 +45,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-3-005",
@@ -77,7 +77,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-3-008",
@@ -109,7 +109,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-3-009",
@@ -141,7 +141,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-3-013",
@@ -173,7 +173,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-3-016",
@@ -205,7 +205,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-3-017",
@@ -237,7 +237,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-3-018",
@@ -269,7 +269,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-4-016",
@@ -301,7 +301,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-4-022",
@@ -333,7 +333,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-9-022",
@@ -365,7 +365,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-9-026",
@@ -397,7 +397,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-9-027",
@@ -429,7 +429,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-10-019",
@@ -461,7 +461,71 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
+  },
+  {
+   "id": "doh-PER-10-023",
+   "type": "snapshot",
+   "source": "doh",
+   "code": "PER-10-023",
+   "name": "3091 - อ.กระทุ่มแบน จ.สมุทรสาคร",
+   "detail": "ทางหลวงแผ่นดินเหมายเลข 3091 ระหว่าง กม. 10-11 ต.คลองมะเดื่อ อ.กระทุ่มแบน จ.สมุทรสาคร",
+   "org": "กรมทางหลวง",
+   "lat": 13.6345,
+   "lon": 100.2963,
+   "img": null,
+   "video": null,
+   "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_023.stream/playlist.m3u8",
+   "streams": [
+    {
+     "label": "ทิศทางมุ่งหน้าเข้า พุทธมณฑล สาย4",
+     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_023.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
+    },
+    {
+     "label": "ทิศทางมุ่งหน้าเข้า จ.สมุทรสาคร",
+     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_023.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
+    }
+   ],
+   "ok": null,
+   "via": "hls",
+   "cors": null,
+   "checkedAt": "2026-10-27T04:51:34.779Z"
+  },
+  {
+   "id": "doh-PER-10-033",
+   "type": "snapshot",
+   "source": "doh",
+   "code": "PER-10-033",
+   "name": "4 - อ.ปากท่อ จ.ราชบุรี",
+   "detail": "ทางหลวงแผ่นดินเหมายเลข 4 ระหว่าง กม. 116-117 ต.หนองกระทุ่ม อ.ปากท่อ จ.ราชบุรี",
+   "org": "กรมทางหลวง",
+   "lat": 13.6345,
+   "lon": 100.2963,
+   "img": null,
+   "video": null,
+   "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_033.stream/playlist.m3u8",
+   "streams": [
+    {
+     "label": "ทิศทางมุ่งหน้าเข้า จ.ราชบุรี",
+     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_033.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
+    },
+    {
+     "label": "ทิศทางมุ่งหน้าเข้า จ.เพชรบุรี",
+     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_033.stream/playlist.m3u8",
+     "ok": null,
+     "cors": null
+    }
+   ],
+   "ok": null,
+   "via": "hls",
+   "cors": null,
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-11-033",
@@ -487,7 +551,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-12-013",
@@ -519,7 +583,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-12-015",
@@ -551,7 +615,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-12-016",
@@ -583,7 +647,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-12-017",
@@ -615,7 +679,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-12-019",
@@ -647,7 +711,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-13-029",
@@ -679,7 +743,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-16-012",
@@ -711,7 +775,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "doh-PER-19-001",
@@ -743,7 +807,7 @@
    "ok": null,
    "via": "hls",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0081",
@@ -760,7 +824,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0102",
@@ -777,7 +841,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0080",
@@ -794,7 +858,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0072",
@@ -811,7 +875,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0071",
@@ -828,7 +892,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0074",
@@ -845,7 +909,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0076",
@@ -862,7 +926,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0125",
@@ -879,7 +943,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0124",
@@ -896,7 +960,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0030",
@@ -913,7 +977,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0031",
@@ -930,7 +994,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0032",
@@ -947,7 +1011,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0033",
@@ -964,7 +1028,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0065",
@@ -981,7 +1045,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   },
   {
    "id": "itic-ITICM_BMAMI0066",
@@ -998,7 +1062,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-10-26T23:47:21.699Z"
+   "checkedAt": "2026-10-27T04:51:34.779Z"
   }
  ]
 }
