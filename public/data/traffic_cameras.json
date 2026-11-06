@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-06T03:38:57.862Z",
+ "generatedAt": "2026-11-06T11:28:42.875Z",
  "sources": [
   {
    "name": "iTIC Foundation / Longdo Traffic",
@@ -9,954 +9,12 @@
   {
    "name": "กรมทางหลวง highwaytraffic.go.th",
    "url": "https://highwaytraffic.go.th/DOHWeb/home.aspx",
-   "ok": true
+   "ok": false
   }
  ],
- "total": 45,
+ "total": 15,
  "ok": 9,
  "cameras": [
-  {
-   "id": "doh-PER-3-001",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-001",
-   "name": "ถ.พหลโยธิน ดอนเมือง",
-   "detail": "ทางหลวงหมายเลข 1 (ถ.พหลโยธิน) ระหว่าง กม. 26-27 ใกล้ซอยพหลโยธิน 62",
-   "org": "กรมทางหลวง",
-   "lat": 13.9391,
-   "lon": 100.6244,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming5.highwaytraffic.go.th/PER-3/PER_3_001_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าแยก คปอ.",
-     "hls": "https://streaming5.highwaytraffic.go.th/PER-3/PER_3_001_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าสนามกีฬาธูปะเตมีย์",
-     "hls": "https://streaming5.highwaytraffic.go.th/PER-3/PER_3_001_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-002",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-002",
-   "name": "1 - อ.คลองหลวง จ.ปทุมธานี",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 1 ระหว่าง กม.41-42 ต.คลองหนึ่ง อ.คลองหลวง จ.ปทุมธานี บริเวณหน้า ม.ธรรมศาสตร์ (ศูนย์รังสิต)",
-   "org": "กรมทางหลวง",
-   "lat": 14.0775,
-   "lon": 100.6178,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_002_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้ากรุงเทพ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_002_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางออกจากกรุงเทพ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_002_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-004",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-004",
-   "name": "ถ.เพชรเกษม อ้อมใหญ่",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 4 ระหว่าง กม.26-27 ต.อ้อมใหญ่ อ.สามพราน จ.นครปฐม",
-   "org": "กรมทางหลวง",
-   "lat": 13.708,
-   "lon": 100.2841,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_004_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าหนองแขม",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_004_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าสามพราน",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_004_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-005",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-005",
-   "name": "ถ.กาญจนาภิเษก บางแค",
-   "detail": "ทางหลวงหมายเลข 9 (ถ.กาญจนาภิเษก) ระหว่าง กม.24-25 เขตบางแค (ช่วง ถ.เพชรเกษม - ถ.บรมราชชนนี)",
-   "org": "กรมทางหลวง",
-   "lat": 13.7434,
-   "lon": 100.4058,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_005_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "มุ่งหน้าพระประแดง",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_005_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "มุ่งหน้าบางบัวทอง",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_005_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-008",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-008",
-   "name": "ถ.วิภาดีรังสิต ดอนเมือง",
-   "detail": "ทางหลวงหมายเลข 31 (ถ.วิภาวดีรังสิต) ระหว่าง กม.24-25 บริเวณหน้าท่าอากาศยานดอนเมือง",
-   "org": "กรมทางหลวง",
-   "lat": 13.9277,
-   "lon": 100.6058,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_008_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "มุ่งหน้าแยกหลักสี่",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_008_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "มุ่งหน้ารังสิต",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_008_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-009",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-009",
-   "name": "ถ.บางนา-บางปะกง กม.6",
-   "detail": "ทางหลวงหมายเลข 34 (ถ.บางนา-บางปะกง) ระหว่าง กม.6-7 (ช่วง ถ.ศรีนครินทร์ - ถ.กาญจนาภิเษก)",
-   "org": "กรมทางหลวง",
-   "lat": 13.6612,
-   "lon": 100.6617,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_009_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าบางนา",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_009_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าบางปะกง",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_009_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-013",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-013",
-   "name": "305 - อ.องครักษ์ จ.นครนายก",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 305 ระหว่าง กม.35-36 ต.บึงศาล อ.องค์รักษ์ จ.นครนายก",
-   "org": "กรมทางหลวง",
-   "lat": 14.0879,
-   "lon": 100.9253,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_013.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้ากรุงเทพ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_013.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้านครนายก",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_013.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-016",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-016",
-   "name": "ถ.กิ่งแก้ว",
-   "detail": "ทางหลวงหมายเลข 3256 (ถ.กิ่งแก้ว) ระหว่าง กม.20-21 บริเวณซอยกิ่งแก้ว 37/1",
-   "org": "กรมทางหลวง",
-   "lat": 13.6974,
-   "lon": 100.7321,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_016_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้า อ.เมือง จ.สมุทรปราการ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_016_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าลาดกระบัง",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_016_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-017",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-017",
-   "name": "ถ.ลำลูกกา กม.9",
-   "detail": "ทางหลวงหมายเลข 3312 (ถ.ลำลูกกา) ระหว่าง กม.9-10 บริเวณโรงเรียนวัดคลองชัน",
-   "org": "กรมทางหลวง",
-   "lat": 13.9329,
-   "lon": 100.6882,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_017.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้า ถ.พหลโยธิน",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_017.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้า ถ.กาญจนาภิเษก",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_017.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-3-018",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-3-018",
-   "name": "ถ.ศรีนครินทร์ กม.16",
-   "detail": "ทางหลวงหมายเลข 3344 (ถ.ศรีนครินทร์) ระหว่าง กม.16-17 (ช่วง ถ.เทพารักษ์ - ทางด่วนบางพลี-สุขสวัสดิ์)",
-   "org": "กรมทางหลวง",
-   "lat": 13.6235,
-   "lon": 100.6248,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_018.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้ากรุงเทพ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_018.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้า อ.เมืองสมุทรปราการ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-3/PER_3_018.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-4-016",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-4-016",
-   "name": "ถ.แจ้งวัฒนะ",
-   "detail": "ทางหลวงหมายเลข 304 (ถ.แจ้งวัฒนะ) ระหว่าง กม.3-4 ใกล้ห้างเซ็นทรัลพลาซ่า แจ้งวัฒนะ",
-   "org": "กรมทางหลวง",
-   "lat": 13.9032,
-   "lon": 100.5314,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-4/PER_4_016_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าแยกปากเกร็ด",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-4/PER_4_016_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าแยกหลักสี่",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-4/PER_4_016_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-4-022",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-4-022",
-   "name": "345 - อ.เมือง จ.ปทุมธานี",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 345 ระหว่าง กม.6-7 ต.บางคูวัด อ.เมือง จ.ปทุมธานี",
-   "org": "กรมทางหลวง",
-   "lat": 13.9531,
-   "lon": 100.4734,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-4/PER_4_022.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าสะพานนนทบุรี (สะพานนวลฉวี)",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-4/PER_4_022.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าบางบัวทอง",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-4/PER_4_022.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-9-022",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-9-022",
-   "name": "3 - อ.เมืองสมุทรปราการ จ.สมุทรปราการ",
-   "detail": "ทางหลวงแผ่นดินเหมายเลข 3 ระหว่าง กม. 32-33 ต.ท้ายบ้านใหม่ อ.เมือง จ.สมุทรปราการ",
-   "org": "กรมทางหลวง",
-   "lat": 13.54828,
-   "lon": 100.61708,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_022_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.สมุทรปราการ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_022_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.บางปู จ.สมุทรปราการ",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_022_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-9-026",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-9-026",
-   "name": "302 - อ.เมืองนนทบุรี จ.นนทบุรี",
-   "detail": "ทางหลวงแผ่นดินเหมายเลข 302 ระหว่าง กม. 13-14 ต.ไทรม้า อ.เมือง จ.นนทบุรี",
-   "org": "กรมทางหลวง",
-   "lat": 13.87167,
-   "lon": 100.46239,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_026_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า กทม.",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_026_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าออก บางใหญ่",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_026_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-9-027",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-9-027",
-   "name": "304-เขตมีนบุรี จ.กรุงเทพมหานคร",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 304 ระหว่าง กม.41-42 แขวงแสนแสบ เขตมีนบุรี กรุงเทพมหานคร",
-   "org": "กรมทางหลวง",
-   "lat": 13.81167,
-   "lon": 100.78716,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_027_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า มีนบุรี",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_027_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.ฉะเชิงเทรา",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_027_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-9-028",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-9-028",
-   "name": "3119-เขตลาดกระบัง จ.กรุงเทพมหานคร",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3119 ระหว่าง กม.6-7 แขวงคลองสามประเวศ เขตลาดกระบัง กรุงเทพมหานคร",
-   "org": "กรมทางหลวง",
-   "lat": 13.75912,
-   "lon": 100.74628,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_028.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า ร่มเกล้า",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_028.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า ลาดกระบัง",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_028.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-9-030",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-9-030",
-   "name": "3214-อ.คลองหลวง จ.ปทุมธานี",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3214 ระหว่าง กม.12-13 ต.คลองสี่ อ.คลองหลวง จ.ปทุมธานี",
-   "org": "กรมทางหลวง",
-   "lat": 14.06689,
-   "lon": 100.68834,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_030.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า พหลโยธิน",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_030.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า คลองหลวง",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-9/PER_9_030.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-10-019",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-10-019",
-   "name": "9 - อ.บางบัวทอง จ.นนทบุรี",
-   "detail": "ทางหลวงแผ่นดินเหมายเลข 9 (ถ. กาญจนาภิเษก) ระหว่าง กม. 44-750 ต.พิมลราช อ.บางบัวทอง จ.นนทบุรี",
-   "org": "กรมทางหลวง",
-   "lat": 13.9144,
-   "lon": 100.41,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_019_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.นนทบุรี",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_019_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.ลาดหลุมแก้ว (จ.ปทุมธานี)",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_019_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-10-023",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-10-023",
-   "name": "3091 - อ.กระทุ่มแบน จ.สมุทรสาคร",
-   "detail": "ทางหลวงแผ่นดินเหมายเลข 3091 ระหว่าง กม. 10-11 ต.คลองมะเดื่อ อ.กระทุ่มแบน จ.สมุทรสาคร",
-   "org": "กรมทางหลวง",
-   "lat": 13.6345,
-   "lon": 100.2963,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_023.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า พุทธมณฑล สาย4",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_023.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.สมุทรสาคร",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_023.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-10-033",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-10-033",
-   "name": "4 - อ.ปากท่อ จ.ราชบุรี",
-   "detail": "ทางหลวงแผ่นดินเหมายเลข 4 ระหว่าง กม. 116-117 ต.หนองกระทุ่ม อ.ปากท่อ จ.ราชบุรี",
-   "org": "กรมทางหลวง",
-   "lat": 13.6345,
-   "lon": 100.2963,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_033.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.ราชบุรี",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_033.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.เพชรบุรี",
-     "hls": "https://streaming1.highwaytraffic.go.th/PER-10/PER_10_033.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-11-024",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-11-024",
-   "name": "3242 - อ.เมืองสมุทรสาคร จ.สมุทรสาคร",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3242 ระหว่าง กม 13-14 อ.เมืองสมุทรสาคร จ.สมุทรสาคร",
-   "org": "กรมทางหลวง",
-   "lat": 13.62882,
-   "lon": 100.36058,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-11/PER_11_024.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า พระราม 2",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-11/PER_11_024.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-11-033",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-11-033",
-   "name": "3312 - อ.องครักษ์ จ.นครนายก",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3312 ระหว่าง กม 35-36 อ.องครักษ์ จ.นครนายก",
-   "org": "กรมทางหลวง",
-   "lat": 13.96581,
-   "lon": 100.92626,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-11/PER_11_033.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.นครนายก",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-11/PER_11_033.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-11-123",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-11-123",
-   "name": "3242 - อ.เมืองสมุทรสาคร จ.สมุทรสาคร",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3242 ระหว่าง กม 5-6 อ.เมืองสมุทรสาคร จ.สมุทรสาคร",
-   "org": "กรมทางหลวง",
-   "lat": 13.57809,
-   "lon": 100.3114,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-11/PER_11_023.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า จ.สมุทรสาคร",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-11/PER_11_023.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-12-013",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-12-013",
-   "name": "340 - บางบัวทอง - ลาดบัวหลวง",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 340 ระหว่าง กม 25 - 26 อ.ไทรน้อย จ.นนทบุรี",
-   "org": "กรมทางหลวง",
-   "lat": 14.1313,
-   "lon": 100.2898,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming3.highwaytraffic.go.th/PER-12/PER_12_013.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.บางบัวทอง",
-     "hls": "https://streaming3.highwaytraffic.go.th/PER-12/PER_12_013.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.ลาดบัวหลวง",
-     "hls": "https://streaming3.highwaytraffic.go.th/PER-12/PER_12_013.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-12-015",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-12-015",
-   "name": "303 - ราษฎร์บูรณะ - พระสมุทรเจดีย์",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 303 ระหว่าง กม 19 - 20 อ.พระสมุทรเจดีย์ จ.สมุทรปราการ",
-   "org": "กรมทางหลวง",
-   "lat": 13.6004,
-   "lon": 100.5592,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_015_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า พระประแดง",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_015_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อบต. บางปลา",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_015_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-12-016",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-12-016",
-   "name": "3310 - กระทุ่มล้ม - พุทธมณฑล",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3310 ระหว่าง กม 6 - 7 อ.สามพราน จ.นครปฐม",
-   "org": "กรมทางหลวง",
-   "lat": 13.7643,
-   "lon": 100.3285,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_016_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า ตำบล กระทุ่มล้ม",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_016_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.พุทธมณฑล",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_016_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-12-017",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-12-017",
-   "name": "3414 - อ้อมน้อย - ศาลายา",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3414 ระหว่าง กม 5 - 6 อ.สามพราน จ.นครปฐม",
-   "org": "กรมทางหลวง",
-   "lat": 13.7579,
-   "lon": 100.3012,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_017.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.อ้อมน้อย",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_017.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า ต.บางกระทึก",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_017.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-12-019",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-12-019",
-   "name": "3111 - ท้ายเกาะ - เสนา",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3111 ระหว่าง กม 14 - 15 อ.บางไทร จ.พระนครศรีอยุธยา",
-   "org": "กรมทางหลวง",
-   "lat": 14.1389,
-   "lon": 100.4938,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_019.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.สามโคก",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_019.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อ.เสนา",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-12/PER_12_019.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-13-029",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-13-029",
-   "name": "1 - ต่างระดับคลองหลวง - ประตูน้ำพระอินทร์",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 1 ระหว่าง กม 42 - 43",
-   "org": "กรมทางหลวง",
-   "lat": 14.08541,
-   "lon": 100.61791,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-13/PER_13_029_1.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า กรุงเทพฯ",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-13/PER_13_029_1.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า อยุธยา",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-13/PER_13_029_2.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
-  {
-   "id": "doh-PER-19-001",
-   "type": "snapshot",
-   "source": "doh",
-   "code": "PER-19-001",
-   "name": "3344-อุดมสุข - สมุทรปราการ",
-   "detail": "ทางหลวงแผ่นดินหมายเลข 3344 ระหว่าง กม 16 - 17",
-   "org": "กรมทางหลวง",
-   "lat": 13.621,
-   "lon": 100.6235,
-   "img": null,
-   "video": null,
-   "hls": "https://streaming2.highwaytraffic.go.th/PER-19/PER_19_001_IN.stream/playlist.m3u8",
-   "streams": [
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า เขคสวนหลวง กรุงเทพฯ",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-19/PER_19_001_IN.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    },
-    {
-     "label": "ทิศทางมุ่งหน้าเข้า เขคบางนา กรุงเทพฯ",
-     "hls": "https://streaming2.highwaytraffic.go.th/PER-19/PER_19_001_OUT.stream/playlist.m3u8",
-     "ok": null,
-     "cors": null
-    }
-   ],
-   "ok": null,
-   "via": "hls",
-   "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
-  },
   {
    "id": "itic-ITICM_BMAMI0081",
    "code": "ITICM_BMAMI0081",
@@ -972,7 +30,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0102",
@@ -989,7 +47,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0080",
@@ -1006,7 +64,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0071",
@@ -1023,7 +81,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0072",
@@ -1040,7 +98,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0076",
@@ -1057,7 +115,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0074",
@@ -1074,7 +132,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0124",
@@ -1091,7 +149,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0125",
@@ -1108,7 +166,7 @@
    "ok": true,
    "via": "hls",
    "cors": true,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0030",
@@ -1125,7 +183,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0031",
@@ -1142,7 +200,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0032",
@@ -1159,7 +217,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0033",
@@ -1176,7 +234,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0065",
@@ -1193,7 +251,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   },
   {
    "id": "itic-ITICM_BMAMI0066",
@@ -1210,7 +268,7 @@
    "ok": null,
    "via": "jpeg",
    "cors": null,
-   "checkedAt": "2026-11-06T03:38:57.862Z"
+   "checkedAt": "2026-11-06T11:28:42.875Z"
   }
  ]
 }
