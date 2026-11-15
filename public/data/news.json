@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-14T20:36:08.885Z",
+ "generatedAt": "2026-11-15T00:12:39.535Z",
  "feeds": [
   {
    "feed": "Google News: น้ำท่วมกรุงเทพ",
@@ -9,7 +9,7 @@
   {
    "feed": "Google News: น้ำท่วมขัง กทม.",
    "ok": true,
-   "count": 18
+   "count": 19
   },
   {
    "feed": "Google News: จอดรถหนีน้ำ",
@@ -24,12 +24,12 @@
   {
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
    "ok": true,
-   "count": 15
+   "count": 18
   },
   {
    "feed": "Google News: ฝากรถหนีน้ำ",
    "ok": true,
-   "count": 6
+   "count": 5
   },
   {
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
@@ -39,7 +39,7 @@
   {
    "feed": "Google News: เตือนฝนตกหนัก",
    "ok": true,
-   "count": 20
+   "count": 18
   },
   {
    "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
@@ -49,7 +49,7 @@
   {
    "feed": "Google News (EN): Bangkok flood",
    "ok": true,
-   "count": 27
+   "count": 26
   },
   {
    "feed": "จส.100",
@@ -58,6 +58,38 @@
   }
  ],
  "items": [
+  {
+   "title": "ชุมพรวิกฤต! ฝนตกหนัก ทำน้ำท่วมสูง 30-40 ซม. บริเวณแยก รพ.ชุมพร-หน้าโรงเรียนศรียาภัย | The Bangkok Insight",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBsbnJlRkRyZ0JPQnN6TUNpV2RTVmtQWGdCd180dGowLVpqVlpYMWpZRHRvMFEtV2NjNnZBeVRKRk5GbXZTdVZRb0lGRmwxSkZKVE5SaUF3?oc=5",
+   "published": "2026-11-14T23:42:38.000Z",
+   "source": "LINE TODAY",
+   "summary": "ชุมพรวิกฤต! ฝนตกหนัก ทำน้ำท่วมสูง 30-40 ซม. บริเวณแยก รพ.ชุมพร-หน้าโรงเรียนศรียาภัย | The Bangkok Insight &nbsp;&nbsp; LINE TODAY",
+   "feed": "Google News: จอดรถฟรี น้ำท่วม",
+   "categories": [
+    "flood",
+    "weather"
+   ],
+   "depthCm": [
+    30,
+    40
+   ],
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "พยากรณ์อากาศประจำวันที่ 15 พฤศจิกายน 2569 กรุงเทพและปริมณฑล เมฆเป็นส่วนมาก และอุณหภูมิจะสูงขึ้นเล็กน้อย โดยมีฝนร้อยละ 10 ของพื้นที่ | สวพ.FM91",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFAtNnBQRHJlNk9DRDZhUmlUZUlkeS1xQ1NFU0ZWazI0NUFUNmdzSndhYkVKdXFyTkRIeUUtWEdkUzJLbVdUWG9WNGZMSGotX0pfOXJjeFFR?oc=5",
+   "published": "2026-11-14T23:33:46.000Z",
+   "source": "LINE TODAY",
+   "summary": "พยากรณ์อากาศประจำวันที่ 15 พฤศจิกายน 2569 กรุงเทพและปริมณฑล เมฆเป็นส่วนมาก และอุณหภูมิจะสูงขึ้นเล็กน้อย โดยมีฝนร้อยละ 10 ของพื้นที่ | สวพ.FM91 &nbsp;&nbsp; LINE TODAY",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [
+    "weather"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
   {
    "title": "MIT เตือนไทยฝนสุดขั้วถี่ขึ้น 5–10 เท่า ฝน 100 ปีอาจเกิดทุก 5–20 ปี ชี้เหลือเวลา 10–15 ปี เร่งปรับโครงสร้างพื้นฐานรับมือน้ำท่วม . โลกร้อนไม่ได้แค่ทำให้อุณหภูมิสูงขึ้น แต่กำลังเปลี่ยนรูปแบบฝนและยกระดับความเสี่ยงน้ำท่วมของประเทศไทย เมื่อผลการศึกษาจากนักวิจัยสถาบันเทคโนโลยีแม",
    "link": "https://news.google.com/rss/articles/CBMisgZBVV95cUxQYW9EOERWdmVWVTBXcEV6aWxmaGlGRzYtUG9vSHpZcnZSRWJqaE9zbWFlcjVsd3NWV2pQVlgxX0xKWnA0aW02anJzVDI3OTNmNVNQTXAybWNvSjh1VHFTV19hb0txTTdObnk2dHVrWmxFUG5QUjlHbjhDNjVfWDcwRmlyMzFCVkdkaEZyVG5JTmF5bW1kbWxZa2ZsWDNTcVNGVWktXzNVZWpOUmtrdmdVOVBqVDBuX2ctU3BtZ2tUWldUcmQtVEFwQXJGSkR5OWtFVjFpVDBrRXJfclNDZmp6Tm5COWFfYkw1TWEtbmxJZkJkUVZ0WW9ZZ3JUem5oRm43VlpMRnhZUDUyX0xWNGRCX1JpNUs2QnU2bDZxOWJXLTk5c3NmVjR5aTV0VTlKY3BjUnkyWXJTYTM3SnNZNHhvNmJDRk9qdFBEVUZiX2xSeF9OZW81MlVSVFJjSHBKVkZNaUJUcnhLY2pqam50QWw1ZDZZNHc3Y0VvcDhxMTRYbkVBbl91WnJMc3JlbFFDOFh1N29ZMUxmQlZaSUNZTEJ0Smh2enhOUUJJelQwdzRBNGQ5Nmh5elotX3hBTkhDSkFaRzgxX3k5SW5TT1R6V3hIcmlQeWpYTElZUDE3VlZpcWpNWE5OOUx5TDlBbDNUbWg1cHI4LWg0OURFSXBSa0h0aVJTQmxZTmZzSTl5Yzl1bV9PMFktWmpCX0dhQkp1YTBUZU10NF9GUHhGN1NINkNaOW43QnBhZGxyTk8tY0Y1UXItSG9qVGZxbGxhZU5RN2RFM3ZwSVdiY0RVM0JuWlB5T1RUVFQ0WXA0MEppTUFDSVZEUGxFemNZdUI3SFNmdHVJbE9qRUU4ckV2Y1lnMjZYcGlyUFBBazRGQTA5T1pDbjA1ZkI1RkVmcWNhRndRM19TbWdmbFRHQ2F3Nk53WUljUDlmby1mU2U2Ykw1ejJsSW5zZUZSYy02NGVXNEJ1M1lMZWNGR2V1Vm8xckRxa0FhZDBJMmVXRE5EVnByOVlIUVVNWl9LRVZIS3U2cGMzZjR6dmVQSjZYWVFqMXVvbkVKQVp1QjFlazZfYVZod2lSUWFZdw?oc=5",
@@ -85,24 +117,6 @@
     "help"
    ],
    "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "ชุมพรวิกฤต! ฝนตกหนัก ทำน้ำท่วมสูง 30-40 ซม. บริเวณแยก รพ.ชุมพร-หน้าโรงเรียนศรียาภัย | The Bangkok Insight",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTFBsbnJlRkRyZ0JPQnN6TUNpV2RTVmtQWGdCd180dGowLVpqVlpYMWpZRHRvMFEtV2NjNnZBeVRKRk5GbXZTdVZRb0lGRmwxSkZKVE5SaUF3?oc=5",
-   "published": "2026-11-14T13:58:29.000Z",
-   "source": "LINE TODAY",
-   "summary": "ชุมพรวิกฤต! ฝนตกหนัก ทำน้ำท่วมสูง 30-40 ซม. บริเวณแยก รพ.ชุมพร-หน้าโรงเรียนศรียาภัย | The Bangkok Insight &nbsp;&nbsp; LINE TODAY",
-   "feed": "Google News: ฝากรถหนีน้ำ",
-   "categories": [
-    "flood",
-    "weather"
-   ],
-   "depthCm": [
-    30,
-    40
-   ],
    "places": [],
    "bangkok": true
   },
@@ -239,7 +253,7 @@
    "published": "2026-11-14T11:24:57.000Z",
    "source": "Unisba Media",
    "summary": "ฝนถล่มป่าตอง รถเก๋งดับกลางน้ำท่วม | ข่าวเที่ยงช่องวัน | สำนักข่าววันนิวส์ Queen Camilla (eEMIHgxowA) &nbsp;&nbsp; Unisba Media",
-   "feed": "Google News: จอดรถฟรี น้ำท่วม",
+   "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
    "categories": [
     "flood",
     "weather"
@@ -834,6 +848,20 @@
    "summary": "อุบัติเหตุหมู่ไฟลุกท่วม! รถชนกันวินาศสันตะโร 13 คัน เสียชีวิตแล้ว 3 ราย บาดเจ็บอีก 10 คน &nbsp;&nbsp; สยามนิวส์",
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
    "categories": [],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "หาดใหญ่น้ำจะท่วมไหม? เปิดข้อมูลความเสี่ยงน้ำท่วม 10 - 13 พ.ย. 69",
+   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9YU3FZRXRubWN3akdFeXRpcHJQbWtaTE9BcHUxNHdzZ2NWbVU5LURpVzNBbDFIT2ttRTFqdk00UXBUcE9IVW9OdExTT3A4aXpsM05r?oc=5",
+   "published": "2026-11-13T08:00:00.000Z",
+   "source": "TNN Thailand",
+   "summary": "หาดใหญ่น้ำจะท่วมไหม? เปิดข้อมูลความเสี่ยงน้ำท่วม 10 - 13 พ.ย. 69 &nbsp;&nbsp; TNN Thailand",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "categories": [
+    "flood"
+   ],
    "depthCm": null,
    "places": [],
    "bangkok": false
@@ -2131,20 +2159,6 @@
    "bangkok": false
   },
   {
-   "title": "หาดใหญ่น้ำจะท่วมไหม? เปิดข้อมูลความเสี่ยงน้ำท่วม 10 - 13 พ.ย. 69",
-   "link": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE9YU3FZRXRubWN3akdFeXRpcHJQbWtaTE9BcHUxNHdzZ2NWbVU5LURpVzNBbDFIT2ttRTFqdk00UXBUcE9IVW9OdExTT3A4aXpsM05r?oc=5",
-   "published": "2026-11-12T02:38:16.000Z",
-   "source": "TNN Thailand",
-   "summary": "หาดใหญ่น้ำจะท่วมไหม? เปิดข้อมูลความเสี่ยงน้ำท่วม 10 - 13 พ.ย. 69 &nbsp;&nbsp; TNN Thailand",
-   "feed": "Google News: น้ำท่วมขัง กทม.",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
    "title": "กรมอุตุฯ เตือนภาคใต้ฝนตกหนัก น้ำท่วมฉับพลัน คลื่นลมแรง",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1JZnh3MGh1MTR6RUgwN19IR1RYLVVQWGdyNnFETERKd0pJcHJnTTNQMzBaT2ozRmdpeVJkOTFScWpibDhuckw1YWt1ZWI1em4xYjVxWG14dXh3WWNPY3F0Z2I5RVhmQkpPazhDOXRR?oc=5",
    "published": "2026-11-12T01:44:00.000Z",
@@ -2960,20 +2974,6 @@
    "depthCm": null,
    "places": [],
    "bangkok": false
-  },
-  {
-   "title": "Flood defences 'may fail' in future disasters",
-   "link": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUXNPRnk1TWMzRktEb0o5TFlCa3gyZDVvSlh0Mm11TEpVdFVpTGZNb0VGd2szNzhDRVl2QjhQMFhOeTJkMVZXUUQwai1VMV9JUmd3QlpEaG5MWVpLQl9famZ0ZWVITHJISWJHSGpmWWkxNGh1SEMweHR1RzVmTGZ6cWVmR0JZaUhHc0UzbHBaaUs1d2lTRFJTaW41VWU?oc=5",
-   "published": "2026-11-10T22:40:00.000Z",
-   "source": "Bangkok Post",
-   "summary": "Flood defences 'may fail' in future disasters &nbsp;&nbsp; Bangkok Post",
-   "feed": "Google News (EN): Bangkok flood",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
   }
  ]
 }
