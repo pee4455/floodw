@@ -1,63 +1,133 @@
 {
- "generatedAt": "2026-11-18T01:13:36.144Z",
+ "generatedAt": "2026-11-18T09:01:26.205Z",
  "feeds": [
   {
    "feed": "Google News: น้ำท่วมกรุงเทพ",
    "ok": true,
-   "count": 25
+   "count": 22
   },
   {
    "feed": "Google News: น้ำท่วมขัง กทม.",
-   "ok": true,
-   "count": 21
+   "ok": false,
+   "error": "HTTP 429"
   },
   {
    "feed": "Google News: จอดรถหนีน้ำ",
    "ok": true,
-   "count": 7
+   "count": 6
   },
   {
    "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
-   "ok": true,
-   "count": 19
+   "ok": false,
+   "error": "HTTP 429"
   },
   {
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
-   "ok": true,
-   "count": 17
+   "ok": false,
+   "error": "HTTP 429"
   },
   {
    "feed": "Google News: ฝากรถหนีน้ำ",
    "ok": true,
-   "count": 5
+   "count": 3
   },
   {
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
    "ok": true,
-   "count": 22
+   "count": 17
   },
   {
    "feed": "Google News: เตือนฝนตกหนัก",
-   "ok": true,
-   "count": 23
+   "ok": false,
+   "error": "HTTP 429"
   },
   {
    "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
    "ok": true,
-   "count": 8
+   "count": 10
   },
   {
    "feed": "Google News (EN): Bangkok flood",
-   "ok": true,
-   "count": 25
+   "ok": false,
+   "error": "HTTP 429"
   },
   {
    "feed": "จส.100",
    "ok": true,
-   "count": 5
+   "count": 8
   }
  ],
  "items": [
+  {
+   "title": "เดอะโฮปสงขลา วอนเทศบาลหาดใหญ่ เร่งช่วยถมที่สูงให้ศูนย์พักพิงสุนัข หวั่นน้ำท่วมซ้ำรอย",
+   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1IWW43NkhmWW4wQ0Z2bjI3WmxwWXdGV2FUSURNMXFWY25sTUpJOUxfN2lZQnFTZTRDbVItUWx2NUFCUmtxc0dkeWtfaWprZDRHaGtyenlGUjdlVWc?oc=5",
+   "published": "2026-11-18T07:58:49.000Z",
+   "source": "ไทยโพสต์",
+   "summary": "เดอะโฮปสงขลา วอนเทศบาลหาดใหญ่ เร่งช่วยถมที่สูงให้ศูนย์พักพิงสุนัข หวั่นน้ำท่วมซ้ำรอย &nbsp;&nbsp; ไทยโพสต์",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
+   "categories": [
+    "flood",
+    "help"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "สภากทม. ไฟเขียวตั้งวิสามัญฯ ศึกษาแผน BCP 120 วัน ถอดบทเรียนน้ำท่วม-ระบบล่ม หวังอุดช่องโหว่การจัดการทรัพยากรรับมือวิกฤต",
+   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9FVVUxbzZzN2JPMFZxQW1JMXdMZmh4OXpmRk5OVGk1MG9wYWt1REJPbUdsSDNzN1k4WGZsZ2VGMVBoU2s5OURYc2lDMk9rQ0pHNl92R1JDNDRfRXRtZDZoZnV1Wm1zWWR1ekE?oc=5",
+   "published": "2026-11-18T03:20:56.000Z",
+   "source": "thestandard.co",
+   "summary": "สภากทม. ไฟเขียวตั้งวิสามัญฯ ศึกษาแผน BCP 120 วัน ถอดบทเรียนน้ำท่วม-ระบบล่ม หวังอุดช่องโหว่การจัดการทรัพยากรรับมือวิกฤต &nbsp;&nbsp; thestandard.co",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "งานวิจิตรเจ้าพระยา 2569 พลุ สะพานพุทธ แสง สี ริมแม่น้ำเจ้าพระยา",
+   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE43eUhKZndSOE9fc19hSmh5MXJVbmI0bU1fMDdEc01CVjJaa3pUOGJhdVVGd2FNUjBmMUJwWXNENl9hMFkxY3dJTmMtMFBQWGVncmZ3a3hxUE4?oc=5",
+   "published": "2026-11-18T03:02:42.000Z",
+   "source": "TrueID",
+   "summary": "งานวิจิตรเจ้าพระยา 2569 พลุ สะพานพุทธ แสง สี ริมแม่น้ำเจ้าพระยา &nbsp;&nbsp; TrueID",
+   "feed": "Google News: ระดับน้ำเจ้าพระยา",
+   "categories": [
+    "river"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "เงินเยียวยาน้ำท่วม กทม. ล่าสุด อนุมัติแล้ว 7.5 แสนครัวเรือน เช็กสถานะได้เลย",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE0xMlh0T2lqbzVTbVlTZVlMU2FIYXF6dUlCWTJLMC1keklJenF3eUhwaEt2eHR0OXFEM0ZmRnUzX3MzbzhoOENNYkFNSk9RNnplbHFseVFweGlrOVpUVXRYS1F3dXh2QQ?oc=5",
+   "published": "2026-11-18T03:01:55.000Z",
+   "source": "bangkokbiznews",
+   "summary": "เงินเยียวยาน้ำท่วม กทม. ล่าสุด อนุมัติแล้ว 7.5 แสนครัวเรือน เช็กสถานะได้เลย &nbsp;&nbsp; bangkokbiznews",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [
+    "flood",
+    "help"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "Blue Gentrification พื้นที่ริมน้ำย่านเมืองเก่ากรุงเทพฯ (จบ) - มติชนสุดสัปดาห์",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1YbkNjd1BObUJUbDdmemlsdnltTk5vR0ViVUFaN3YzOV9aWnd6ak1VZjNxZmJncUozclhKck5Ka05nVUJuV3BrVm52NGVUclVlb3AxVkhSblZwV0pHN1Y3QWZseU85dw?oc=5",
+   "published": "2026-11-18T02:46:18.000Z",
+   "source": "Matichon Online",
+   "summary": "Blue Gentrification พื้นที่ริมน้ำย่านเมืองเก่ากรุงเทพฯ (จบ) - มติชนสุดสัปดาห์ &nbsp;&nbsp; Matichon Online",
+   "feed": "Google News: ระดับน้ำเจ้าพระยา",
+   "categories": [],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
   {
    "title": "พยากรณ์อากาศ ประจำวันที่ 18 พฤศจิกายน 2569 กรุงเทพและปริมณฑล มีฝนฟ้าคะนอง ร้อยละ 20 ของพื้นที่",
    "link": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOelVyLXFSQV9pVzBZWHR2UGVibE9VT1hjVzZzN3V1Y1VpNEJ5S05VV25YN2xBaktMUW9lbHRMLWhiRjhTWlRXck0tcVhKYzR3OXZsTHRVZF9jOXJlUjM1VV9IMk5BX2ZvcVJFVEJmRjBIc2NfanRpRzFfQ3cwN0F1Qw?oc=5",
@@ -99,34 +169,6 @@
    "bangkok": false
   },
   {
-   "title": "สภากทม. ไฟเขียวตั้งวิสามัญฯ ศึกษาแผน BCP 120 วัน ถอดบทเรียนน้ำท่วม-ระบบล่ม หวังอุดช่องโหว่การจัดการทรัพยากรรับมือวิกฤต",
-   "link": "https://news.google.com/rss/articles/CBMiakFVX3lxTE9FVVUxbzZzN2JPMFZxQW1JMXdMZmh4OXpmRk5OVGk1MG9wYWt1REJPbUdsSDNzN1k4WGZsZ2VGMVBoU2s5OURYc2lDMk9rQ0pHNl92R1JDNDRfRXRtZDZoZnV1Wm1zWWR1ekE?oc=5",
-   "published": "2026-11-17T20:12:25.000Z",
-   "source": "thestandard.co",
-   "summary": "สภากทม. ไฟเขียวตั้งวิสามัญฯ ศึกษาแผน BCP 120 วัน ถอดบทเรียนน้ำท่วม-ระบบล่ม หวังอุดช่องโหว่การจัดการทรัพยากรรับมือวิกฤต &nbsp;&nbsp; thestandard.co",
-   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "งานวิจิตรเจ้าพระยา 2569 พลุ สะพานพุทธ แสง สี ริมแม่น้ำเจ้าพระยา",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE43eUhKZndSOE9fc19hSmh5MXJVbmI0bU1fMDdEc01CVjJaa3pUOGJhdVVGd2FNUjBmMUJwWXNENl9hMFkxY3dJTmMtMFBQWGVncmZ3a3hxUE4?oc=5",
-   "published": "2026-11-17T19:20:12.000Z",
-   "source": "TrueID",
-   "summary": "งานวิจิตรเจ้าพระยา 2569 พลุ สะพานพุทธ แสง สี ริมแม่น้ำเจ้าพระยา &nbsp;&nbsp; TrueID",
-   "feed": "Google News: ระดับน้ำเจ้าพระยา",
-   "categories": [
-    "river"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
    "title": "ฝนถล่มเลย! น้ำท่วมถนนบ้านท่าสวรรค์-วังเล สูง 60 ซม. รถเล็กผ่านไม่ได้",
    "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1OaXNfMkJUdVNFUjlqMUFlLTFTd1FOeklWNEpTTDFBWkE4dXJIaHdIUkZlU3JGa1pILWY1ZlJlYjNUSXBLZ1FCUUNuVzhzVUZ2dUp5dllucDI?oc=5",
    "published": "2026-11-17T15:05:00.000Z",
@@ -158,6 +200,20 @@
    "depthCm": null,
    "places": [],
    "bangkok": true
+  },
+  {
+   "title": "ครม. ไฟเขียวร่าง กม. ลดหย่อนภาษีน้ำท่วม 68 ซ่อมบ้าน 1 แสน–รถ 3 หมื่น | ข่าวหุ้นธุรกิจ",
+   "link": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBFSVFmNzNUX2s4cUFER2NobmQtY25URlg1VE1NTXF5NndIdmJ2YUtNMTZwZDdSbERpSVdJS3NWUXR6NGVTSnpZRUxieHlYZ1NOVUVGWG1tNGJHY3pyVHh4TlYxd0dUY1IyNjViQTJtd2ViaWJZYVE?oc=5",
+   "published": "2026-11-17T12:29:31.000Z",
+   "source": "LINE TODAY",
+   "summary": "ครม. ไฟเขียวร่าง กม. ลดหย่อนภาษีน้ำท่วม 68 ซ่อมบ้าน 1 แสน–รถ 3 หมื่น | ข่าวหุ้นธุรกิจ &nbsp;&nbsp; LINE TODAY",
+   "feed": "Google News: ฝากรถหนีน้ำ",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
   },
   {
    "title": "Bangkok flood jet ski rider arrested, charged",
@@ -225,6 +281,36 @@
    "depthCm": null,
    "places": [],
    "bangkok": false
+  },
+  {
+   "title": "พล.ต.อ.สำราญ ลุยน้ำท่วมเคหะร่มเกล้า ลาดกระบัง แจกข้าว 4,000 กล่อง พร้อมตั้งโรงพัก สน.ร่มเกล้า เป็นศูนย์พักพิง",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE5kSzh5VHU4c0hPTmVJLVotWERNTndfSlV3REZOdERxQmxCSjNXZUg2cTRndW04bDlWLVRIellmWkxhM2otZ3A1QUxDd05SRGtZTmtOb1lB?oc=5",
+   "published": "2026-11-17T08:34:41.000Z",
+   "source": "COP'S Magazine",
+   "summary": "พล.ต.อ.สำราญ ลุยน้ำท่วมเคหะร่มเกล้า ลาดกระบัง แจกข้าว 4,000 กล่อง พร้อมตั้งโรงพัก สน.ร่มเกล้า เป็นศูนย์พักพิง &nbsp;&nbsp; COP'S Magazine",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
+   "categories": [
+    "flood",
+    "help"
+   ],
+   "depthCm": null,
+   "places": [
+    {
+     "name": "ถ.ร่มเกล้า",
+     "lat": 13.78,
+     "lon": 100.73,
+     "kind": "landmark",
+     "outside": false
+    },
+    {
+     "name": "ลาดกระบัง",
+     "lat": 13.722,
+     "lon": 100.76,
+     "kind": "district",
+     "outside": false
+    }
+   ],
+   "bangkok": true
   },
   {
    "title": "⚠️ เตือน !!! 18-22 พ.ย. 69 ภาคใต้ฝนตกหนักถึงหนักมาก ไทยตอนบนมีฝนฟ้าคะนองช่วงแรก จากนั้นอุณหภูมิลดลง #กรมอุตุนิยมวิทยา #พยากรณ์อากาศ #ดิจิทัลเพื่อเศรษฐกิจและสังคม",
@@ -361,7 +447,7 @@
    "published": "2026-11-17T05:21:52.000Z",
    "source": "สยามนิวส์",
    "summary": "ด่วน! ปภ. เตือน 15 จังหวัด รับมือฝนหนักถึงหนักมาก เสี่ยงน้ำป่าไหลหลาก-ดินโคลนถล่ม &nbsp;&nbsp; สยามนิวส์",
-   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
    "categories": [
     "weather"
    ],
@@ -729,7 +815,7 @@
    "published": "2026-11-16T12:59:27.000Z",
    "source": "www.topnews.co.th",
    "summary": "\"ผู้ว่าฯ สงขลา\" สั่งเตรียมพร้อมรับมือฝนหนัก 18-22 พ.ย. จับตาหาดใหญ่-นาทวีเสี่ยงฝนสะสมเกิน 90 มม. &nbsp;&nbsp; www.topnews.co.th",
-   "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
    "categories": [],
    "depthCm": null,
    "places": [],
@@ -868,7 +954,7 @@
    "published": "2026-11-16T08:55:21.000Z",
    "source": "Thai PBS",
    "summary": "ปภ.เตือน 15 จังหวัด ภาคกลาง-ภาคใต้ เสี่ยงน้ำท่วมฉับพลัน น้ำป่า 18-22 พ.ย. &nbsp;&nbsp; Thai PBS",
-   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
    "categories": [
     "flood",
     "weather"
@@ -1094,7 +1180,7 @@
    "published": "2026-11-16T00:50:20.000Z",
    "source": "bangkokbiznews",
    "summary": "เตรียมร่มอีกรอบ กรมอุตุ เตือนอากาศวันนี้ กทม. ฝนตกหนัก ฟ้าคะนอง &nbsp;&nbsp; bangkokbiznews",
-   "feed": "Google News: เตือนฝนตกหนัก",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
    "categories": [
     "weather"
    ],
@@ -3113,77 +3199,6 @@
    "depthCm": null,
    "places": [],
    "bangkok": false
-  },
-  {
-   "title": "ฝนถล่มเมืองคอน น้ำหลากท่วมบ้าน-ถนนหลายจุด 4 อำเภอ ล่าสุดระดับน้ำมีแนวโน้มลดลง",
-   "link": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE92V0lUOEthT3hpTEg0ODRTMmFSM0VKc0FBMTk5WVdLc01nRnVoMjRJTU9JOVJ6T0U4V3hhdnQ3Q19zWGo5dGJGRTViTTJ3UU53UEhIRnBVbU83eFBoTXc3WA?oc=5",
-   "published": "2026-11-13T07:30:30.000Z",
-   "source": "thairath.co.th",
-   "summary": "ฝนถล่มเมืองคอน น้ำหลากท่วมบ้าน-ถนนหลายจุด 4 อำเภอ ล่าสุดระดับน้ำมีแนวโน้มลดลง &nbsp;&nbsp; thairath.co.th",
-   "feed": "Google News: ระดับน้ำเจ้าพระยา",
-   "categories": [
-    "river",
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "เช็กโอนเงินเยียวยาน้ำท่วมวันนี้ 11 จังหวัด 23,170 ครัวเรือน กว่า 145.73 ล้าน | The Bangkok Insight",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1qLWRWV29CVzRZVkxqZXpEcGV2Ui04OWFTWl8yX2VUS2puWTlfNmNfVzZjckUzNDE1Tzh2dVZDWVE1UDFKM0t4RmxwNjNfaWVZdGo1M0hR?oc=5",
-   "published": "2026-11-13T07:24:23.000Z",
-   "source": "LINE TODAY",
-   "summary": "เช็กโอนเงินเยียวยาน้ำท่วมวันนี้ 11 จังหวัด 23,170 ครัวเรือน กว่า 145.73 ล้าน | The Bangkok Insight &nbsp;&nbsp; LINE TODAY",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "flood",
-    "help"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "✨ \"เตรียมพบกับปรากฏการณ์แสงสีสุดตระการตาแห่งปี! ที่จะเนรมิตโค้งน้ำเจ้าพระยาให้สว่างไสวเจิดจรัสกว่าครั้งไหนๆ ในงาน Vijit Chao Phraya 2026\" ✨ ขอเชิญทุกท่านร่วมออกเดินทางสู่โลกแห่งความมหัศจรรย์ยามค่ำคืน ภายใต้แนวคิด \"แสงแห่งจินตนาการ (THE LIGHT OF IMAGINATION)\"",
-   "link": "https://news.google.com/rss/articles/CBMinAhBVV95cUxQeXFocmFnVjhpRTVnUEtuRm9HMm05dVFTOXJBdWVWZmZsVHJOdUZlM29pS3NKbktLcDVGLVlNcGMyZTdOQmw1eUpSS2k2MkZYQmxwQlIwRmdHQTRCdjIzT0RndjFSMGxhRlh1bGxDdFJ0SGtCMF9FZVZpMWlOLVA1WlIzcWdoX2hxbERwbzR0TU5XUVZVRURMSXU0czZmVzBINWgxVDhZSTRQcF9xc1NHNXZCY2NLdUdKNVNGQW5wNElmZnQ0ZmRkRW1IM3Z4YWVqU0szTGpkZUw0TkpwV0VmWWN5cTdhVFhVSTZtM2Z5TUpjYVNHcGtUeDYxUEh2WmVYYTZ5dHp4MndsSnA4WXhZV2REYnhpS2NCWDRWeWRXSHZJelpCVmVPT0R0R05Yenh2dVBoUzV3M1lyM3ZXUTJrTFlwVW5TUFZhYXFiWEZxNGxyQkVqYVdicVpzZTNTWEhqRjZlb2VMTjZobkpMWXFDUF94aUczdXp5X2RKNkdBZVBpcFdqSWV3MHpUYWc1all1VnBFV2tobGZJb0x5empaWkVsODZpVWpnTlFxOFB1SndqYjFpYVZoOWF6TkFfdGw4UUlZN2haeDZqY2hkTlFLVk5uSlFudl8ySmw3R2h3WExTUGdaaUJGc3JGQm85T2JhRFNKWG5UY0RyTnQ3VVp1ZDlxQWRlM1BPWlAySjY5NXRFWHlMRkE4T20ybktBejVNWmFiR3FubDFpOVc1dTBCODJtNWhzUmhvZk4yMFlpWmduUXBESll5clN3ZzA4OFM1b0lfM0k4UUF1T3RyYzB5aGExbXg1SGJ5QkJ3NTVZanVPSHBsWkFodUdCWVNHQ1BRQXNxci1LX1lNZkE1YkszZFBrUzVmZG4xR1VTY19hSVhrUnBlM3pLOFdLY3hjRG82cGgwYlVlR0dyNlJBMDJRTGpGTUl4c3pGanZHOTVuNTM5dFBoZFY2MW11Z25tRlRrdTUwM29PWF9ySldRNHZpQlNXNUgyeHlmeFJwOTBfQ1MtOHpRaVNLeE12NWx4dms5Q0RNaXNPc2pUZUpueGRhSmxsUlQxNXBFa2g2dGttakV6RzJPNDEwNTY3QmM1RGJmLVFSdXREck1XUnluNUJlRDUzS1E3dFVZWVAtUWhLSGpCb0UyZEE4c1plRV81ZHI0QmJzcmtHR1E1M0pmbTRyWjNsRFhCQ1hVTU5hUEZqYlozOGpMYU00c0h4djNGUFFQd3NjeVZRdmJNWmpaUjh5UWw3SWt4MUpNVDVOZzFEX0dGRDl4c2t6bDE2SDJlaFI0TVZmUTVZNmxucHN3RjJIYWt0aXNWZlJWcjVqVjZZRjhUYkVmS2Z1OGpKa3B6VW1sVU5TZEFnQmdISFZPT0dKMFJ5aHpsR3dFWVhiNw?oc=5",
-   "published": "2026-11-13T07:21:32.000Z",
-   "source": "Facebook",
-   "summary": "✨ \"เตรียมพบกับปรากฏการณ์แสงสีสุดตระการตาแห่งปี! ที่จะเนรมิตโค้งน้ำเจ้าพระยาให้สว่างไสวเจิดจรัสกว่าครั้งไหนๆ ในงาน Vijit Chao Phraya 2026\" ✨ ขอเชิญทุกท่านร่วมออกเดินทางสู่โลกแห่งความมหัศจรรย์ยามค่ำคืน ภายใต้แนวคิด \"แสงแห่งจินตนาการ (THE LIGHT OF IMAGINATION)\" &nbsp;&nbsp; Facebook",
-   "feed": "Google News: ระดับน้ำเจ้าพระยา",
-   "categories": [
-    "river"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "น้ำทะลักท่วม เครื่องบิน Frontier ประกาศเหตุฉุกเฉิน ลงจอด หลังอ่างล้างหน้าแตก",
-   "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE9ydUpuLVdWM19tcjBFRE1qOUlkNXRydFpYTi04aFVrUWMzV2NTdXotWllVcEdBeFBHZm1fcVp5MThwd0twVGM2RkZpSWN0YTBTSGdOaENOY1pYdFRmMDVUTlpsMUZOaTRNTkVRSDZB?oc=5",
-   "published": "2026-11-13T07:20:00.000Z",
-   "source": "ข่าวสด",
-   "summary": "น้ำทะลักท่วม เครื่องบิน Frontier ประกาศเหตุฉุกเฉิน ลงจอด หลังอ่างล้างหน้าแตก &nbsp;&nbsp; ข่าวสด",
-   "feed": "Google News: จอดรถฟรี น้ำท่วม",
-   "categories": [],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "ปภ.โอนเงินเยียวยาน้ำท่วมเพิ่ม 23,170 ครัวเรือน 11 จังหวัด-กทม. รวมกว่า 145.73 ล้านบาท",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFBLMFlCZWI5SzVtbFJxRUNMSzNLU0tDRWJsRDFYUG11bEFFMk9CZ18waEFVN25vTFo4d2ZjVENoRDR6UDZvNDduUkl1RnVjWDAyTmNVMUdpZlk?oc=5",
-   "published": "2026-11-13T07:15:43.000Z",
-   "source": "Thai PBS",
-   "summary": "ปภ.โอนเงินเยียวยาน้ำท่วมเพิ่ม 23,170 ครัวเรือน 11 จังหวัด-กทม. รวมกว่า 145.73 ล้านบาท &nbsp;&nbsp; Thai PBS",
-   "feed": "Google News: ระดับน้ำเจ้าพระยา",
-   "categories": [
-    "flood",
-    "help"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
   }
  ]
 }
