@@ -1,30 +1,30 @@
 {
- "generatedAt": "2026-11-26T02:46:19.125Z",
+ "generatedAt": "2026-11-26T12:12:35.097Z",
  "feeds": [
   {
    "feed": "Google News: น้ำท่วมกรุงเทพ",
    "ok": true,
-   "count": 36
+   "count": 41
   },
   {
    "feed": "Google News: น้ำท่วมขัง กทม.",
    "ok": true,
-   "count": 12
+   "count": 16
   },
   {
    "feed": "Google News: จอดรถหนีน้ำ",
    "ok": true,
-   "count": 5
+   "count": 9
   },
   {
    "feed": "Google News: ที่จอดรถฟรี น้ำท่วม",
    "ok": true,
-   "count": 24
+   "count": 15
   },
   {
    "feed": "Google News: จอดรถฟรี น้ำท่วม",
-   "ok": false,
-   "error": "HTTP 429"
+   "ok": true,
+   "count": 12
   },
   {
    "feed": "Google News: ฝากรถหนีน้ำ",
@@ -34,22 +34,22 @@
   {
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
    "ok": true,
-   "count": 41
+   "count": 27
   },
   {
    "feed": "Google News: เตือนฝนตกหนัก",
    "ok": true,
-   "count": 36
+   "count": 23
   },
   {
    "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
    "ok": true,
-   "count": 6
+   "count": 4
   },
   {
    "feed": "Google News (EN): Bangkok flood",
    "ok": true,
-   "count": 26
+   "count": 27
   },
   {
    "feed": "จส.100",
@@ -58,6 +58,166 @@
   }
  ],
  "items": [
+  {
+   "title": "Why Bangkok keeps flooding | Why Bangkok",
+   "link": "https://news.google.com/rss/articles/CBMiO0FVX3lxTE40MkxYa3QzcU1lQ3JlbHFLblRjdXFqbE9aVWtOaU5PeFVDSlM1YUsxOXNiREJ1OEQtc2Uw?oc=5",
+   "published": "2026-11-26T09:32:34.000Z",
+   "source": "Howl.Link",
+   "summary": "Why Bangkok keeps flooding | Why Bangkok &nbsp;&nbsp; Howl.Link",
+   "feed": "Google News (EN): Bangkok flood",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "เงินเยียวยาน้ำท่วม 2569 ปภ. โอนเพิ่มวันนี้ 10 จังหวัด เช็กสิทธิ์เลย",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5oN1AtZnd2RzUwaFVod3VHRDJxbTRVcGw3M2UzNFZsUy1ua08yRl9VZXM2ejVvWDZFWHJNQjFoaDNGUnRDU2lRNTA1dWlnLTJmcGYtNDZRLWdFVjl2SHN3aEhDNWVJdw?oc=5",
+   "published": "2026-11-26T08:11:00.000Z",
+   "source": "bangkokbiznews",
+   "summary": "เงินเยียวยาน้ำท่วม 2569 ปภ. โอนเพิ่มวันนี้ 10 จังหวัด เช็กสิทธิ์เลย &nbsp;&nbsp; bangkokbiznews",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [
+    "flood",
+    "help"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "สารพิษในแม่น้ำ คนไทยเกือบ 9 ใน 10 กังวล แต่ไม่เชื่อมือรัฐบาล",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNSjBYUlV4ckJxQXhGUUJaYUh6dllYWUVtdVRzRDRXeTE1VTd4MEJLRm83R3ZYdnJJY1ctcERPMkRBc1ViSVNabUg0UmhsMWM5c0pOX1FlOTU1anFqaXRYNmp3d3pvYTNDVkdoMjRxM00wb1d2Wlp4X2pTSEFHSkJDYlJ2SVl1Z011?oc=5",
+   "published": "2026-11-26T08:01:42.000Z",
+   "source": "spacebar.th",
+   "summary": "สารพิษในแม่น้ำ คนไทยเกือบ 9 ใน 10 กังวล แต่ไม่เชื่อมือรัฐบาล &nbsp;&nbsp; spacebar.th",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "categories": [],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "คลื่นยักษ์ซัด แคลิฟอร์เนีย ‘คิงไทด์’ สูง 9 เมตร | กรุงเทพธุรกิจ_InFocus . นาทีคลื่นยักษ์สูง 9 เมตร ซัดชายฝั่งรัฐแคลิฟอร์เนีย สหรัฐฯ กำลังแรงสูง 20–30 ฟุต พัดถล่มพร้อมปรากฏการณ์ “คิงไทด์” ช่วงน้ำทะเลหนุนสูงสุดในรอบปี . #คลื่นยักษ์แคลิฟอร์เนีย #KingTides #น้ำทะเลหนุนสูง #น้ำท่วมสหรั",
+   "link": "https://news.google.com/rss/articles/CBMiiAdBVV95cUxPOG9FSDNWNWFrSzBpQVVoRlF5VENXNjU2Y2h0alBQalMwamhaZGw4b3RIeXJrM2FkZEU2ZHB3MlRhQVhyZXlpeHpVSUVvbEZvSElSYzZ6YUdYQnBkeDQ4ZFZqRUJ0d293ZmV6V0pfVzVzODFNRXV1YzZHRzhHNHVhcTVkdXRvTjRBcFB1ZDVFV25CMURpSjZWbVFrYWozbm1kNVVXYnRDVmZxaFRHR0gyc3pKaFVPZnB5SEVGRmZiTVVNNlhwN3ZzaGFWRVVDTzh1YzFkc25laHRwYnVCaHQtQ0RwOFIwVkthbXFzR0VFclhNTE5Jd3NaRDYtY2I3NC1wbDdrMFBaNnpwYXpQX0VCRmgxMG9aYlZQY3ZZTXFEV1VscUxfXzM4b3RPREZRdTViTXdKSmxISzJwNGVHS1hHZDhnc2U0aktFQ0FwdURlWkRfajR5bzBDU3hwTFVPN2ppcUEwcV9qd1UtRmlkUXBuQV9fT2dkT25rd0JDRkRNenJhaG1kMjlscnVWZTJ4ODh0VElXUWhXbl8tdFFNU2M3X0lsWGlTcjVlN3NYeS1DQUZ6RzFVX3k0bDY5bVhGa2t5M2hQcTZDajRwQWJtbVFtSk5PRWpYdXFvLTFnTVVUcVpNSEY3bTBVbFlIV3puaU1lTWgzelpUOWstN2ZmRkRfc2tKZDFjeXVKYUMtLWZhdl9JNHZCbG1rUjRsUDI0bGtmR3hMaW56bm0za0lEZ1BWZTVucEl1bXJtZV9mTXllMFMyTmFaeGtROExpcUoyZWFFUTFOMW9lNi1IQldNRVVoNVhLNmRick1GODRPLWFTVlhRYS1mUi1jcXZDUGxVcGNuQTVuYVVzUTA4Uzd3X2M0MU9hVV9mU2h1Wlh0b2NDMG11QXY0N2hmWm9RLWdUTS1TaWFsY2d4aHl4c3IxQVV3S0MzYXQteTMtQlk2Y3FxQnI0Q0ZGTG5KaF9FNmNjZE1TLUZ1aGpGcjJidC1YbHg1eXhmLTU0R3N2TE45dFRiSGpwVXdzMnlzWXhqbXFfSnBiOHlzdUpZNnpCNHBndVp5b19uZk4zM0FqOTdGdGhCSGRlZkVMRGM1WVVjVG1HLWh3aS1iVE8wcloxb3lONmQyaU1MMERrcXlaYS1XbC00ZTFENXdYcmdTT2M3eGItRmRNa2JpWU1JdTktTVZybGtoWmRFS2lyR3Vv?oc=5",
+   "published": "2026-11-26T06:01:19.000Z",
+   "source": "Facebook",
+   "summary": "คลื่นยักษ์ซัด แคลิฟอร์เนีย ‘คิงไทด์’ สูง 9 เมตร | กรุงเทพธุรกิจ_InFocus . นาทีคลื่นยักษ์สูง 9 เมตร ซัดชายฝั่งรัฐแคลิฟอร์เนีย สหรัฐฯ กำลังแรงสูง 20–30 ฟุต พัดถล่มพร้อมปรากฏการณ์ “คิงไทด์” ช่วงน้ำทะเลหนุนสูงสุดในรอบปี . #คลื่นยักษ์แคลิฟอร์เนีย #KingTides #น้ำทะเลหนุนสูง #น้ำท่วมสหรั &nbsp;&nbsp; Faceb",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [
+    "flood",
+    "river"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "26 พฤศจิกายน 2569 ขอบบ่อท่อระบายน้ำของ กทม. ชำรุด รถ จยย. ของน้องนักเรียนและชาวบ้านที่ผ่านมา ล้มไปหลายคันแล้ว ฝากผู้มีส่วนเกี่ยวข้องช่วยซ่อมแซมให้ด้วย อันตรายมากเลย พิกัดเลยประตู รร. เทพศิรินทร์ร่มเกล้า ไปทาง ICD ประมาณ 100 เมตร ข้อมูล ภาพ - จิ๋ว วัดตะกล่ำ ศิษย์หลวง",
+   "link": "https://news.google.com/rss/articles/CBMinAdBVV95cUxNdGl1ZFd6TlREVjhTQkhPVkJHcmlLMjEydS0zVUZFZVByX1pmOEdPMnRjYmRycEtvNUtxX1IyREV1MEZ1MTFMbmFEd1YwbEJERTBwRV9uWm5zNk1xaFQ3SUFUR3l0RmxIeFZLQWFlMG5lS3R6SlR3eVNMcXBsaHByb21sQ0NJZ2NkeW1JNUV6U3lpNjBKM2IwV2ZBZXVoUWFzQTZuUFNEZUJPdFBNcm5MaThmNTVpa2tRdklqS2EtcWs4RFBITDZEbGcyX2dFWnpLOEw3U0lrWkpWb0ZCbzRsZVFneTFndWtPNzRWbTFQZ0JvRk1tNjB1SDBqbEo5djN6R1hMbDZmZU1yR3ZTc1VWYXQtNDR3Qjg2Zk5lUExTYVVEY01CYXJPS2NxVzc0R1VfVkxTNlY1Y01EcTI3WEhQbmNFZjRiMlZPVTBWVWJSYUZKNld6eDFEV196YjBJV3R3dXBKY1hUZGRPYnExV09hZEdtbzBka3BmUUZZcmJpVUNkUlVfektqc0VBWDdjNW1VU2k0czBMYk5NWTY0NTloMTdiWHlmMW4zbkVWV2pXOE14bkR3Xy1fcjVTZVN5ajJJU2hXMmx2R2JtVE9ZNHJsNWxxckFIYkFSU1FrZDAwekpWcEZPWElScDZnYWFhQmRzWjFYMXJfYzNTaDdzeDJoVnQtT2dSLU5hNy02YTV5bTNtcWNqemY4NWNMX0hpd0R2OXF6bFlRTGFMRWhGTzdES1p6d2xQY3FrZEF4dzB6SFVBdXN0dHdLaDdyZzFoUnRacEZ1Ml8yY3BqQUhYSFlXdWdkR1EwZERITG1JTFFlMFJPakJlOC1sUFZ3cUlKdGpkS2VDQ0NuVVpBdkFCc1FjOEZkalBsZER6QTI5MHV5SFlYVXkwVVMyWENLSzZQQTJYcHRBWHpJVUtwQkRBTG9LSE12Q0dqVXluMVFmUGpVLVVuVkJtTXYxUTVKVGU1dWlpNVdwMUh6ZVpoelVTdXpNamJnb2ZSUldFVm9xZEI1WVA0R0MxdkpOejJiQUJjeW1KQmJDVEc4aTBFOEZPMTJib0IwT2dPOW5LcnBXSmhma19HNm5fbEJrRExCQkJYOUhXdjFDeG95cVpqRkVJdlV0V25rLUp5Z0xSdmhxaWZSaW9LRWctd1E5Z21fdU9vSldmYzdoNlMyelNlbDdJN3ppbTF2b3RRd28yS3o5SHJfUlpqb3VUNXpEZ05rY3U?oc=5",
+   "published": "2026-11-26T04:43:42.000Z",
+   "source": "Facebook",
+   "summary": "26 พฤศจิกายน 2569 ขอบบ่อท่อระบายน้ำของ กทม. ชำรุด รถ จยย. ของน้องนักเรียนและชาวบ้านที่ผ่านมา ล้มไปหลายคันแล้ว ฝากผู้มีส่วนเกี่ยวข้องช่วยซ่อมแซมให้ด้วย อันตรายมากเลย พิกัดเลยประตู รร. เทพศิรินทร์ร่มเกล้า ไปทาง ICD ประมาณ 100 เมตร ข้อมูล ภาพ - จิ๋ว วัดตะกล่ำ ศิษย์หลวง &nbsp;&nbsp; Facebook",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [],
+   "depthCm": null,
+   "places": [
+    {
+     "name": "ถ.ร่มเกล้า",
+     "lat": 13.78,
+     "lon": 100.73,
+     "kind": "landmark",
+     "outside": false
+    }
+   ],
+   "bangkok": true
+  },
+  {
+   "title": "รฟท.เฝ้าระวังสถานการณ์ฝนภาคใต้ตอนล่าง วางมาตรการป้องกัน-ดูแลความปลอดภัยการเดินรถ | สวพ.FM91",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE9uNWpCbTY5S0NNWG5STkMtdnN4QkFGWFZjNVY1dkM0MnVDa1lwSERRRG02OFloTVhyYk5LTDJuQlhRYXNYQzhSUlA2eXhZaWVsMFFXN3dB?oc=5",
+   "published": "2026-11-26T04:13:23.000Z",
+   "source": "LINE TODAY",
+   "summary": "รฟท.เฝ้าระวังสถานการณ์ฝนภาคใต้ตอนล่าง วางมาตรการป้องกัน-ดูแลความปลอดภัยการเดินรถ | สวพ.FM91 &nbsp;&nbsp; LINE TODAY",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "categories": [],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "Samut Prakan roads flood as 27–28 Nov tides may reach 4.0m above chart datum",
+   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE82MU4zY0hDZ3BxNjBLNWhsOUFtdzZnZ0tnTjJYRWJKN01ZUFNyMmtwV1JoYzJLWVBFcUpVcDVuNnhjSENtcTcxZlFGdXRPMkx2eGsyYThSdHVicDRiZ28yeDJn?oc=5",
+   "published": "2026-11-26T03:45:00.000Z",
+   "source": "Nation Thailand",
+   "summary": "Samut Prakan roads flood as 27–28 Nov tides may reach 4.0m above chart datum &nbsp;&nbsp; Nation Thailand",
+   "feed": "Google News (EN): Bangkok flood",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
+   "title": "ภาคกลาง-ภาคตะวันออก เช็กเลย โอนเงินเยียวยาน้ำท่วมวันนี้",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE9vME1YNzlVWk5tcVpDcW5yeFNtaWNlNEZvVkZlOU83ZzZNcWtnaXNKeHYzV1I1Zmp5SHhrUUNUbXhVcDFVODN4emo3enBrMzVMR3h2Ml82dy0tZ0t3QklOOW5Kc1NVZw?oc=5",
+   "published": "2026-11-26T03:43:40.000Z",
+   "source": "bangkokbiznews",
+   "summary": "ภาคกลาง-ภาคตะวันออก เช็กเลย โอนเงินเยียวยาน้ำท่วมวันนี้ &nbsp;&nbsp; bangkokbiznews",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [
+    "flood",
+    "help"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "ค้าปลีก เดือน ต.ค. ฟื้นเกินคาดแตะ 53.3 จุด รับแรงหนุน! 'ซ่อมบ้านหลังน้ำท่วม-Golden Week'",
+   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFA2eV9GY0otWTY2dndjY2xpNkNXdDdtRnZtQXFNVnlDbk91TFZKZ0lsaHVWNXptTUxTdGxEV212ZE1FcWZQZUplZmJXT0F3Z0ZRbU96bkoyc2poc05RMFRUYnd1Zw?oc=5",
+   "published": "2026-11-26T03:27:26.000Z",
+   "source": "bangkokbiznews",
+   "summary": "ค้าปลีก เดือน ต.ค. ฟื้นเกินคาดแตะ 53.3 จุด รับแรงหนุน! 'ซ่อมบ้านหลังน้ำท่วม-Golden Week' &nbsp;&nbsp; bangkokbiznews",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": true
+  },
+  {
+   "title": "น้ำหนุนสูง สมุทรปราการอ่วม เสี่ยงพีคสุด 4.0 เมตร สุขุมวิท- ปากน้ำรถติดหนึบ",
+   "link": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5GcWJZRTY2TERtMFp4YzRnZEtlbjRfQ3dtZ1Nva01fczFiMUxPLUdGcy02UzhpMzZyc3lpM1ZNaXNmZzdtcXNzcW9laUtkQ0ZHbnNIV0JiOWZ5VE5McE5LUVBfMHFxdw?oc=5",
+   "published": "2026-11-26T03:08:00.000Z",
+   "source": "bangkokbiznews",
+   "summary": "น้ำหนุนสูง สมุทรปราการอ่วม เสี่ยงพีคสุด 4.0 เมตร สุขุมวิท- ปากน้ำรถติดหนึบ &nbsp;&nbsp; bangkokbiznews",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "categories": [
+    "traffic"
+   ],
+   "depthCm": null,
+   "places": [
+    {
+     "name": "ถ.สุขุมวิท",
+     "lat": 13.73,
+     "lon": 100.58,
+     "kind": "landmark",
+     "outside": false
+    },
+    {
+     "name": "สมุทรปราการ",
+     "lat": 13.6,
+     "lon": 100.6,
+     "kind": "landmark",
+     "outside": true
+    }
+   ],
+   "bangkok": true
+  },
   {
    "title": "น้ำลด ! ต้องบุกจับพ่อค้ายาเสพติด จ.พระนครศรีอยุธยา",
    "link": "https://news.google.com/rss/articles/CBMiS0FVX3lxTE5YUEtSbTFUWmVVQmFfMTFrZmVVeVFtNy14VVdLZlRET0RVeEI4eHI2a3ZfMFJPZU5VMFVsMDNwa1pTbDUxYi1pYVhDUQ?oc=5",
@@ -133,6 +293,20 @@
    "bangkok": false
   },
   {
+   "title": "พิษน้ำท่วมทุบยอดผลิตรถยนต์ วูบ 35% เร่งปลายปีรักษาเป้า 1.45 ล้านคัน | The Better",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1fcThxQWJRVkw1dFpmdjBUSkh6LVJyTEpyRU84bEF3U3ROdE95MS1seHU3WGZkWXBqRW1EbmJ6eWRkWWs0VGxzcjg2OGJ6bzhzWEVOdERR?oc=5",
+   "published": "2026-11-25T21:52:44.000Z",
+   "source": "LINE TODAY",
+   "summary": "พิษน้ำท่วมทุบยอดผลิตรถยนต์ วูบ 35% เร่งปลายปีรักษาเป้า 1.45 ล้านคัน | The Better &nbsp;&nbsp; LINE TODAY",
+   "feed": "Google News: จอดรถฟรี น้ำท่วม",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
    "title": "เช็กพื้นที่ 'น้ำไม่ไหล' กทม.-นนทบุรี-สมุทรปราการ 26-27 พ.ย.นี้",
    "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9pR1BpM1l1QnJFT25yVjVCNm5ZeXFpUGtSX203U19oZFpOVndfSlBtTTdvY3N0YU9DbHloUU9CTEtxYjdHT3pqQjdRRms4MlAzMGVESWRWTlNfdGxw?oc=5",
    "published": "2026-11-25T21:00:00.000Z",
@@ -158,20 +332,6 @@
     }
    ],
    "bangkok": true
-  },
-  {
-   "title": "พิษน้ำท่วมทุบยอดผลิตรถยนต์ วูบ 35% เร่งปลายปีรักษาเป้า 1.45 ล้านคัน | The Better",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1fcThxQWJRVkw1dFpmdjBUSkh6LVJyTEpyRU84bEF3U3ROdE95MS1seHU3WGZkWXBqRW1EbmJ6eWRkWWs0VGxzcjg2OGJ6bzhzWEVOdERR?oc=5",
-   "published": "2026-11-25T15:52:44.000Z",
-   "source": "LINE TODAY",
-   "summary": "พิษน้ำท่วมทุบยอดผลิตรถยนต์ วูบ 35% เร่งปลายปีรักษาเป้า 1.45 ล้านคัน | The Better &nbsp;&nbsp; LINE TODAY",
-   "feed": "Google News: จอดรถฟรี น้ำท่วม",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
   },
   {
    "title": "Three Dead, 23 Sought After Indonesia Gold Mine Flood",
@@ -488,6 +648,20 @@
    "bangkok": false
   },
   {
+   "title": "แอ๊ด คาราบาว เตรียมแต่งเพลงรำลึกถึงเพื่อนแท้ที่ด่วนจากไป 'พี่แดง' รองประธาน Immortals ดับสลดน้ำท่วมปากช่อง คว้า Harley คู่ใจตั้งไว้อาลัย เพื่อนพ้องแห่ส่งแน่นวัด",
+   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1qYkJnYktINzUyeElzTlY0Z0QyU3RTeVpxZ2VNVmVURU1sTUdNb2N5TTR1U3RZQjNFWUNic1pDeWVReDJCUDNYYWhUQk9ETHJnZVI2THJR?oc=5",
+   "published": "2026-11-25T07:22:51.000Z",
+   "source": "COP'S Magazine",
+   "summary": "แอ๊ด คาราบาว เตรียมแต่งเพลงรำลึกถึงเพื่อนแท้ที่ด่วนจากไป 'พี่แดง' รองประธาน Immortals ดับสลดน้ำท่วมปากช่อง คว้า Harley คู่ใจตั้งไว้อาลัย เพื่อนพ้องแห่ส่งแน่นวัด &nbsp;&nbsp; COP'S Magazine",
+   "feed": "Google News: จอดรถฟรี น้ำท่วม",
+   "categories": [
+    "flood"
+   ],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
+  },
+  {
    "title": "Heavy rain raises flash flood risk in Thailand's South on 27–30 Nov as Bangkok and its suburbs cool by 1–3°C",
    "link": "https://news.google.com/rss/articles/CBMiggJBVV95cUxPMjZIQXdwQjBnM3gwQldaZXR3QWY5VEJHdTNlalBlY18xbjZwYWJ0cUhWbURTMDgwZzQ1bWlYN1VEaV9PMW1wVnZqN29KQnZsZVI4a2Z3bDlrbG5EV2pBM0Z0UjJZZTdGSTJfX01POWVxUGg3aUpCQl8wUzVIUHA1ZGFEcmIzQi1tMmxLVHJYTy1XNkhhWWdsbTg4V1FpUjRhZ1FHbVZvM2lsMklLcXE5TWxhV01yYTdUXzRfUWdGRkRHTThkWmdBVzNGdUhjTEpLa3JDQzV4OUdDYVRNejdxWGk2bmhFQTVlSG1xa09jc3ctQW10TkZMTFhlQ2xZbnNYY0E?oc=5",
    "published": "2026-11-25T06:47:00.000Z",
@@ -537,11 +711,11 @@
    "bangkok": false
   },
   {
-   "title": "ไอคอนสยาม สร้างปรากฏการณ์ค่ำคืนแห่งสายน้ำ จัดงานลอยกระทงสุดยิ่งใหญ่ “ICONSIAM THAICONIC LOY KRATHONG 2026” สืบสานมรดกไทยในมิติใหม่ พร้อมขบวนแห่นางนพมาศสุดอลังการและความบันเทิงจัดเต็มริมเจ้าพระยา นับเป็นอีกหนึ่งค่ำคืนแห่งความประทับใจที่เต็มไปด้วยงดงามตระการตา สำหรับมหาปรากฏการณ์เทศกาลลอยกระทง “ICONSIAM THAICONIC LOY KRATHONG 2026” โดยกระทรวงวัฒนธรรมร่วมกับไอคอนสยาม แลนด์มาร์กระดับโลกริมแม่น้ำเจ้าพระยา พร้อมพันธมิตรภาครัฐและเอกชน จัดขึ้นอย่างยิ่งใหญ่ ณ ริเวอร์ พาร์ค ชั้น G ไอคอนสยาม เพื่อร่วมสืบสานมรดกทางวัฒนธรรมไทยผ่านประสบการณ์ลอยกระทงวิถีใหม่ ผสานมนตร์เสน่ห์แห่งประเพณีเข้ากับนวัตกรรมดิจิทัลและแนวคิดรักษ์โลก เนรมิตขบวนแห่นางนพมาศสุดวิจิตรโดย “ลีน่า-หมิว” เซอร์ไพรส์พิเศษจาก “XngHan (ซึงฮัน)” มินิคอนเสิร์ตจาก CIR*CRL และ “ก้อง ห้วยไร่” พร้อมเผยเสน่ห์ศิลปวัฒนธรรมและภูมิปัญญาไทย 4 ภาคในงาน “SOOKSIAM ชื่นแสง ชมศิลป์” ชูไฮไลต์กระทงยักษ์ 4 ถิ่นไทย 4 บัววิจิตร และกิจกรรมลอยกระทงรักษ์โลก ตอกย้ำการเป็นจุดหมายแห่งการเฉลิมฉลองประเพณีไทยที่ยิ่งใหญ่และเป็นเอกลักษณ์ริมแม่น้ำเจ้าพระยา ไอคอนสยาม ตอกย",
+   "title": "ไอคอนสยาม สร้างปรากฏการณ์ค่ำคืนแห่งสายน้ำ จัดงานลอยกระทงสุดยิ่งใหญ่ “ICONSIAM THAICONIC LOY KRATHONG 2026” สืบสานมรดกไทยในมิติใหม่ พร้อมขบวนแห่นางนพมาศสุดอลังการและความบันเทิงจัดเต็มริมเจ้าพระยา นับเป็นอีกหนึ่งค่ำคืนแห่งความประทับใจที่เต็มไปด้วยงดง",
    "link": "https://news.google.com/rss/articles/CBMipwdBVV95cUxNbk1Kam9nQkhkZkRBNkIybTJjaFFkZ1hqa1ByTTJ6dDM5dHhERkRjVUpSS2J2YVFROFZOZEgzR3hYS2dZVWtIa2JNLUJuNDAzOGZiUHdoNDdZNjhxMk1OU1Eta3M1T1RJVk1MLVJfakpEVzhURC1Zb2JYRDZCdUFUZmtCNjZSN3pNblpjSnhvTjlBNlRyM1ZnUjdZUGtIUmYyS3c3bmNWMlVKaXM5dDN4d3FZY2JkOXl3VS1zaThrVGVtRFNzR1Q2QzVKU3JtVUJTNnozR2pRUjQ2aEY1dGZQbVZmWU43SFZBNzlDLWVHSXlqUV94RnJSdmhCVFZwRmpjcGtQa1hxdTJ1OHNxUk5vRkJJMUZYR3V3d19IWUwweFYtUFlsN3I0SVNxaGduZTBpOU1KWTZJNmptRmRYNlItS0pkQUx4WlFmQTRsd0hhLVAxZVhCbnIzdGxYTEVISnRvWTRfdkhkR29lWDQwYzkwcDJFbF9Hb1d6Y0RqM0hVQmhoMzItd1RHNFg2d0c1QkJPdHdfM1ZsNFBTLVgtTjE2b2dLNklVSTFfVnlVejgxY3RFU3VSa0JoSHRscjNUUGdCUjdpZ3ZWY2NDN2xaVWJNZUlzOHFORFlTTnJNRUlJZDlDSk9hdDAyODRmWUZDZ1NwRTRkSExseXdaaXo1TFFnbXVkeEFZYlR6bEFSXzYxdThKcGUzQWp2V3RGZWRnMWdxUmJGZFZpbWFpLU1vUTlnY1VwcG9zYnlnbkIyYUFfVjFMaG5DelhrVWFLeTBHOU9JcWY5clVuaHFHWnpSOWRWcXd1Z2FlRFBMX2JYV2lzcXdiNldEMHZULUFnV2xpOHNjUjJxbEdyNERzRzk0MVZGdTJ2UmVkWS1Ock9ObmxyNTlxb3NxX1BxVGRJUFM0dWh0aDJTaF9wUmV1RDFPZ3UxWjExR21FLUlJSnY3TDlTbjkxdHB6WFlZMXdyRTM4clN2VFdmd2prSlc5TXFsdXJrUlh3YnJpS1VyZlhJU1FQU1pMalM2N2F3aFd5NXQ4cFF6WHNZLUNzS1lnbEpJYXJoVW9xMXBuZUpIeHF1Y2JiMFFrTm9lTlZ5ei10VXFqNE5KZXZIWnRWOUZlOWt1VERnWHE4WnBLV1BabVpTZTI0d3duOXdCY2VINHdGVzF5Z0tGcHNHLVNpaXdNd09CdTNMQlAtcF83OGQzcnFxX3hDQndWVGlNRDRRS3hGcVdTRE0tZnN3OEtxSQ?oc=5",
    "published": "2026-11-25T05:42:56.000Z",
    "source": "Facebook",
-   "summary": "ไอคอนสยาม สร้างปรากฏการณ์ค่ำคืนแห่งสายน้ำ จัดงานลอยกระทงสุดยิ่งใหญ่ “ICONSIAM THAICONIC LOY KRATHONG 2026” สืบสานมรดกไทยในมิติใหม่ พร้อมขบวนแห่นางนพมาศสุดอลังการและความบันเทิงจัดเต็มริมเจ้าพระยา นับเป็นอีกหนึ่งค่ำคืนแห่งความประทับใจที่เต็มไปด้วยงดงามตระการตา สำหรับมหาปรากฏการณ์เทศกาลลอยกระทง “ICONSI",
+   "summary": "ไอคอนสยาม สร้างปรากฏการณ์ค่ำคืนแห่งสายน้ำ จัดงานลอยกระทงสุดยิ่งใหญ่ “ICONSIAM THAICONIC LOY KRATHONG 2026” สืบสานมรดกไทยในมิติใหม่ พร้อมขบวนแห่นางนพมาศสุดอลังการและความบันเทิงจัดเต็มริมเจ้าพระยา นับเป็นอีกหนึ่งค่ำคืนแห่งความประทับใจที่เต็มไปด้วยงดง &nbsp;&nbsp; Facebook",
    "feed": "Google News: ระดับน้ำเจ้าพระยา",
    "categories": [
     "river"
@@ -735,7 +909,7 @@
    "published": "2026-11-24T23:42:58.000Z",
    "source": "Thai PBS",
    "summary": "เตือน 7 จังหวัดภาคใต้ ฝนหนัก-น้ำท่วมฉับพลัน &nbsp;&nbsp; Thai PBS",
-   "feed": "Google News: ระดับน้ำเจ้าพระยา",
+   "feed": "Google News: เตือนฝนตกหนัก",
    "categories": [
     "flood",
     "weather"
@@ -928,6 +1102,18 @@
    "depthCm": null,
    "places": [],
    "bangkok": true
+  },
+  {
+   "title": "MEA ย้ำมาตรการความปลอดภัยรับฤดูฝน แนะตรวจเช็กไฟฟ้าในบ้าน พร้อมดูแลบริการประชาชนตลอด 24 ชั่วโมง",
+   "link": "https://news.google.com/rss/articles/CBMiYkFVX3lxTE1JeGZmdFZGVDdGRm1ZYjk5SU9lWDFkaVYxM2xWemRCSUI2MlRDYXdqUHNFc3k2d0xDdUdZbDhiR0hYaFFqS1Z6T2JOWThzWW5RMWRxNkltOWM3WVZ4dlVkOG1B?oc=5",
+   "published": "2026-11-24T12:59:00.000Z",
+   "source": "www.js100.com",
+   "summary": "MEA ย้ำมาตรการความปลอดภัยรับฤดูฝน แนะตรวจเช็กไฟฟ้าในบ้าน พร้อมดูแลบริการประชาชนตลอด 24 ชั่วโมง &nbsp;&nbsp; www.js100.com",
+   "feed": "Google News: น้ำท่วมขัง กทม.",
+   "categories": [],
+   "depthCm": null,
+   "places": [],
+   "bangkok": false
   },
   {
    "title": "พล.ต.อ.สำราญ ลุยน้ำท่วมเคหะร่มเกล้า ลาดกระบัง แจกข้าว 4,000 กล่อง พร้อมตั้งโรงพัก สน.ร่มเกล้า เป็นศูนย์พักพิง",
@@ -1564,7 +1750,7 @@
    "published": "2026-11-24T01:39:00.000Z",
    "source": "เนชั่นทีวี สถานีข่าว 24 ชั่วโมง",
    "summary": "กรมอุตุฯ ออกประกาศฉบับที่ 1 เตือนภาคใต้ฝนตกหนักถึงหนักมาก 27–30 พ.ย. นี้ &nbsp;&nbsp; เนชั่นทีวี สถานีข่าว 24 ชั่วโมง",
-   "feed": "Google News: เตือนฝนตกหนัก",
+   "feed": "Google News: น้ำท่วมกรุงเทพ",
    "categories": [
     "weather"
    ],
@@ -2327,20 +2513,6 @@
    "bangkok": false
   },
   {
-   "title": "ค้าปลีก เดือน ต.ค. ฟื้นเกินคาดแตะ 53.3 จุด รับแรงหนุน! 'ซ่อมบ้านหลังน้ำท่วม-Golden Week'",
-   "link": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFA2eV9GY0otWTY2dndjY2xpNkNXdDdtRnZtQXFNVnlDbk91TFZKZ0lsaHVWNXptTUxTdGxEV212ZE1FcWZQZUplZmJXT0F3Z0ZRbU96bkoyc2poc05RMFRUYnd1Zw?oc=5",
-   "published": "2026-11-22T15:43:35.000Z",
-   "source": "bangkokbiznews",
-   "summary": "ค้าปลีก เดือน ต.ค. ฟื้นเกินคาดแตะ 53.3 จุด รับแรงหนุน! 'ซ่อมบ้านหลังน้ำท่วม-Golden Week' &nbsp;&nbsp; bangkokbiznews",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
    "title": "อธิบดีกรมชลประทานสั่งเร่งสูบน้ำทุ่งโพธิ์พระยากู้วิกฤติน้ำท่วมขังคืนที่ทำนาจนเกษตรกร",
    "link": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1sMFd3XzJHamVVOHZWdWUwczVYdUFrSU1jemk3ZFJ3NGVibktzREtVaVdCSlEzX21PWWNoei1fX0F1OUZnbjhZTEVjdFlYUC1WQVlrUzFpS3N3aHdWTTRSeFhKMEE3VzNfb3M4X0pn?oc=5",
    "published": "2026-11-22T14:59:00.000Z",
@@ -2764,161 +2936,6 @@
    "depthCm": null,
    "places": [],
    "bangkok": true
-  },
-  {
-   "title": "กรมอุตุฯเตือนฉบับ 15 ภาคใต้ 6 จว.วันนี้ 22 พ.ย.ฝนตกหนัก ทะเลคลื่นสูง 2-3 เมตร",
-   "link": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9pUVl4eHZlYnB1N2RjNWw4bXVCUUVjd3NhekM3S0hLQ3oyVDJVeGJJLXgzbFE1Qzc0ay1OdXhxT0p6MDZGUmhmZklrWGN2cVQySzFlWGttZ1ljSU1E?oc=5",
-   "published": "2026-11-22T03:05:00.000Z",
-   "source": "Thansettakij",
-   "summary": "กรมอุตุฯเตือนฉบับ 15 ภาคใต้ 6 จว.วันนี้ 22 พ.ย.ฝนตกหนัก ทะเลคลื่นสูง 2-3 เมตร &nbsp;&nbsp; Thansettakij",
-   "feed": "Google News: เตือนฝนตกหนัก",
-   "categories": [
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "ฝนถล่มหมู่เกาะกาลาปากอส น้ำท่วมบ้าน-ถนน อพยพ 177 คน เตือนฝนตกหนักต่อเนื่อง",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE8wMmg2QmJ6WmVNb2hWUUNpazJZWG9fTXd0Z2pzcXpfLU0xTm1wTzRCeUFSQlplV0lJRG1VTEwycnFtZHowUmN5bFNFYjFyaE15bWZ1TVRkUkJGU1k?oc=5",
-   "published": "2026-11-22T02:37:35.000Z",
-   "source": "thairath.co.th",
-   "summary": "ฝนถล่มหมู่เกาะกาลาปากอส น้ำท่วมบ้าน-ถนน อพยพ 177 คน เตือนฝนตกหนักต่อเนื่อง &nbsp;&nbsp; thairath.co.th",
-   "feed": "Google News: ศูนย์พักพิง/ช่วยเหลือ",
-   "categories": [
-    "flood",
-    "weather",
-    "help"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "รองผู้ว่าฯ วิศณุ ลุยตรวจ 3 โครงการใหญ่ ทลายคอขวดระบายน้ำ-เร่งเชื่อมโครงข่ายสะพานเกียกกาย",
-   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5tYzZfU3NYVllFcjg3aVZIbDA2ZkNNZkxnd21UQVZlZUZ2NDRINWJ5UksxY0tPY3UxeFBEZ2gtTGJxSXZxWjl4RUc0c2x4QXV1aDFvSEZMTmk3U1NFa2gzVWw1SVNQY3k5NC1jdw?oc=5",
-   "published": "2026-11-22T02:01:29.000Z",
-   "source": "thestandard.co",
-   "summary": "รองผู้ว่าฯ วิศณุ ลุยตรวจ 3 โครงการใหญ่ ทลายคอขวดระบายน้ำ-เร่งเชื่อมโครงข่ายสะพานเกียกกาย &nbsp;&nbsp; thestandard.co",
-   "feed": "Google News: น้ำท่วมขัง กทม.",
-   "categories": [],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "“กรมอุตุฯ” ประกาศฉบับที่ 15 ไทยยังมีฝนฟ้าคะนองบางพื้นที่ เตือน 13 จังหวัด ฝนตกหนัก เสี่ยงน้ำท่วม-น้ำป่า",
-   "link": "https://news.google.com/rss/articles/CBMiT0FVX3lxTE5FYnQzVXB0UzcxdXVPeHJSS0E2cDROaUNvQjdUY2Z2eURHYXJHRU9kc3FNZjFSbXBJbThERFRhXzZwQl9kempObXl3VkNXdHM?oc=5",
-   "published": "2026-11-22T01:52:20.000Z",
-   "source": "www.topnews.co.th",
-   "summary": "“กรมอุตุฯ” ประกาศฉบับที่ 15 ไทยยังมีฝนฟ้าคะนองบางพื้นที่ เตือน 13 จังหวัด ฝนตกหนัก เสี่ยงน้ำท่วม-น้ำป่า &nbsp;&nbsp; www.topnews.co.th",
-   "feed": "Google News: เตือนฝนตกหนัก",
-   "categories": [
-    "flood",
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "อุตุฯ เตือนฉบับ 15 ภาคใต้ฝนลดลง ไทยตอนบนอากาศเย็นตอนเช้า กทม.อุณหภูมิสูงสุด 35 องศา",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE9IaVVNejRvVm5SMXFyWmwtWFB5b29oaHJWNGJoUGZkTmRzVUNZRnJTbnp1bEc5R0o2SU9ZeDhmRHVxd2hydEZCMUlFSUhSQjBZVTBkRU5HN0E?oc=5",
-   "published": "2026-11-22T01:06:57.000Z",
-   "source": "thairath.co.th",
-   "summary": "อุตุฯ เตือนฉบับ 15 ภาคใต้ฝนลดลง ไทยตอนบนอากาศเย็นตอนเช้า กทม.อุณหภูมิสูงสุด 35 องศา &nbsp;&nbsp; thairath.co.th",
-   "feed": "Google News: เตือนฝนตกหนัก",
-   "categories": [
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "สภาพอากาศวันนี้ ภาคใต้ฝนลดลง ฝนตกหนักบางแห่ง",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTFA2ejJMS0RfR1RiUjZOSy10OXc4cUJTWnNPcEZ5VjBZU0VyM0s2X05mTERCUkVfdFhXZDI0aC1EQmhNTS1zT2VQUnRvWkVvdzlDeWpmV3dEVFY?oc=5",
-   "published": "2026-11-22T00:21:38.000Z",
-   "source": "Thai PBS",
-   "summary": "สภาพอากาศวันนี้ ภาคใต้ฝนลดลง ฝนตกหนักบางแห่ง &nbsp;&nbsp; Thai PBS",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "Man walks on stilts to navigate Thailand’s floodwaters",
-   "link": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE9YczlfNmRhdWZpdlBPV0YyWHBWQkw2RHFnUU92NVBIYm9TTG1MQzNoX0psbW1FMUZrRmUxZS1FLUVTNUY2ME5sZ1ZOdUJPemFCQkdGWkMyMk5kbTdfc1E?oc=5",
-   "published": "2026-11-21T14:20:22.000Z",
-   "source": "The Straits Times",
-   "summary": "Man walks on stilts to navigate Thailand’s floodwaters &nbsp;&nbsp; The Straits Times",
-   "feed": "Google News (EN): Bangkok flood",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "กรมอุตุฯ เตือนฉบับ 14 ภาคใต้ 6 จังหวัดรับมือฝนถล่มหนัก 22 พ.ย.",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE1fY3ZnSWtUUHpMV29XVHV3YzZXS2NaRmgzSC1ZWktRTE9pQ0tQcnU4NTNKdTBZM1hvNHllR2YzWVIyQjUtMXhjcUwySXZtV0x3S2dfUllZM2Q?oc=5",
-   "published": "2026-11-21T10:32:39.000Z",
-   "source": "Thai PBS",
-   "summary": "กรมอุตุฯ เตือนฉบับ 14 ภาคใต้ 6 จังหวัดรับมือฝนถล่มหนัก 22 พ.ย. &nbsp;&nbsp; Thai PBS",
-   "feed": "Google News: เตือนฝนตกหนัก",
-   "categories": [
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "แอ๊ด คาราบาว เตรียมแต่งเพลงรำลึกถึงเพื่อนแท้ที่ด่วนจากไป 'พี่แดง' รองประธาน Immortals ดับสลดน้ำท่วมปากช่อง คว้า Harley คู่ใจตั้งไว้อาลัย เพื่อนพ้องแห่ส่งแน่นวัด",
-   "link": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE1qYkJnYktINzUyeElzTlY0Z0QyU3RTeVpxZ2VNVmVURU1sTUdNb2N5TTR1U3RZQjNFWUNic1pDeWVReDJCUDNYYWhUQk9ETHJnZVI2THJR?oc=5",
-   "published": "2026-11-21T10:30:12.000Z",
-   "source": "COP'S Magazine",
-   "summary": "แอ๊ด คาราบาว เตรียมแต่งเพลงรำลึกถึงเพื่อนแท้ที่ด่วนจากไป 'พี่แดง' รองประธาน Immortals ดับสลดน้ำท่วมปากช่อง คว้า Harley คู่ใจตั้งไว้อาลัย เพื่อนพ้องแห่ส่งแน่นวัด &nbsp;&nbsp; COP'S Magazine",
-   "feed": "Google News: จอดรถฟรี น้ำท่วม",
-   "categories": [
-    "flood"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
-  },
-  {
-   "title": "เหนือหนาวสุด 8 องศาฯ ภาคใต้ฝนตกหนักมากใน 6 จังหวัด กทม.ฟ้าโปร่ง",
-   "link": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE1uUlVVelIyeEd3RGpwVXEyNDdmcUVJejQxTjlua0VzZnU5ajNhMU9IUXZ5U1UwZC1CNThia1pGS293UTh0dWJoQ3Q0TVBPamluYjkwLWFnOVdSN2s?oc=5",
-   "published": "2026-11-21T10:08:00.000Z",
-   "source": "komchadluek",
-   "summary": "เหนือหนาวสุด 8 องศาฯ ภาคใต้ฝนตกหนักมากใน 6 จังหวัด กทม.ฟ้าโปร่ง &nbsp;&nbsp; komchadluek",
-   "feed": "Google News: น้ำท่วมกรุงเทพ",
-   "categories": [
-    "weather"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": true
-  },
-  {
-   "title": "งานวิจิตรเจ้าพระยา 2569 พลุ สะพานพุทธ การแสดง แสง สี แม่น้ำเจ้าพระยา",
-   "link": "https://news.google.com/rss/articles/CBMiWEFVX3lxTE43eUhKZndSOE9fc19hSmh5MXJVbmI0bU1fMDdEc01CVjJaa3pUOGJhdVVGd2FNUjBmMUJwWXNENl9hMFkxY3dJTmMtMFBQWGVncmZ3a3hxUE4?oc=5",
-   "published": "2026-11-21T09:18:48.000Z",
-   "source": "TrueID",
-   "summary": "งานวิจิตรเจ้าพระยา 2569 พลุ สะพานพุทธ การแสดง แสง สี แม่น้ำเจ้าพระยา &nbsp;&nbsp; TrueID",
-   "feed": "Google News: ระดับน้ำเจ้าพระยา",
-   "categories": [
-    "river"
-   ],
-   "depthCm": null,
-   "places": [],
-   "bangkok": false
   }
  ]
 }
